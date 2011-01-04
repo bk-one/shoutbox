@@ -1,0 +1,2 @@
+- error handling when mongo is not available
+- permission handling for bayeux updates

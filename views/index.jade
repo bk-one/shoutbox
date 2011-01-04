@@ -1,0 +1,11 @@
+!!! 5
+
+h1= title
+p Welcome to #{title}
+ul
+- each stati, group_name in statusData
+  li #{group_name}
+    ul
+    -each data, status_name in stati
+      div(id: status_name, class: data.status) #{status_name}
+      

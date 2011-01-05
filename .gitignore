@@ -1,0 +1,30 @@
+## OS
+.DS_Store
+Thumbs.db
+.rvmrc
+
+## TEXTMATE
+*.tmproj
+tmtags
+
+## LOGS
+*.log
+
+## EMACS
+*~
+#*
+.#*
+
+## VIM
+*.swp
+
+## BUNDLER
+.bundle
+
+## CACHES
+.sass-cache
+*.cache
+
+## TMP
+tmp
+

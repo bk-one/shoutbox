@@ -1,0 +1,88 @@
+.base-font {
+  font-family: $base-font-family;
+}
+
+.headline-font {
+  font-family: $headline-font-family;
+}
+
+.bold {
+  font-weight: bold;
+}
+
+.normal {
+  font-weight: normal;
+}
+
+.s {
+  line-height: 20px;
+  @include font-size($base-font-size);
+}
+
+.m {
+  line-height: 20px;
+  @include font-size($base-font-size);
+}
+
+.l {
+  line-height: 30px;
+  @include font-size($large-font-size);
+}
+
+.xl {
+  line-height: 40px;
+  @include font-size($x-large-font-size);
+}
+
+.paragraph {
+  @extend .base-font;
+  @extend .m;
+  margin: 1em 0;
+}
+
+.headline {
+  @extend .headline-font;
+  @extend .bold; 
+  margin: 1em 0;
+}
+
+body {
+  @include font-smoothing;
+}
+
+strong,
+em {
+  @extend .bold;
+}
+
+p {
+  @extend .paragraph;
+}
+
+h1 {
+  @extend .headline;
+  @extend .xl;
+}
+
+h2,
+legend {
+  @extend .headline;
+  @extend .l;
+}
+
+h3,
+h4 {
+  @extend .headline;
+  @extend .m;
+}
+
+time {
+  @extend .paragraph;
+}
+
+article {
+  ol,
+  ul {
+    @extend .paragraph;
+  }
+}

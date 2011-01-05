@@ -5,7 +5,7 @@ var express         = require('express'),
     Shoutbox        = require('shoutbox').Shoutbox,
     ShoutboxBayeux  = require('shoutbox_bayeux').ShoutboxBayeux,
     ShoutboxFilter  = require('controller/shoutbox_filter').ShoutboxFilter,
-    UpdateDataValidator = require('controller/update_data_validator').UpdateDataValidator;
+    DataValidator   = require('controller/data_validator').DataValidator;
 
 var app        = module.exports = express.createServer();
 
@@ -39,7 +39,6 @@ var bayeux    = new ShoutboxBayeux( app );
 function initializeShoutbox(req, res, next) {
   req.shoutboxId = 'test-shoutbox8';
   shoutbox.findOrCreateByName( req.shoutboxId, function(err, doc) {
-    console.log('middle ' + sys.inspect(doc));
     req.shoutbox = doc;
     next();
   });
@@ -57,17 +56,20 @@ app.get('/', initializeShoutbox, function(req, res){
   });
 });
 
-app.put('/status', UpdateDataValidator.updateDataValidator, initializeShoutbox, function(req, res){
-  // debugger;
-  shoutbox.updateStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxUpdateData );
-  bayeux.publishUpdate( req.shoutboxUpdateData );
+app.put('/status/:group/:statusId', 
+        DataValidator.validateGroup, DataValidator.validateStatusId, DataValidator.validateStatus, initializeShoutbox, 
+        function(req, res){
+  shoutbox.updateStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData );
+  bayeux.publishUpdate( req.shoutboxStatusData );
   res.send('OK');
 });
 
-app.delete('/status', UpdateDataValidator.updateStatusOnShoutbox, initializeShoutbox, function(req, res){
-  shoutbox.deleteStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxUpdateData );
+app.delete('/status/:group/:statusId', 
+            DataValidator.validateGroup, DataValidator.validateStatusId, initializeShoutbox, 
+            function(req, res){
+  shoutbox.deleteStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
   res.send('OK');
-})
+});
 
 // Only listen on $ node app.js
 

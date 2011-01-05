@@ -460,6 +460,7 @@ html {
   height: 30px;
   list-style: none;
   margin: -1px 0 0;
+  overflow: hidden;
   padding: 5px;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZjNmM2YzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGZkZmRlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3f3f3), color-stop(100%, #dfdfde));
@@ -478,13 +479,14 @@ html {
   -o-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.04) 0 -1px 1px inset;
   box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.04) 0 -1px 1px inset;
 }
-/* line 15, ../../views/stylesheets/partials/_groups.scss */
+/* line 16, ../../views/stylesheets/partials/_groups.scss */
 #groups > li h2 {
+  background: url('../images/icons-a3db1c2190.png') 100% -225px no-repeat;
   font-size: inherit;
   margin: 0;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
 }
-/* line 19, ../../views/stylesheets/partials/_groups.scss */
+/* line 21, ../../views/stylesheets/partials/_groups.scss */
 #groups > li h2:before {
   content: "►";
   display: block;
@@ -500,7 +502,11 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 29, ../../views/stylesheets/partials/_groups.scss */
+/* line 30, ../../views/stylesheets/partials/_groups.scss */
+#groups > li.red h2 {
+  background: url('../images/icons-a3db1c2190.png') 100% 7px no-repeat;
+}
+/* line 34, ../../views/stylesheets/partials/_groups.scss */
 #groups > li.opened h2:before {
   -moz-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
@@ -508,7 +514,7 @@ html {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 33, ../../views/stylesheets/partials/_groups.scss */
+/* line 38, ../../views/stylesheets/partials/_groups.scss */
 #groups > li:first-child {
   border-top-color: #dadad9;
   margin-top: 0;
@@ -525,7 +531,7 @@ html {
   -khtml-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-/* line 38, ../../views/stylesheets/partials/_groups.scss */
+/* line 43, ../../views/stylesheets/partials/_groups.scss */
 #groups > li:last-child {
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -540,7 +546,7 @@ html {
   -khtml-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-/* line 42, ../../views/stylesheets/partials/_groups.scss */
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   background: #5b5b59;
   margin: 5px;
@@ -561,7 +567,7 @@ html {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 50, ../../views/stylesheets/partials/_groups.scss */
+/* line 55, ../../views/stylesheets/partials/_groups.scss */
 #groups ul > li {
   list-style: none;
   float: left;
@@ -584,13 +590,23 @@ html {
   -khtml-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 61, ../../views/stylesheets/partials/_groups.scss */
+/* line 66, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3 {
+  background: url('../images/icons-a3db1c2190.png') 50% -113px no-repeat;
   font-size: inherit;
   font-weight: normal;
+  padding-top: 30px;
   text-align: center;
 }
-/* line 67, ../../views/stylesheets/partials/_groups.scss */
+/* line 73, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .red > h3 {
+  background-position: 50% 3px;
+}
+/* line 76, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .green > h3 {
+  background-position: 50% -229px;
+}
+/* line 80, ../../views/stylesheets/partials/_groups.scss */
 #groups .opened ul {
   opacity: 1;
 }

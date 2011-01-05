@@ -8,11 +8,13 @@
     height: 30px;
     list-style: none;
     margin: -1px 0 0;
+    overflow: hidden;
     padding: 5px;
     @include background(linear-gradient(top, lighten($grey-color, 10%), lighten($grey-color, 2%)));
     @include transition(all, .5s);
     @include box-shadow(rgba(white, .5) 0 1px 1px inset, rgba(black, .04) 0 -1px 1px inset);
     h2 {
+      background: sprite($icons, status-ok, 100%, $offset-y: 7px) no-repeat;
       font-size: inherit;
       margin: 0;
       @include text-shadow(rgba(white, .5) 0 1px 0);
@@ -24,6 +26,9 @@
         padding: 1px 3px 0 0;
         @include transition(all, .5s);
       }
+    }
+    &.red h2 {
+      background: sprite($icons, status-error, 100%, $offset-y: 7px) no-repeat;
     }
     &.opened {
       h2:before {
@@ -59,9 +64,17 @@
       @include border-radius(3px);
     }
     h3 {
+      background: sprite($icons, status-offline, 50%, $offset-y: 3px) no-repeat;
       font-size: inherit;
       font-weight: normal;
+      padding-top: 30px;
       text-align: center;
+    }
+    .red > h3 {
+      background-position: sprite-position($icons, status-error, 50%, $offset-y: 3px);
+    }
+    .green > h3 {
+      background-position: sprite-position($icons, status-ok, 50%, $offset-y: 3px);
     }
   }
   .opened ul {

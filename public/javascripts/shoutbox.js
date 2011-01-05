@@ -7,8 +7,18 @@ function ShoutboxClient() {
   this.setupBayeuxClient = function() {
     self.client = new Faye.Client('http://localhost:3000/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
-      $('#' + updateData.name).removeClass();
-      $('#' + updateData.name).addClass(updateData.status);
+      var el = $('#' + updateData.statusId);
+      el.removeClass();
+      el.addClass(updateData.status);
+      var ol = el.parent(), group = ol.parent();
+      if (ol.find('.red').length) {
+        group.removeClass('green');
+        group.addClass('red');
+      }
+      else {
+        group.removeClass('red');
+        group.addClass('green');
+      }
     });
   };
   

@@ -25,6 +25,8 @@ $large-font-size: 20px;
 $x-large-font-size: 30px;
 $base-line-height: 1.231;
 
+$icons: sprite-map("icons/*.png", $spacing: 100px, $position: 100%);
+
 // HTML5 boilerplate
 
 @include html5-boilerplate;

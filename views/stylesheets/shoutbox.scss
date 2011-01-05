@@ -1,0 +1,43 @@
+// Frameworks
+
+@import "compass";
+@import "html5-boilerplate";
+
+// External plugins e. g. jQuery plugins
+
+//@import "vendor/plugin-name";
+
+// Base colors and sizes
+
+$primary-color: #d04da7;
+$secondary-color: #bbb;
+$font-color: #444;
+$link-color: #3F7D99;
+
+$base-font-family: "helvetica neue", helvetica, arial, sans-serif;
+$headline-font-family: "helvetica neue", helvetica, arial, sans-serif;
+$small-font-size: 11px;
+$base-font-size: 13px;
+$large-font-size: 20px;
+$x-large-font-size: 30px;
+$base-line-height: 1.231;
+
+// HTML5 boilerplate
+
+@include html5-boilerplate;
+
+// Global styles used all over the website
+// e. g. tags without classes like h1, h2, a, button, form elements, ...
+
+@import "global/extendables";
+@import "global/typography";
+@import "global/links";
+@import "global/buttons";
+
+// Layout (header, footer, global sidebars)
+
+@import "layouts/default";
+
+// Content partials (article, lists, ...)
+
+//@import "partials/xyz";

@@ -1,6 +1,8 @@
 // Frameworks
 
+$experimental-support-for-svg: true;
 @import "compass";
+@import "compass/css3/images";
 @import "html5-boilerplate";
 
 // External plugins e. g. jQuery plugins
@@ -13,6 +15,7 @@ $primary-color: #d04da7;
 $secondary-color: #bbb;
 $font-color: #444;
 $link-color: #3F7D99;
+$grey-color: #DADAD9;
 
 $base-font-family: "helvetica neue", helvetica, arial, sans-serif;
 $headline-font-family: "helvetica neue", helvetica, arial, sans-serif;
@@ -40,4 +43,4 @@ $base-line-height: 1.231;
 
 // Content partials (article, lists, ...)
 
-//@import "partials/xyz";
+@import "partials/groups";

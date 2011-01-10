@@ -5,16 +5,22 @@
  * Module dependencies.
  */
 
-var app = require('../app');
-
-
+var assert = require('assert'),
+    sys    = require('sys'),
+    app    = require('../app');
+    
 module.exports = {
-  'GET /': function(assert){
+  'test welcome message': function(){
+    
     assert.response(app,
-      { url: '/' },
-      { status: 200, headers: { 'Content-Type': 'text/html; charset=utf-8' }},
-      function(res){
-        assert.includes(res.body, '<title>Express</title>');
-      });
-  }
+      { url: '/', method: 'GET' },
+      { body: /Welcome to your dashboard/ });
+    },
+  // 
+  // 'test PUT request': function(){
+  //   assert.response(app,
+  //     { url: '/status/1/2', method: 'PUT' },
+  //     { body: /FAILED/ }); 
+  // }
 };
+

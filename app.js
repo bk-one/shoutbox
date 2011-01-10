@@ -7,7 +7,8 @@ var express         = require('express'),
     ShoutboxFilter  = require('controller/shoutbox_filter').ShoutboxFilter,
     DataValidator   = require('controller/data_validator').DataValidator;
 
-var app        = module.exports = express.createServer();
+var app             = module.exports = express.createServer();
+
 
 // Configuration
 
@@ -37,7 +38,7 @@ var bayeux    = new ShoutboxBayeux( app );
 
 // Middleware
 function initializeShoutbox(req, res, next) {
-  req.shoutboxId = 'test-shoutbox8';
+  req.shoutboxId = dbname;
   shoutbox.findOrCreateByName( req.shoutboxId, function(err, doc) {
     req.shoutbox = doc;
     next();
@@ -47,7 +48,6 @@ function initializeShoutbox(req, res, next) {
 
 // Routes
 app.get('/', initializeShoutbox, function(req, res){
-  console.log('DEBUG' + sys.inspect(req.shoutbox.groups));
   res.render('index', {
     locals: {
       statusData: req.shoutbox.groups,
@@ -55,6 +55,7 @@ app.get('/', initializeShoutbox, function(req, res){
     }
   });
 });
+
 
 app.put('/status/:group/:statusId', 
         DataValidator.validateGroup, DataValidator.validateStatusId, DataValidator.validateStatus, initializeShoutbox, 
@@ -74,6 +75,11 @@ app.delete('/status/:group/:statusId',
 // Only listen on $ node app.js
 
 if (!module.parent) {
-  app.listen(3000);
+  dbname = 'test-shoutbox';
+  // app.listen(3000);
   console.log("Express server listening on port %d", app.address().port)
+} else {
+  // we're in testmode
+  dbname = 'test-shoutbox-db';
 }
+

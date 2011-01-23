@@ -7,8 +7,7 @@ ul#groups
       h2 #{group_name}
       ul
         - each data, status_name in stati
-          li(id: status_name, class: data.status)
+          li(id: data.slug, class: data.status, data-updated-at: data.updatedAt)
             h3 #{status_name}
-            div #{data.updatedAt}
             div #{data.message}
       

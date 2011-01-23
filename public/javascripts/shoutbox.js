@@ -14,6 +14,7 @@ function ShoutboxClient() {
       var ol = el.parent(), group = ol.parent();
       if (ol.find('.red').length) {
         group.removeClass('green');
+        group.removeClass('offline');
         group.addClass('red');
       }
       else {
@@ -40,4 +41,21 @@ jQuery(function() {
       li.css({ height: '30px' });
     }
   }).click();
+});
+
+
+$(function() {
+  function checkStatus() {
+    $('li[data-updated-at]').each(function(){
+      lastUpdate = $(this).attr('data-updated-at');
+      if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
+        $(this).addClass('offline');
+      }
+    });
+  }
+
+  setInterval(function () {
+    checkStatus();
+  }, 10 * 1000);
+  
 });

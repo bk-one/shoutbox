@@ -39,6 +39,7 @@ var bayeux    = new ShoutboxBayeux( app );
 // Middleware
 function initializeShoutbox(req, res, next) {
   req.shoutboxId = dbname;
+  
   shoutbox.findOrCreateByName( req.shoutboxId, function(err, doc) {
     req.shoutbox = doc;
     next();

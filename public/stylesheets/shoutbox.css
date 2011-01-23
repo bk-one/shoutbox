@@ -606,7 +606,7 @@ html {
 }
 /* line 79, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3:before {
-  background: url('../images/traffic-lights-aba2b5672e.png') 50% -684px no-repeat;
+  background: url('../images/traffic-lights-b8f023a746.png') 50% -684px no-repeat;
   content: " ";
   display: block;
   height: 128px;
@@ -623,7 +623,7 @@ html {
 }
 /* line 89, ../../views/stylesheets/partials/_groups.scss */
 #groups ul .offline h3 {
-  background: url('../images/traffic-lights-aba2b5672e.png') 50% -228px no-repeat;
+  background: url('../images/traffic-lights-b8f023a746.png') 50% -228px no-repeat;
 }
 /* line 91, ../../views/stylesheets/partials/_groups.scss */
 #groups ul .offline h3:before {

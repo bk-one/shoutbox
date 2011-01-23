@@ -8,8 +8,9 @@ function ShoutboxClient() {
     self.client = new Faye.Client('http://localhost:3000/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
-      var el = $('#' + updateData.statusId);
+      var el = $('#' + updateData.slug);
       el.removeClass();
+      el.attr('data-updated-at', updateData.updatedAt);
       el.addClass(updateData.status);
       var ol = el.parent(), group = ol.parent();
       if (ol.find('.red').length) {
@@ -40,4 +41,21 @@ jQuery(function() {
       li.css({ height: '30px' });
     }
   }).click();
+});
+
+
+$(function() {
+  function checkStatus() {
+    $('li[data-updated-at]').each(function(){
+      lastUpdate = $(this).attr('data-updated-at');
+      if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
+        $(this).addClass('offline');
+      }
+    });
+  }
+
+  setInterval(function () {
+    checkStatus();
+  }, 10 * 1000);
+  
 });

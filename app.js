@@ -57,7 +57,7 @@ app.get('/', initializeShoutbox, function(req, res){
 });
 
 
-app.put('/status/:group/:statusId', 
+app.put('/status', 
         DataValidator.validateGroup, DataValidator.validateStatusId, DataValidator.validateStatus, initializeShoutbox, 
         function(req, res){
   shoutbox.updateStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData );
@@ -65,7 +65,7 @@ app.put('/status/:group/:statusId',
   res.send('OK');
 });
 
-app.delete('/status/:group/:statusId', 
+app.delete('/status', 
             DataValidator.validateGroup, DataValidator.validateStatusId, initializeShoutbox, 
             function(req, res){
   shoutbox.deleteStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
@@ -76,10 +76,7 @@ app.delete('/status/:group/:statusId',
 
 if (!module.parent) {
   dbname = 'test-shoutbox';
-  // app.listen(3000);
+  app.listen(3000);
   console.log("Express server listening on port %d", app.address().port)
-} else {
-  // we're in testmode
-  dbname = 'test-shoutbox-db';
 }
 

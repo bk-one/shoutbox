@@ -9,4 +9,6 @@ ul#groups
         - each data, status_name in stati
           li(id: status_name, class: data.status)
             h3 #{status_name}
+            div #{data.updatedAt}
+            div #{data.message}
       

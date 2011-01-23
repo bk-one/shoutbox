@@ -58,7 +58,7 @@ app.get('/', initializeShoutbox, function(req, res){
 
 
 app.put('/status', 
-        DataValidator.validateGroup, DataValidator.validateStatusId, DataValidator.validateStatus, initializeShoutbox, 
+        DataValidator.validateGroup, DataValidator.validateStatusId, DataValidator.validateStatus, DataValidator.validateMessage, initializeShoutbox, 
         function(req, res){
   shoutbox.updateStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData );
   bayeux.publishUpdate( req.shoutboxStatusData );
@@ -68,7 +68,7 @@ app.put('/status',
 app.delete('/status', 
             DataValidator.validateGroup, DataValidator.validateStatusId, initializeShoutbox, 
             function(req, res){
-  shoutbox.deleteStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
+  shoutbox.deleteStatusOnShoutbox( req.shoutboxStatusData.statusId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
   res.send('OK');
 });
 

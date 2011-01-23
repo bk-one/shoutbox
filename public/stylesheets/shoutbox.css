@@ -571,7 +571,7 @@ html {
 #groups ul > li {
   list-style: none;
   float: left;
-  height: 160px;
+  height: 180px;
   margin: 10px 0 0 10px;
   padding: 10px;
   width: 128px;
@@ -591,6 +591,12 @@ html {
   border-radius: 3px;
 }
 /* line 66, ../../views/stylesheets/partials/_groups.scss */
+#groups ul p {
+  margin: 0;
+  text-align: center;
+  text-shadow: white 0 1px 1px;
+}
+/* line 71, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3 {
   font-size: 16px;
   font-weight: bold;
@@ -598,7 +604,7 @@ html {
   text-align: center;
   text-shadow: white 0 1px 1px;
 }
-/* line 72, ../../views/stylesheets/partials/_groups.scss */
+/* line 77, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3:before {
   background: url('../images/traffic-lights-f2acca605d.png') 50% -453px no-repeat;
   content: " ";
@@ -607,15 +613,15 @@ html {
   margin-bottom: 10px;
   width: 128px;
 }
-/* line 81, ../../views/stylesheets/partials/_groups.scss */
+/* line 86, ../../views/stylesheets/partials/_groups.scss */
 #groups ul .red > h3:before {
   background-position: 50% -225px;
 }
-/* line 84, ../../views/stylesheets/partials/_groups.scss */
+/* line 89, ../../views/stylesheets/partials/_groups.scss */
 #groups ul .green > h3:before {
   background-position: 50% 3px;
 }
-/* line 88, ../../views/stylesheets/partials/_groups.scss */
+/* line 93, ../../views/stylesheets/partials/_groups.scss */
 #groups .opened ul {
   opacity: 1;
 }

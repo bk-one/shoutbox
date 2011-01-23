@@ -19,6 +19,7 @@ tmtags
 *.swp
 
 ## BUNDLER
+Gemfile.lock
 .bundle
 
 ## CACHES

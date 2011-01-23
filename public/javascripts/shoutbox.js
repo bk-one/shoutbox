@@ -7,6 +7,7 @@ function ShoutboxClient() {
   this.setupBayeuxClient = function() {
     self.client = new Faye.Client('http://localhost:3000/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
+      console.log(updateData);
       var el = $('#' + updateData.statusId);
       el.removeClass();
       el.addClass(updateData.status);

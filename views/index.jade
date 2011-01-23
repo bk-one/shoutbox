@@ -9,5 +9,6 @@ ul#groups
         - each data, status_name in stati
           li(id: status_name, class: data.status)
             h3 #{status_name}
-            p #{data.updatedAt}
+            div #{data.updatedAt}
+            div #{data.message}
       

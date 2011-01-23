@@ -8,6 +8,7 @@ describe "ShoutboxClient and " do
     ShoutboxClient.shout( :group => "my_group", :statusId => "test_status", :status => :green ).should   == true
     ShoutboxClient.shout( :group => "my_group", :statusId => "test_status", :status => :destroy ).should == true
   end
+  
 end
 
 

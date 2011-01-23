@@ -59,7 +59,9 @@
       margin: 10px 0 0 10px;
       padding: 10px;
       width: 128px;
-      @include background(linear-gradient(top, darken($grey-color, 10%), lighten($grey-color, 2%)));
+      @include background(
+        linear-gradient(top, darken($grey-color, 10%), lighten($grey-color, 2%))
+      );
       @include box-shadow(rgba(white, .5) 0 1px 1px inset, rgba(black, .1) 0 -1px 1px inset, rgba(black, .3) 0 0 10px);
       @include border-radius(3px);
     }
@@ -75,19 +77,26 @@
       text-align: center;
       @include text-shadow(white 0 1px 1px);
       &:before {
-        background: sprite($traffic-lights, yellow-light, 50%, $offset-y: 3px) no-repeat;
+        background: sprite($traffic-lights, yellow-light, 50%) no-repeat;
         content: " ";
         display: block;
         height: 128px;
         margin-bottom: 10px;
         width: 128px;
+        @include transition(opacity, 0.5ms);
+      }
+    }
+    .offline h3 {
+      background: sprite($traffic-lights, offline, 50%) no-repeat;
+      &:before {
+        opacity: 0.3;
       }
     }
     .red > h3:before {
-      background-position: sprite-position($traffic-lights, red-light, 50%, $offset-y: 3px);
+      background-position: sprite-position($traffic-lights, red-light, 50%);
     }
     .green > h3:before {
-      background-position: sprite-position($traffic-lights, green-light, 50%, $offset-y: 3px);
+      background-position: sprite-position($traffic-lights, green-light, 50%);
     }
   }
   .opened ul {

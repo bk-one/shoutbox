@@ -590,13 +590,13 @@ html {
   -khtml-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 66, ../../views/stylesheets/partials/_groups.scss */
+/* line 68, ../../views/stylesheets/partials/_groups.scss */
 #groups ul p {
   margin: 0;
   text-align: center;
   text-shadow: white 0 1px 1px;
 }
-/* line 71, ../../views/stylesheets/partials/_groups.scss */
+/* line 73, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3 {
   font-size: 16px;
   font-weight: bold;
@@ -604,24 +604,40 @@ html {
   text-align: center;
   text-shadow: white 0 1px 1px;
 }
-/* line 77, ../../views/stylesheets/partials/_groups.scss */
+/* line 79, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3:before {
-  background: url('../images/traffic-lights-f2acca605d.png') 50% -453px no-repeat;
+  background: url('../images/traffic-lights-aba2b5672e.png') 50% -684px no-repeat;
   content: " ";
   display: block;
   height: 128px;
   margin-bottom: 10px;
   width: 128px;
-}
-/* line 86, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .red > h3:before {
-  background-position: 50% -225px;
+  -moz-transition-property: opacity;
+  -webkit-transition-property: opacity;
+  -o-transition-property: opacity;
+  transition-property: opacity;
+  -moz-transition-duration: 0.5ms;
+  -webkit-transition-duration: 0.5ms;
+  -o-transition-duration: 0.5ms;
+  transition-duration: 0.5ms;
 }
 /* line 89, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .green > h3:before {
-  background-position: 50% 3px;
+#groups ul .offline h3 {
+  background: url('../images/traffic-lights-aba2b5672e.png') 50% -228px no-repeat;
 }
-/* line 93, ../../views/stylesheets/partials/_groups.scss */
+/* line 91, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .offline h3:before {
+  opacity: 0.3;
+}
+/* line 95, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .red > h3:before {
+  background-position: 50% -456px;
+}
+/* line 98, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .green > h3:before {
+  background-position: 50% 0;
+}
+/* line 102, ../../views/stylesheets/partials/_groups.scss */
 #groups .opened ul {
   opacity: 1;
 }

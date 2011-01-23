@@ -68,7 +68,7 @@ app.put('/status',
 app.delete('/status', 
             DataValidator.validateGroup, DataValidator.validateStatusId, initializeShoutbox, 
             function(req, res){
-  shoutbox.deleteStatusOnShoutbox( req.shoutboxId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
+  shoutbox.deleteStatusOnShoutbox( req.shoutboxStatusData.statusId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
   res.send('OK');
 });
 

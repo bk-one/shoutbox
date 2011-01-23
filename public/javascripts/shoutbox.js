@@ -38,5 +38,5 @@ jQuery(function() {
     else {
       li.css({ height: '30px' });
     }
-  })
+  }).click();
 });

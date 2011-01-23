@@ -7,7 +7,12 @@ GEM
       sass (>= 3.1.0.alpha.50)
     html5-boilerplate (0.2.6)
       compass (>= 0.10.0)
+    json (1.4.6)
     sass (3.1.0.alpha.214)
+    shoutbox-client (0.0.4)
+      json (~> 1.4.0)
+      trollop (~> 1.16)
+    trollop (1.16.2)
 
 PLATFORMS
   ruby
@@ -15,3 +20,4 @@ PLATFORMS
 DEPENDENCIES
   compass (= 0.11.alpha.4)
   html5-boilerplate (~> 0.2.6)
+  shoutbox-client (= 0.0.4)

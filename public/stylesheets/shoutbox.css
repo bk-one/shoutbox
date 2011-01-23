@@ -571,14 +571,14 @@ html {
 #groups ul > li {
   list-style: none;
   float: left;
-  height: 100px;
+  height: 160px;
   margin: 10px 0 0 10px;
   padding: 10px;
-  width: 100px;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZjNmM2YzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGZkZmRlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #f3f3f3), color-stop(100%, #dfdfde));
-  background: -moz-linear-gradient(top, #f3f3f3, #dfdfde);
-  background: linear-gradient(top, #f3f3f3, #dfdfde);
+  width: 128px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYzFjMWJmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZGZkZmRlIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #c1c1bf), color-stop(100%, #dfdfde));
+  background: -moz-linear-gradient(top, #c1c1bf, #dfdfde);
+  background: linear-gradient(top, #c1c1bf, #dfdfde);
   -moz-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.1) 0 -1px 1px inset, rgba(0, 0, 0, 0.3) 0 0 10px;
   -webkit-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.1) 0 -1px 1px inset, rgba(0, 0, 0, 0.3) 0 0 10px;
   -o-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.1) 0 -1px 1px inset, rgba(0, 0, 0, 0.3) 0 0 10px;
@@ -592,21 +592,30 @@ html {
 }
 /* line 66, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3 {
-  background: url('../images/icons-a3db1c2190.png') 50% -113px no-repeat;
-  font-size: inherit;
-  font-weight: normal;
-  padding-top: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
   text-align: center;
+  text-shadow: white 0 1px 1px;
 }
-/* line 73, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .red > h3 {
+/* line 72, ../../views/stylesheets/partials/_groups.scss */
+#groups ul h3:before {
+  background: url('../images/traffic-lights-f2acca605d.png') 50% -453px no-repeat;
+  content: " ";
+  display: block;
+  height: 128px;
+  margin-bottom: 10px;
+  width: 128px;
+}
+/* line 81, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .red > h3:before {
+  background-position: 50% -225px;
+}
+/* line 84, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .green > h3:before {
   background-position: 50% 3px;
 }
-/* line 76, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .green > h3 {
-  background-position: 50% -229px;
-}
-/* line 80, ../../views/stylesheets/partials/_groups.scss */
+/* line 88, ../../views/stylesheets/partials/_groups.scss */
 #groups .opened ul {
   opacity: 1;
 }

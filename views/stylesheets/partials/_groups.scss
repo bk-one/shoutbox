@@ -55,26 +55,34 @@
     > li {
       list-style: none;
       float: left;
-      height: 100px;
+      height: 160px;
       margin: 10px 0 0 10px;
       padding: 10px;
-      width: 100px;
-      @include background(linear-gradient(top, lighten($grey-color, 10%), lighten($grey-color, 2%)));
+      width: 128px;
+      @include background(linear-gradient(top, darken($grey-color, 10%), lighten($grey-color, 2%)));
       @include box-shadow(rgba(white, .5) 0 1px 1px inset, rgba(black, .1) 0 -1px 1px inset, rgba(black, .3) 0 0 10px);
       @include border-radius(3px);
     }
     h3 {
-      background: sprite($icons, status-offline, 50%, $offset-y: 3px) no-repeat;
-      font-size: inherit;
-      font-weight: normal;
-      padding-top: 30px;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 0;
       text-align: center;
+      @include text-shadow(white 0 1px 1px);
+      &:before {
+        background: sprite($traffic-lights, yellow-light, 50%, $offset-y: 3px) no-repeat;
+        content: " ";
+        display: block;
+        height: 128px;
+        margin-bottom: 10px;
+        width: 128px;
+      }
     }
-    .red > h3 {
-      background-position: sprite-position($icons, status-error, 50%, $offset-y: 3px);
+    .red > h3:before {
+      background-position: sprite-position($traffic-lights, red-light, 50%, $offset-y: 3px);
     }
-    .green > h3 {
-      background-position: sprite-position($icons, status-ok, 50%, $offset-y: 3px);
+    .green > h3:before {
+      background-position: sprite-position($traffic-lights, green-light, 50%, $offset-y: 3px);
     }
   }
   .opened ul {

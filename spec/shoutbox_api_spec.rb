@@ -1,18 +1,12 @@
-require 'JSON'
-require 'shoutbox-client'
+require File.expand_path(File.dirname(__FILE__) + '/spec_helper')
 
 HOST = 'localhost'
 PORT = '3000'
 
-describe "Shoutbox API" do
+describe "ShoutboxClient and " do
   it "should create a status message" do
-    response = Net::HTTP.start(HOST, PORT) do
-      req = Net::HTTP::Put.new(  )
-      req['Content-Type'] = 'application/json'
-      req.body = { :status => options[:status].to_s }.to_json
-      http.request(req)
-    end
-    response.body.should == "OK"
+    ShoutboxClient.shout( :group => "my_group", :statusId => "test_status", :status => :green ).should   == true
+    ShoutboxClient.shout( :group => "my_group", :statusId => "test_status", :status => :destroy ).should == true
   end
 end
 

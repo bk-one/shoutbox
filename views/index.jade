@@ -8,6 +8,8 @@ ul#groups
       ul
         - each data, status_name in stati
           li(id: data.slug, class: data.status, data-updated-at: data.updatedAt)
-            h3 #{status_name}
+            h3
+              span
+              #{status_name}
             p #{data.message}
       

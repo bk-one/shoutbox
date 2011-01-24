@@ -1,3 +1,27 @@
+@-webkit-keyframes pulse {
+ 0% {
+   opacity: 1.0;
+ }
+ 17% {
+   opacity: 0.9;
+ }
+ 33% {
+   opacity: 0.75;
+ }
+ 50% {
+   opacity: 0.6;
+ }
+ 67% {
+   opacity: 0.5;
+ }
+ 83% {
+   opacity: 0.75;
+ }
+ 100% {
+   opacity: 1.0;
+ }
+}
+
 #groups {
   margin: 20px;
   @include border-radius(3px);
@@ -18,7 +42,7 @@
       font-size: inherit;
       margin: 0;
       @include text-shadow(rgba(white, .5) 0 1px 0);
-      &:before {
+      span {
         content: "►";
         display: block;
         float: left;
@@ -76,26 +100,34 @@
       margin: 0;
       text-align: center;
       @include text-shadow(white 0 1px 1px);
-      &:before {
+      span {
         background: sprite($traffic-lights, yellow-light, 50%) no-repeat;
-        content: " ";
         display: block;
-        height: 128px;
-        margin-bottom: 10px;
-        width: 128px;
+        height: 138px;
         @include transition(opacity, 0.5ms);
       }
     }
-    .offline h3 {
-      background: sprite($traffic-lights, offline, 50%) no-repeat;
-      &:before {
-        opacity: 0.3;
+    .fresh h3 {
+      span {
+        -webkit-animation-name: pulse;
+        -webkit-animation-duration: 2s;
+        -webkit-animation-iteration-count: infinite;
+        -webkit-animation-timing-function: ease-in-out;
       }
     }
-    .red > h3:before {
+    .offline,
+    .fresh {
+      h3 {
+        background: sprite($traffic-lights, offline, 50%) no-repeat;
+        span {
+          opacity: 0.3;
+        }
+      }
+    }
+    .red > h3 span {
       background-position: sprite-position($traffic-lights, red-light, 50%);
     }
-    .green > h3:before {
+    .green > h3 span {
       background-position: sprite-position($traffic-lights, green-light, 50%);
     }
   }

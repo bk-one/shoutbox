@@ -439,7 +439,44 @@ html {
   background: white;
 }
 
-/* line 1, ../../views/stylesheets/partials/_groups.scss */
+@-webkit-keyframes pulse {
+  /* line 2, ../../views/stylesheets/partials/_groups.scss */
+  0% {
+    opacity: 1.0;
+  }
+
+  /* line 5, ../../views/stylesheets/partials/_groups.scss */
+  17% {
+    opacity: 0.9;
+  }
+
+  /* line 8, ../../views/stylesheets/partials/_groups.scss */
+  33% {
+    opacity: 0.75;
+  }
+
+  /* line 11, ../../views/stylesheets/partials/_groups.scss */
+  50% {
+    opacity: 0.6;
+  }
+
+  /* line 14, ../../views/stylesheets/partials/_groups.scss */
+  67% {
+    opacity: 0.5;
+  }
+
+  /* line 17, ../../views/stylesheets/partials/_groups.scss */
+  83% {
+    opacity: 0.75;
+  }
+
+  /* line 20, ../../views/stylesheets/partials/_groups.scss */
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/* line 25, ../../views/stylesheets/partials/_groups.scss */
 #groups {
   margin: 20px;
   -moz-border-radius: 3px;
@@ -453,7 +490,7 @@ html {
   -o-box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.15);
 }
-/* line 5, ../../views/stylesheets/partials/_groups.scss */
+/* line 29, ../../views/stylesheets/partials/_groups.scss */
 #groups > li {
   border: 1px #dadad9 solid;
   border-top-color: #cdcdcc;
@@ -479,15 +516,15 @@ html {
   -o-box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.04) 0 -1px 1px inset;
   box-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px inset, rgba(0, 0, 0, 0.04) 0 -1px 1px inset;
 }
-/* line 16, ../../views/stylesheets/partials/_groups.scss */
+/* line 40, ../../views/stylesheets/partials/_groups.scss */
 #groups > li h2 {
   background: url('../images/icons-a3db1c2190.png') 100% -225px no-repeat;
   font-size: inherit;
   margin: 0;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 0;
 }
-/* line 21, ../../views/stylesheets/partials/_groups.scss */
-#groups > li h2:before {
+/* line 45, ../../views/stylesheets/partials/_groups.scss */
+#groups > li h2 span {
   content: "►";
   display: block;
   float: left;
@@ -502,11 +539,11 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 30, ../../views/stylesheets/partials/_groups.scss */
+/* line 54, ../../views/stylesheets/partials/_groups.scss */
 #groups > li.red h2 {
   background: url('../images/icons-a3db1c2190.png') 100% 7px no-repeat;
 }
-/* line 34, ../../views/stylesheets/partials/_groups.scss */
+/* line 58, ../../views/stylesheets/partials/_groups.scss */
 #groups > li.opened h2:before {
   -moz-transform: rotate(90deg);
   -webkit-transform: rotate(90deg);
@@ -514,7 +551,7 @@ html {
   -ms-transform: rotate(90deg);
   transform: rotate(90deg);
 }
-/* line 38, ../../views/stylesheets/partials/_groups.scss */
+/* line 62, ../../views/stylesheets/partials/_groups.scss */
 #groups > li:first-child {
   border-top-color: #dadad9;
   margin-top: 0;
@@ -531,7 +568,7 @@ html {
   -khtml-border-top-right-radius: 3px;
   border-top-right-radius: 3px;
 }
-/* line 43, ../../views/stylesheets/partials/_groups.scss */
+/* line 67, ../../views/stylesheets/partials/_groups.scss */
 #groups > li:last-child {
   -moz-border-radius-bottomleft: 3px;
   -webkit-border-bottom-left-radius: 3px;
@@ -546,7 +583,7 @@ html {
   -khtml-border-bottom-right-radius: 3px;
   border-bottom-right-radius: 3px;
 }
-/* line 47, ../../views/stylesheets/partials/_groups.scss */
+/* line 71, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   background: #5b5b59;
   margin: 5px;
@@ -567,7 +604,7 @@ html {
   overflow: hidden;
   *zoom: 1;
 }
-/* line 55, ../../views/stylesheets/partials/_groups.scss */
+/* line 79, ../../views/stylesheets/partials/_groups.scss */
 #groups ul > li {
   list-style: none;
   float: left;
@@ -590,13 +627,13 @@ html {
   -khtml-border-radius: 3px;
   border-radius: 3px;
 }
-/* line 68, ../../views/stylesheets/partials/_groups.scss */
+/* line 92, ../../views/stylesheets/partials/_groups.scss */
 #groups ul p {
   margin: 0;
   text-align: center;
   text-shadow: white 0 1px 1px;
 }
-/* line 73, ../../views/stylesheets/partials/_groups.scss */
+/* line 97, ../../views/stylesheets/partials/_groups.scss */
 #groups ul h3 {
   font-size: 16px;
   font-weight: bold;
@@ -604,14 +641,11 @@ html {
   text-align: center;
   text-shadow: white 0 1px 1px;
 }
-/* line 79, ../../views/stylesheets/partials/_groups.scss */
-#groups ul h3:before {
+/* line 103, ../../views/stylesheets/partials/_groups.scss */
+#groups ul h3 span {
   background: url('../images/traffic-lights-b8f023a746.png') 50% -684px no-repeat;
-  content: " ";
   display: block;
-  height: 128px;
-  margin-bottom: 10px;
-  width: 128px;
+  height: 138px;
   -moz-transition-property: opacity;
   -webkit-transition-property: opacity;
   -o-transition-property: opacity;
@@ -621,23 +655,32 @@ html {
   -o-transition-duration: 0.5ms;
   transition-duration: 0.5ms;
 }
-/* line 89, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .offline h3 {
+/* line 111, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .fresh h3 span {
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 2s;
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-timing-function: ease-in-out;
+}
+/* line 120, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .offline h3,
+#groups ul .fresh h3 {
   background: url('../images/traffic-lights-b8f023a746.png') 50% -228px no-repeat;
 }
-/* line 91, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .offline h3:before {
+/* line 122, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .offline h3 span,
+#groups ul .fresh h3 span {
   opacity: 0.3;
 }
-/* line 95, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .red > h3:before {
+/* line 127, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .red > h3 span {
   background-position: 50% -456px;
 }
-/* line 98, ../../views/stylesheets/partials/_groups.scss */
-#groups ul .green > h3:before {
+/* line 130, ../../views/stylesheets/partials/_groups.scss */
+#groups ul .green > h3 span {
   background-position: 50% 0;
 }
-/* line 102, ../../views/stylesheets/partials/_groups.scss */
+/* line 134, ../../views/stylesheets/partials/_groups.scss */
 #groups .opened ul {
   opacity: 1;
 }

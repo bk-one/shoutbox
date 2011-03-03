@@ -12,6 +12,7 @@ function ShoutboxClient() {
       el.removeClass();
       el.attr('data-updated-at', updateData.updatedAt);
       el.addClass(updateData.status);
+      el.addClass('fresh')
       var ol = el.parent(), group = ol.parent();
       if (ol.find('.red').length) {
         group.removeClass('green');
@@ -37,7 +38,11 @@ $(function() {
   function checkStatus() {
     $('li[data-updated-at]').each(function(){
       lastUpdate = $(this).attr('data-updated-at');
+      
       if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
+        $(this).removeClass('fresh');
+      }
+      if ((parseInt(lastUpdate) + 30 * 60 * 60 * 1000) < (new Date().getTime()) ) {
         $(this).addClass('offline');
       }
     });

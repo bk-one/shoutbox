@@ -1,15 +1,18 @@
 !!! 5
 
-p Welcome to your dashboard
+h1
+  strong shoutbox
+  | —
+  span Welcome to your dashboard
 ul#groups
   - each stati, group_name in statusData
     li
-      h2 #{group_name}
+      h2 
+        span #{group_name}
       ul
         - each data, status_name in stati
           li(id: data.slug, class: data.status, data-updated-at: data.updatedAt)
-            h3
-              span
-              #{status_name}
-            p #{data.message}
-      
+            #{status_name}
+            a(href: '#', data-action: 'activate-info') ?
+            .info
+              | Wenn wir wüssten, was zu tun wäre, würde es hier stehen.

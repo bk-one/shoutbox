@@ -30,17 +30,6 @@ function ShoutboxClient() {
 var shoutboxClient;
 jQuery(function() {
   shoutboxClient = new ShoutboxClient();
-  
-  $('#groups h2').click(function() {
-    var li = $(this).parent();
-    li.toggleClass('opened');
-    if (li.hasClass('opened')) {
-      li.css({ height: 50 + li.children('ul').height() + 'px' });
-    }
-    else {
-      li.css({ height: '30px' });
-    }
-  }).click();
 });
 
 
@@ -58,4 +47,7 @@ $(function() {
     checkStatus();
   }, 10 * 1000);
   
+  $('[data-action="activate-info"]').click(function() {
+    $(this).parents('li').toggleClass('info-activated');
+  });
 });

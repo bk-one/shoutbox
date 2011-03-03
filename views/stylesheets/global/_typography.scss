@@ -62,6 +62,15 @@ p {
 h1 {
   @extend .headline;
   @extend .xl;
+  color: $primary-color;
+  font-weight: 300;
+  margin: $margin / 2 $margin + 2 * 6px;
+  strong {
+    font-weight: 800;
+  }
+  span {
+    color: white;
+  }
 }
 
 h2,

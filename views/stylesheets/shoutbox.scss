@@ -11,22 +11,24 @@ $experimental-support-for-svg: true;
 
 // Base colors and sizes
 
-$primary-color: #d04da7;
-$secondary-color: #bbb;
+$primary-color: #5B3696;
+$alert-color: #DE4D54;
+$warning-color: #ECE039;
+$ok-color: #59BA2E;
 $font-color: #444;
 $link-color: #3F7D99;
 $grey-color: #DADAD9;
 
-$base-font-family: "helvetica neue", helvetica, arial, sans-serif;
-$headline-font-family: "helvetica neue", helvetica, arial, sans-serif;
+$base-font-family: "apertura-1", "apertura-2", "helvetica neue", helvetica, arial, sans-serif;
+$base-font-family: "pill-gothic-300mg-1", "pill-gothic-300mg-2", "helvetica neue", helvetica, arial, sans-serif;
+$headline-font-family: $base-font-family;
 $small-font-size: 11px;
 $base-font-size: 13px;
 $large-font-size: 20px;
 $x-large-font-size: 30px;
 $base-line-height: 1.231;
 
-$icons: sprite-map("icons/*.png", $spacing: 100px, $position: 100%);
-$traffic-lights: sprite-map("traffic-lights/*.png", $spacing: 100px, $position: 100%);
+$margin: 20px;
 
 // HTML5 boilerplate
 

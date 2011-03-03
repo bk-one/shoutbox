@@ -1,137 +1,95 @@
-@-webkit-keyframes pulse {
- 0% {
-   opacity: 1.0;
- }
- 17% {
-   opacity: 0.9;
- }
- 33% {
-   opacity: 0.75;
- }
- 50% {
-   opacity: 0.6;
- }
- 67% {
-   opacity: 0.5;
- }
- 83% {
-   opacity: 0.75;
- }
- 100% {
-   opacity: 1.0;
- }
-}
-
 #groups {
-  margin: 20px;
-  @include border-radius(3px);
-  @include box-shadow(rgba(black, .15), 0, 0, 10px);
-  > li {
-    border: 1px $grey-color solid;
-    border-top-color: darken($grey-color, 5%);
-    height: 30px;
+  list-style: 0;
+  margin: 0;
+  h2 {
+    background: $primary-color;
+    color: white;
+    float: left;
+    font-size: 100px;
+    line-height: 100px;
+    margin: 0 6px 6px 0;
+    padding: 27px 15px 7px 15px;
+    &:after {
+      content: ":";
+    }
+  }
+  li {
     list-style: none;
-    margin: -1px 0 0;
-    overflow: hidden;
-    padding: 5px;
-    @include background(linear-gradient(top, lighten($grey-color, 10%), lighten($grey-color, 2%)));
-    @include transition(all, .5s);
-    @include box-shadow(rgba(white, .5) 0 1px 1px inset, rgba(black, .04) 0 -1px 1px inset);
-    h2 {
-      background: sprite($icons, status-ok, 100%, $offset-y: 7px) no-repeat;
-      font-size: inherit;
-      margin: 0;
-      @include text-shadow(rgba(white, .5) 0 1px 0);
-      span {
-        content: "►";
-        display: block;
-        float: left;
-        font-size: 70%;
-        padding: 1px 3px 0 0;
-        @include transition(all, .5s);
-      }
-    }
-    &.red h2 {
-      background: sprite($icons, status-error, 100%, $offset-y: 7px) no-repeat;
-    }
-    &.opened {
-      h2:before {
-        @include rotate(90deg);
-      }
-    }
-    &:first-child {
-      border-top-color: $grey-color;
-      margin-top: 0;
-      @include border-top-radius(3px);
-    }
-    &:last-child {
-      @include border-bottom-radius(3px);
-    }
+    margin: 0;
+  }
+  > li {
+    background: white;
+    bottom: $margin;
+    clear: both;
+    left: $margin;
+    padding: 6px 6px 0;
+    margin: $margin / 2 $margin $margin;
+    //position: absolute;
+    right: $margin;
+    top: $margin;
+    @include pie-clearfix;
   }
   ul {
-    background: darken($grey-color, 50%);
-    margin: 5px;
-    opacity: 0;
-    padding: 0 10px 10px 0;
-    @include transition(all, .25s);
-    @include box-shadow(rgba(black, .3) 0 2px 10px inset, rgba(white, .5) 0 1px 1px);
-    @include clearfix;
-    > li {
-      list-style: none;
+    margin: 0;
+    li {
+      color: white;
       float: left;
-      height: 180px;
-      margin: 10px 0 0 10px;
-      padding: 10px;
-      width: 128px;
-      @include background(
-        linear-gradient(top, darken($grey-color, 10%), lighten($grey-color, 2%))
-      );
-      @include box-shadow(rgba(white, .5) 0 1px 1px inset, rgba(black, .1) 0 -1px 1px inset, rgba(black, .3) 0 0 10px);
-      @include border-radius(3px);
-    }
-    p {
-      margin: 0;
-      text-align: center;
-      @include text-shadow(white 0 1px 1px);
-    }
-    h3 {
-      font-size: 16px;
+      font-size: 50px;
       font-weight: bold;
-      margin: 0;
-      text-align: center;
-      @include text-shadow(white 0 1px 1px);
-      span {
-        background: sprite($traffic-lights, yellow-light, 50%) no-repeat;
-        display: block;
-        height: 138px;
-        @include transition(opacity, 0.5ms);
+      line-height: 50px;
+      margin: 0 6px 6px 0;
+      padding: 12px 15px 2px;
+      position: relative;
+      &.red {
+        background: $alert-color;
+      }
+      &.yellow {
+        background: $warning-color;
+      }
+      &.green {
+        background: $ok-color;
+      }
+      a {
+        background: inherit;
+        -webkit-background-clip: padding-box;
+        border: 3px white solid;
+        color: white;
+        font-size: 25px;
+        line-height: 26px;
+        padding-top: 4px;
+        position: absolute;
+        right: -18px;
+        text-align: center;
+        text-decoration: none;
+        top: -18px;
+        width: 30px;
+        z-index: 3;
+        @include border-radius(18px);
+        @include opacity(0);
+        @include scale(0);
+        @include transition(all, 0.5s);
+      }
+      &:hover a {
+        @include scale(1);
+        @include opacity(1);
+      }
+      .info {
+        background: inherit;
+        bottom: 100%;
+        font-size: 15px;
+        line-height: 20px;
+        margin-bottom: 6px;
+        padding: 6px 15px;
+        position: absolute;
+        right: 0;
+        z-index: -1;
+        @include opacity(0);
+        @include transition(all, 0.5s);
+      }
+      &.info-activated .info {
+        z-index: 2;
+        @include opacity(1);
       }
     }
-    .fresh h3 {
-      span {
-        -webkit-animation-name: pulse;
-        -webkit-animation-duration: 2s;
-        -webkit-animation-iteration-count: infinite;
-        -webkit-animation-timing-function: ease-in-out;
-      }
-    }
-    .offline,
-    .fresh {
-      h3 {
-        background: sprite($traffic-lights, offline, 50%) no-repeat;
-        span {
-          opacity: 0.3;
-        }
-      }
-    }
-    .red > h3 span {
-      background-position: sprite-position($traffic-lights, red-light, 50%);
-    }
-    .green > h3 span {
-      background-position: sprite-position($traffic-lights, green-light, 50%);
-    }
-  }
-  .opened ul {
-    opacity: 1;
   }
 }

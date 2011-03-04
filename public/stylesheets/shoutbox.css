@@ -401,7 +401,7 @@ legend {
 }
 
 /* line 32, ../../views/stylesheets/global/_typography.scss */
-.xl, h1 {
+.xl {
   line-height: 40px;
   font-size: 231%;
 }
@@ -429,14 +429,24 @@ h1 {
   color: #5b3696;
   font-weight: 300;
   margin: 10px 32px;
+  position: absolute;
+  top: -10px;
+  z-index: 1000;
 }
-/* line 68, ../../views/stylesheets/global/_typography.scss */
+/* line 71, ../../views/stylesheets/global/_typography.scss */
 h1 strong {
   font-weight: 800;
 }
-/* line 71, ../../views/stylesheets/global/_typography.scss */
+/* line 74, ../../views/stylesheets/global/_typography.scss */
 h1 span {
   color: white;
+}
+/* line 77, ../../views/stylesheets/global/_typography.scss */
+h1 a {
+  color: white;
+  font-weight: bold;
+  margin: 0 0 0 2em;
+  text-decoration: underline;
 }
 
 /* line 1, ../../views/stylesheets/global/_links.scss */
@@ -457,8 +467,25 @@ html {
 #groups {
   list-style: 0;
   margin: 0;
+  -moz-transform: scale(1, 1);
+  -webkit-transform: scale(1, 1);
+  -o-transform: scale(1, 1);
+  -ms-transform: scale(1, 1);
+  transform: scale(1, 1);
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.4s;
+  -webkit-transition-duration: 0.4s;
+  -o-transition-duration: 0.4s;
+  transition-duration: 0.4s;
+  -moz-transition-timing-function: linear;
+  -webkit-transition-timing-function: linear;
+  -o-transition-timing-function: linear;
+  transition-timing-function: linear;
 }
-/* line 4, ../../views/stylesheets/partials/_groups.scss */
+/* line 6, ../../views/stylesheets/partials/_groups.scss */
 #groups h2 {
   background: #5b3696;
   color: white;
@@ -468,26 +495,27 @@ html {
   margin: 0 6px 6px 0;
   padding: 27px 15px 7px 15px;
 }
-/* line 12, ../../views/stylesheets/partials/_groups.scss */
+/* line 14, ../../views/stylesheets/partials/_groups.scss */
 #groups h2:after {
   content: ":";
 }
-/* line 16, ../../views/stylesheets/partials/_groups.scss */
+/* line 18, ../../views/stylesheets/partials/_groups.scss */
 #groups li {
   list-style: none;
   margin: 0;
 }
-/* line 20, ../../views/stylesheets/partials/_groups.scss */
+/* line 22, ../../views/stylesheets/partials/_groups.scss */
 #groups > li {
   background: white;
-  bottom: 20px;
-  clear: both;
-  left: 20px;
-  padding: 6px 6px 0;
-  margin: 10px 20px 20px;
-  right: 20px;
-  top: 20px;
   *zoom: 1;
+  -moz-transition-property: all;
+  -webkit-transition-property: all;
+  -o-transition-property: all;
+  transition-property: all;
+  -moz-transition-duration: 0.5s;
+  -webkit-transition-duration: 0.5s;
+  -o-transition-duration: 0.5s;
+  transition-duration: 0.5s;
 }
 /* line 22, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/compass-0.11.alpha.4/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
 #groups > li:after {
@@ -498,11 +526,11 @@ html {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 32, ../../views/stylesheets/partials/_groups.scss */
+/* line 27, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   margin: 0;
 }
-/* line 34, ../../views/stylesheets/partials/_groups.scss */
+/* line 29, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li {
   color: white;
   float: left;
@@ -513,19 +541,19 @@ html {
   padding: 12px 15px 2px;
   position: relative;
 }
-/* line 43, ../../views/stylesheets/partials/_groups.scss */
+/* line 38, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.red {
   background: #de4d54;
 }
-/* line 46, ../../views/stylesheets/partials/_groups.scss */
+/* line 41, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.yellow {
   background: #ece039;
 }
-/* line 49, ../../views/stylesheets/partials/_groups.scss */
+/* line 44, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.green {
   background: #59ba2e;
 }
-/* line 52, ../../views/stylesheets/partials/_groups.scss */
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -564,7 +592,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 72, ../../views/stylesheets/partials/_groups.scss */
+/* line 67, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -575,7 +603,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 76, ../../views/stylesheets/partials/_groups.scss */
+/* line 71, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -598,7 +626,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 89, ../../views/stylesheets/partials/_groups.scss */
+/* line 84, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

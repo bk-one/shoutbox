@@ -4,15 +4,18 @@ h1
   strong shoutbox
   | —
   span Welcome to your dashboard
+  a(href="#", data-action="list") LIST
+  a(href="#", data-action="spaces") SPACES
 ul#groups
   - each stati, group_name in statusData
     li
-      h2 
-        span #{group_name}
-      ul
-        - each data, status_name in stati
-          li(id: data.slug, class: data.status, data-updated-at: data.updatedAt)
-            #{status_name}
-            a(href: '#', data-action: 'activate-info') ?
-            .info
-              | Wenn wir wüssten, was zu tun wäre, würde es hier stehen.
+      .inner
+        h2 
+          span #{group_name}
+        ul
+          - each data, status_name in stati
+            li(id: data.slug, class: data.status, data-updated-at: data.updatedAt)
+              #{status_name}
+              a(href: '#', data-action: 'activate-info') ?
+              .info
+                | Wenn wir wüssten, was zu tun wäre, würde es hier stehen.

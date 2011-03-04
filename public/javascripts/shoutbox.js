@@ -55,4 +55,19 @@ $(function() {
   $('[data-action="activate-info"]').click(function() {
     $(this).parents('li').toggleClass('info-activated');
   });
+  
+  var layout;
+  $('[data-action="list"]').click(function() {
+    layout.setLayout('list');
+  });
+  $('[data-action="spaces"]').click(function() {
+    layout.setLayout('spaces');
+  });
+  
+  $(window).load(function() {
+    layout = $('#groups').layout().data('layout');
+    layout.setLayout('spaces');
+  });
 });
+
+

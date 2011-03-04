@@ -1,6 +1,8 @@
 #groups {
   list-style: 0;
   margin: 0;
+  @include scale(1);
+  @include transition(all, 0.4s, linear);
   h2 {
     background: $primary-color;
     color: white;
@@ -19,15 +21,8 @@
   }
   > li {
     background: white;
-    bottom: $margin;
-    clear: both;
-    left: $margin;
-    padding: 6px 6px 0;
-    margin: $margin / 2 $margin $margin;
-    //position: absolute;
-    right: $margin;
-    top: $margin;
     @include pie-clearfix;
+    @include transition(all, 0.5s);
   }
   ul {
     margin: 0;

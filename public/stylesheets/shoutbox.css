@@ -728,3 +728,34 @@ html {
 .green {
   background: #59ba2e;
 }
+
+@-webkit-keyframes pulse {
+  /* line 14, ../../views/stylesheets/partials/_colors.scss */
+  0% {
+    opacity: 1.0;
+  }
+
+  /* line 17, ../../views/stylesheets/partials/_colors.scss */
+  33% {
+    opacity: 0.9;
+  }
+
+  /* line 20, ../../views/stylesheets/partials/_colors.scss */
+  67% {
+    opacity: 0.75;
+  }
+
+  /* line 23, ../../views/stylesheets/partials/_colors.scss */
+  100% {
+    opacity: 1.0;
+  }
+}
+
+/* line 28, ../../views/stylesheets/partials/_colors.scss */
+.fresh {
+  -webkit-animation-name: pulse;
+  -webkit-animation-duration: 1s;
+  -webkit-animation-direction: alternate;
+  -webkit-animation-timing-function: ease-in-out;
+  -webkit-animation-iteration-count: infinite;
+}

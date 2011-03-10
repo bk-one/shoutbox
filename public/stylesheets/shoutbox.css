@@ -463,7 +463,8 @@ a:hover {
 
 /* line 1, ../../views/stylesheets/global/_buttons.scss */
 .layout-button, [data-action="list"], [data-action="spaces"] {
-  border: 5px black solid;
+  background: no-repeat 5px 5px;
+  padding: 5px;
   display: inline-block;
   height: 16px;
   margin-bottom: -5px;
@@ -472,20 +473,23 @@ a:hover {
   overflow: hidden;
   text-align: left;
 }
-/* line 8, ../../views/stylesheets/global/_buttons.scss */
+/* line 9, ../../views/stylesheets/global/_buttons.scss */
+.layout-button.active, .active[data-action="list"], .active[data-action="spaces"] {
+  background-color: rgba(91, 54, 150, 0.75);
+}
+/* line 12, ../../views/stylesheets/global/_buttons.scss */
 .layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover {
   background-color: #5b3696;
-  border-color: #5b3696;
 }
 
-/* line 14, ../../views/stylesheets/global/_buttons.scss */
+/* line 17, ../../views/stylesheets/global/_buttons.scss */
 [data-action="list"] {
-  background: url('../images/list.png?1299757385');
+  background-image: url('../images/list.png?1299757385');
 }
 
-/* line 19, ../../views/stylesheets/global/_buttons.scss */
+/* line 22, ../../views/stylesheets/global/_buttons.scss */
 [data-action="spaces"] {
-  background: url('../images/spaces.png?1299757319');
+  background-image: url('../images/spaces.png?1299757319');
 }
 
 /* line 1, ../../views/stylesheets/layouts/_default.scss */

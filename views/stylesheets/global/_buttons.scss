@@ -1,23 +1,26 @@
 .layout-button {
-  border: 5px black solid;
+  background: no-repeat 5px 5px;
+  padding: 5px;
   display: inline-block;
   height: 16px;
   margin-bottom: -5px;
   width: 16px;
   @include hide-text;
+  &.active {
+    background-color: rgba($primary-color, .75);
+  }
   &:hover {
     background-color: $primary-color;
-    border-color: $primary-color;
   }
 }
 
 [data-action="list"] {
   @extend .layout-button;
-  background: image-url("list.png");
+  background-image: image-url("list.png");
 }
 
 [data-action="spaces"] {
   @extend .layout-button;
-  background: image-url("spaces.png");
+  background-image: image-url("spaces.png");
 }
 

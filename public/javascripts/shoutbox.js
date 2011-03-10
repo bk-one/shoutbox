@@ -58,9 +58,13 @@ $(function() {
   
   var layout;
   $('[data-action="list"]').click(function() {
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
     layout.setLayout('list');
   });
   $('[data-action="spaces"]').click(function() {
+    $(this).siblings().removeClass('active');
+    $(this).addClass('active');
     layout.setLayout('spaces');
   });
   

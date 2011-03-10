@@ -121,7 +121,6 @@ Layout.addLayout('list', {
         padding = this.options.padding,
         top = margins.top,
         windowWidth = $(window).width();
-        console.log("top", top)
     this.elements().each(function() {
       var el = $(this),
           height = el.find('.inner').height();

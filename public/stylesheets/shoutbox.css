@@ -463,11 +463,11 @@ a:hover {
 
 /* line 1, ../../views/stylesheets/global/_buttons.scss */
 .layout-button, [data-action="list"], [data-action="spaces"] {
-  background: no-repeat 5px 5px;
-  padding: 5px;
+  background: no-repeat 6px 6px;
+  padding: 6px;
   display: inline-block;
   height: 16px;
-  margin-bottom: -5px;
+  margin-bottom: -6px;
   width: 16px;
   text-indent: -119988px;
   overflow: hidden;
@@ -495,6 +495,36 @@ a:hover {
 /* line 1, ../../views/stylesheets/layouts/_default.scss */
 html {
   background: black;
+}
+
+/* line 5, ../../views/stylesheets/layouts/_default.scss */
+#group-titles {
+  left: 350px;
+  position: absolute;
+  right: 20px;
+  text-align: right;
+  top: 26px;
+  z-index: 1001;
+}
+/* line 12, ../../views/stylesheets/layouts/_default.scss */
+#group-titles a {
+  background: #5b3696;
+  color: white;
+  display: inline-block;
+  font-weight: bold;
+  line-height: 20px;
+  margin-left: 6px;
+  padding: 5px 8px 3px;
+  opacity: 0.75;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
+}
+/* line 22, ../../views/stylesheets/layouts/_default.scss */
+#group-titles a.active, #group-titles a:hover {
+  text-decoration: none;
+  opacity: 1;
+  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
 
 /* line 1, ../../views/stylesheets/partials/_groups.scss */

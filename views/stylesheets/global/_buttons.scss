@@ -1,9 +1,9 @@
 .layout-button {
-  background: no-repeat 5px 5px;
-  padding: 5px;
+  background: no-repeat $small-margin $small-margin;
+  padding: $small-margin;
   display: inline-block;
   height: 16px;
-  margin-bottom: -5px;
+  margin-bottom: -$small-margin;
   width: 16px;
   @include hide-text;
   &.active {

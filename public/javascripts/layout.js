@@ -107,6 +107,13 @@ var Layout;
       this._zoomed = false;
     },
     
+    show: function(index) {
+      if (index < this.elements().length) {
+        this.options.index = index;
+      }
+      this._render();
+    },
+    
     margins: function() {
       var margin = this.options.margin;
       return {

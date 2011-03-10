@@ -9,7 +9,7 @@
     float: left;
     font-size: 100px;
     line-height: 100px;
-    margin: 0 6px 6px 0;
+    margin: 0 $small-margin $small-margin 0;
     padding: 27px 15px 7px 15px;
     &:after {
       content: ":";
@@ -35,7 +35,7 @@
       font-size: 50px;
       font-weight: bold;
       line-height: 50px;
-      margin: 0 6px 6px 0;
+      margin: 0 $small-margin $small-margin 0;
       padding: 12px 15px 2px;
       position: relative;
       &.red {
@@ -76,8 +76,8 @@
         bottom: 100%;
         font-size: 15px;
         line-height: 20px;
-        margin-bottom: 6px;
-        padding: 6px 15px;
+        margin-bottom: $small-margin;
+        padding: $small-margin 15px;
         position: absolute;
         right: 0;
         z-index: -1;

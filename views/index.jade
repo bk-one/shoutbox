@@ -4,6 +4,11 @@ h1
   strong shoutbox
   a(href="#", data-action="list") LIST
   a.active(href="#", data-action="spaces") SPACES
+nav#group-titles
+  - i = 0
+  - each stati, group_name in statusData
+    a(href: "#", data-group: i++)
+      #{group_name}
 ul#groups
   - each stati, group_name in statusData
     li

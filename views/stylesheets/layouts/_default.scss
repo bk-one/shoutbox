@@ -2,3 +2,26 @@ html {
   background: black;
 }
 
+#group-titles {
+  left: 350px;
+  position: absolute;
+  right: $margin;
+  text-align: right;
+  top: $margin + $small-margin;
+  z-index: 1001;
+  a {
+    background: $primary-color;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 16px + 4px;
+    margin-left: $small-margin;
+    padding: $small-margin - 1px 8px $small-margin - 3px;
+    @include opacity(.75);
+    &.active,
+    &:hover {
+      text-decoration: none;
+      @include opacity(1);
+    }
+  }
+}

@@ -74,6 +74,11 @@ $(function() {
     }).data('layout');
     layout.setLayout('spaces');
   });
+  
+  $('[data-group]').click(function() {
+    layout.show(parseInt($(this).attr('data-group')));
+    return false;
+  });
 });
 
 

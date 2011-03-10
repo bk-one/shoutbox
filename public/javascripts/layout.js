@@ -127,9 +127,6 @@ Layout.addLayout('list', {
       height: top + 'px',
       width: windowWidth + 'px'
     });
-    this.element.find('.inner').css({
-      overflow: 'hidden'
-    });
   },
   show: function(index) {
     this.element.css({

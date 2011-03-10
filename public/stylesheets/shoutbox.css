@@ -527,10 +527,23 @@ html {
   visibility: hidden;
 }
 /* line 27, ../../views/stylesheets/partials/_groups.scss */
+#groups .inner {
+  *zoom: 1;
+}
+/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/compass-0.11.alpha.4/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
+#groups .inner:after {
+  content: "\0020";
+  display: block;
+  height: 0;
+  clear: both;
+  overflow: hidden;
+  visibility: hidden;
+}
+/* line 30, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   margin: 0;
 }
-/* line 29, ../../views/stylesheets/partials/_groups.scss */
+/* line 32, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li {
   color: white;
   float: left;
@@ -541,19 +554,19 @@ html {
   padding: 12px 15px 2px;
   position: relative;
 }
-/* line 38, ../../views/stylesheets/partials/_groups.scss */
+/* line 41, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.red {
   background: #de4d54;
 }
-/* line 41, ../../views/stylesheets/partials/_groups.scss */
+/* line 44, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.yellow {
   background: #ece039;
 }
-/* line 44, ../../views/stylesheets/partials/_groups.scss */
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.green {
   background: #59ba2e;
 }
-/* line 47, ../../views/stylesheets/partials/_groups.scss */
+/* line 50, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -592,7 +605,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 67, ../../views/stylesheets/partials/_groups.scss */
+/* line 70, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -603,7 +616,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 71, ../../views/stylesheets/partials/_groups.scss */
+/* line 74, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -626,7 +639,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 84, ../../views/stylesheets/partials/_groups.scss */
+/* line 87, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

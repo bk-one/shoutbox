@@ -13,15 +13,16 @@ function ShoutboxClient() {
       el.attr('data-updated-at', updateData.updatedAt);
       el.addClass(updateData.status);
       el.addClass('fresh')
-      var ol = el.parent(), group = ol.parent();
-      if (ol.find('.red').length) {
-        group.removeClass('green');
-        group.addClass('red');
-      }
-      else {
-        group.removeClass('red');
-        group.addClass('green');
-      }
+      // var ol = el.parent(), group = ol.parent();
+      // if (ol.find('.red').length) {
+      //   group.removeClass('green');
+      //   group.addClass('red');
+      // }
+      // else {
+      //   group.removeClass('red');
+      //   group.addClass('green');
+      // }
+      colorizesNav();
     });
   };
   
@@ -31,7 +32,24 @@ function ShoutboxClient() {
 var shoutboxClient;
 jQuery(function() {
   shoutboxClient = new ShoutboxClient();
+  colorizesNav();
 });
+
+function colorizesNav() {
+  $('#group-titles > a').each(function(i) {
+    var el = $(this),
+        groupEl = $('#groups > li').eq(i);
+    if (groupEl.find('.red').length) {
+      el.removeClass('green yellow').addClass('red');
+    }
+    else if (groupEl.find('.yellow').length) {
+      el.removeClass('green red').addClass('yellow');
+    }
+    else {
+      el.removeClass('yellow red').addClass('green');
+    }
+  });
+}
 
 
 $(function() {

@@ -40,15 +40,6 @@
       position: relative;
       @include transition(all, 1s);
       @include text-shadow(white 0 0 0);
-      &.red {
-        background: $alert-color;
-      }
-      &.yellow {
-        background: $warning-color;
-      }
-      &.green {
-        background: $ok-color;
-      }
       &.offline { 
         color: rgba(white, .3);
         @include text-shadow(white 0 0 5px);

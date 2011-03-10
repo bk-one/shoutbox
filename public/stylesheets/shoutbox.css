@@ -508,7 +508,6 @@ html {
 }
 /* line 12, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a {
-  background: #5b3696;
   color: white;
   display: inline-block;
   font-weight: bold;
@@ -519,7 +518,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=75);
 }
-/* line 22, ../../views/stylesheets/layouts/_default.scss */
+/* line 21, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.active, #group-titles a:hover {
   text-decoration: none;
   opacity: 1;
@@ -628,23 +627,11 @@ html {
   text-shadow: white 0 0 0;
 }
 /* line 43, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.red {
-  background: #de4d54;
-}
-/* line 46, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.yellow {
-  background: #ece039;
-}
-/* line 49, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.green {
-  background: #59ba2e;
-}
-/* line 52, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.3);
   text-shadow: white 0 0 5px;
 }
-/* line 56, ../../views/stylesheets/partials/_groups.scss */
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -684,7 +671,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 77, ../../views/stylesheets/partials/_groups.scss */
+/* line 68, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -695,7 +682,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 81, ../../views/stylesheets/partials/_groups.scss */
+/* line 72, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -719,10 +706,25 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 95, ../../views/stylesheets/partials/_groups.scss */
+/* line 86, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+}
+
+/* line 1, ../../views/stylesheets/partials/_colors.scss */
+.red {
+  background: #de4d54;
+}
+
+/* line 5, ../../views/stylesheets/partials/_colors.scss */
+.yellow {
+  background: #ece039;
+}
+
+/* line 9, ../../views/stylesheets/partials/_colors.scss */
+.green {
+  background: #59ba2e;
 }

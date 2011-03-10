@@ -401,7 +401,7 @@ legend {
 }
 
 /* line 32, ../../views/stylesheets/global/_typography.scss */
-.xl {
+.xl, h1 {
   line-height: 40px;
   font-size: 231%;
 }
@@ -426,26 +426,29 @@ body {
 
 /* line 62, ../../views/stylesheets/global/_typography.scss */
 h1 {
+  background: rgba(0, 0, 0, 0.8);
   color: #5b3696;
   font-weight: 300;
-  margin: 10px 32px;
+  left: 0;
+  margin: 0;
+  padding: 20px 32px;
   position: absolute;
-  top: -10px;
+  right: 0;
   z-index: 1000;
 }
-/* line 71, ../../views/stylesheets/global/_typography.scss */
+/* line 74, ../../views/stylesheets/global/_typography.scss */
 h1 strong {
   font-weight: 800;
+  margin: 0 2em 0 0;
 }
-/* line 74, ../../views/stylesheets/global/_typography.scss */
+/* line 78, ../../views/stylesheets/global/_typography.scss */
 h1 span {
   color: white;
 }
-/* line 77, ../../views/stylesheets/global/_typography.scss */
+/* line 81, ../../views/stylesheets/global/_typography.scss */
 h1 a {
   color: white;
   font-weight: bold;
-  margin: 0 0 0 2em;
   text-decoration: underline;
 }
 
@@ -456,6 +459,33 @@ a {
 /* line 4, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/compass-0.11.alpha.4/frameworks/compass/stylesheets/compass/utilities/links/_hover-link.scss */
 a:hover {
   text-decoration: underline;
+}
+
+/* line 1, ../../views/stylesheets/global/_buttons.scss */
+.layout-button, [data-action="list"], [data-action="spaces"] {
+  border: 5px black solid;
+  display: inline-block;
+  height: 16px;
+  margin-bottom: -5px;
+  width: 16px;
+  text-indent: -119988px;
+  overflow: hidden;
+  text-align: left;
+}
+/* line 8, ../../views/stylesheets/global/_buttons.scss */
+.layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover {
+  background-color: #5b3696;
+  border-color: #5b3696;
+}
+
+/* line 14, ../../views/stylesheets/global/_buttons.scss */
+[data-action="list"] {
+  background: url('../images/list.png?1299757385');
+}
+
+/* line 19, ../../views/stylesheets/global/_buttons.scss */
+[data-action="spaces"] {
+  background: url('../images/spaces.png?1299757319');
 }
 
 /* line 1, ../../views/stylesheets/layouts/_default.scss */

@@ -1,1 +1,23 @@
+.layout-button {
+  border: 5px black solid;
+  display: inline-block;
+  height: 16px;
+  margin-bottom: -5px;
+  width: 16px;
+  @include hide-text;
+  &:hover {
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
+}
+
+[data-action="list"] {
+  @extend .layout-button;
+  background: image-url("list.png");
+}
+
+[data-action="spaces"] {
+  @extend .layout-button;
+  background: image-url("spaces.png");
+}
 

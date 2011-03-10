@@ -98,6 +98,17 @@ var Layout;
         WebkitTransform: 'scale(1, 1) translateX(0) translateY(0)'
       });
       this._zoomed = false;
+    },
+    
+    margins: function() {
+      var margin = this.options.margin;
+      return {
+        margin: margin,
+        left:   this.options.marginLeft   || margin,
+        top:    this.options.marginTop    || margin,
+        bottom: this.options.marginBottom || margin,
+        right:  this.options.marginRight  || margin,
+      }
     }
   };
 })();
@@ -106,22 +117,23 @@ $.widget('ui.layout', Layout);
 
 Layout.addLayout('list', {
   render: function() {
-    var margin = this.options.margin,
+    var margins = this.margins(),
         padding = this.options.padding,
-        top = margin,
+        top = margins.top,
         windowWidth = $(window).width();
+        console.log("top", top)
     this.elements().each(function() {
       var el = $(this),
           height = el.find('.inner').height();
       el.css({
         height: height + 'px',
-        left: margin + 'px',
+        left: margins.left + 'px',
         padding: padding + 'px ' + padding + 'px 0',
         position: 'absolute',
         top: top + 'px',
-        width: windowWidth - 2 * margin - 2 * padding + 'px'
+        width: windowWidth - margins.left - margins.right - 2 * padding + 'px'
       });
-      top += height + margin + 2 * padding;
+      top += height + margins.margin + 2 * padding;
     });
     this.element.css({
       height: top + 'px',
@@ -131,32 +143,32 @@ Layout.addLayout('list', {
   show: function(index) {
     this.element.css({
       left: 0,
-      top: -parseInt(this.elements().eq(this.options.index).css('top')) + this.options.margin + 'px'
+      top: -parseInt(this.elements().eq(this.options.index).css('top')) + this.margins().top + 'px'
     });
   }
 });
 
 Layout.addLayout('spaces', {
   render: function() {
-    var margin = this.options.margin,
+    var margins = this.margins(),
         padding = this.options.padding,
-        left = this.options.marginLeft || margin,
+        left = margins.left,
         right,
         windowHeight = $(window).height(),
         windowWidth = $(window).width(),
         that = this;
     this.elements().each(function(i) {
       var el = $(this);
-      right = -i * windowWidth - (that.options.marginRight || margin);
+      right = -i * windowWidth - margins.right;
       el.css({
         left: left + 'px',
-        height: windowHeight - (that.options.marginTop || margin) - (that.options.marginBottom || margin) - padding + 'px',
+        height: windowHeight - margins.top - margins.bottom - padding + 'px',
         padding: padding + 'px ' + padding + 'px 0',
         position: 'absolute',
-        top: (that.options.marginTop || margin) + 'px',
-        width: windowWidth - 2 * margin - 2 * padding + 'px'
+        top: margins.top + 'px',
+        width: windowWidth - margins.left - margins.right - 2 * padding + 'px'
       });
-      left += windowWidth - margin;
+      left += windowWidth - margins.left;
     });
     this.element.css({
       height: windowHeight + 'px',

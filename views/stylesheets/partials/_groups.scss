@@ -38,6 +38,8 @@
       margin: 0 $small-margin $small-margin 0;
       padding: 12px 15px 2px;
       position: relative;
+      @include transition(all, 1s);
+      @include text-shadow(white 0 0 0);
       &.red {
         background: $alert-color;
       }
@@ -46,6 +48,10 @@
       }
       &.green {
         background: $ok-color;
+      }
+      &.offline { 
+        color: rgba(white, .3);
+        @include text-shadow(white 0 0 5px);
       }
       a {
         background: inherit;
@@ -65,6 +71,7 @@
         @include border-radius(18px);
         @include opacity(0);
         @include scale(0);
+        @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);
       }
       &:hover a {

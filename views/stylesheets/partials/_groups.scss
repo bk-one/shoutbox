@@ -4,13 +4,15 @@
   @include scale(1);
   @include transition(all, 0.4s, linear);
   h2 {
-    background: $primary-color;
+    //background: $primary-color;
     color: white;
+    color: $primary-color;
     float: left;
     font-size: 100px;
     line-height: 100px;
     margin: 0 $small-margin $small-margin 0;
     padding: 27px 15px 7px 15px;
+    padding: 12px 15px 2px;
     &:after {
       content: ":";
     }
@@ -32,17 +34,17 @@
     li {
       color: white;
       float: left;
-      font-size: 50px;
+      font-size: 100px;
       font-weight: bold;
-      line-height: 50px;
+      line-height: 100px;
       margin: 0 $small-margin $small-margin 0;
       padding: 12px 15px 2px;
       position: relative;
       @include transition(all, 1s);
       @include text-shadow(white 0 0 0);
       &.offline { 
-        color: rgba(white, .3);
-        @include text-shadow(white 0 0 5px);
+        color: rgba(white, .1);
+        @include text-shadow(white 0 0 25px, white 0 0 15px);
       }
       a {
         background: inherit;

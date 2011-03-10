@@ -10,6 +10,21 @@
   background: $ok-color;
 }
 
+.red.offline {
+  background: desaturate($alert-color, 50%);
+}
+
+.yellow.offline {
+  background: desaturate($warning-color, 50%);
+}
+
+.green.offline {
+  background: desaturate($ok-color, 50%);
+}
+.offline {
+  background: $alert-color !important;
+}
+
 @-webkit-keyframes pulse {
  0% {
    opacity: 1.0;

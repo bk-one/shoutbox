@@ -13,15 +13,6 @@ function ShoutboxClient() {
       el.attr('data-updated-at', updateData.updatedAt);
       el.addClass(updateData.status);
       el.addClass('fresh')
-      // var ol = el.parent(), group = ol.parent();
-      // if (ol.find('.red').length) {
-      //   group.removeClass('green');
-      //   group.addClass('red');
-      // }
-      // else {
-      //   group.removeClass('red');
-      //   group.addClass('green');
-      // }
       colorizesNav();
     });
   };

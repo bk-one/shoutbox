@@ -140,19 +140,20 @@ Layout.addLayout('spaces', {
   render: function() {
     var margin = this.options.margin,
         padding = this.options.padding,
-        left = margin,
+        left = this.options.marginLeft || margin,
         right,
         windowHeight = $(window).height(),
-        windowWidth = $(window).width();
+        windowWidth = $(window).width(),
+        that = this;
     this.elements().each(function(i) {
       var el = $(this);
-      right = -i * windowWidth - margin;
+      right = -i * windowWidth - (that.options.marginRight || margin);
       el.css({
         left: left + 'px',
-        height: windowHeight - 2 * margin - padding + 'px',
+        height: windowHeight - (that.options.marginTop || margin) - (that.options.marginBottom || margin) - padding + 'px',
         padding: padding + 'px ' + padding + 'px 0',
         position: 'absolute',
-        top: margin + 'px',
+        top: (that.options.marginTop || margin) + 'px',
         width: windowWidth - 2 * margin - 2 * padding + 'px'
       });
       left += windowWidth - margin;

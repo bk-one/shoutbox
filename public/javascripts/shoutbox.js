@@ -65,7 +65,9 @@ $(function() {
   });
   
   $(window).load(function() {
-    layout = $('#groups').layout().data('layout');
+    layout = $('#groups').layout({
+      marginTop: 80
+    }).data('layout');
     layout.setLayout('spaces');
   });
 });

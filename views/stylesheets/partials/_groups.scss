@@ -89,6 +89,7 @@
         right: 0;
         z-index: -1;
         @include opacity(0);
+        @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);
       }
       &.info-activated .info {

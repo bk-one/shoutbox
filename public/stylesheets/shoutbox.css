@@ -709,6 +709,7 @@ html {
   opacity: 0;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
+  text-shadow: white 0 0 0;
   -moz-transition-property: all;
   -webkit-transition-property: all;
   -o-transition-property: all;
@@ -718,7 +719,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 94, ../../views/stylesheets/partials/_groups.scss */
+/* line 95, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

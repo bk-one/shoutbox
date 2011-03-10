@@ -71,7 +71,7 @@ var Layout;
 
     setLayout: function(layout) {
       if (this._zoomed) {
-        this.zoomOut();
+        this.zoomIn();
       }
       this.options.layout = layout;
       this._render();

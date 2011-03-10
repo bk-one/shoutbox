@@ -42,6 +42,13 @@ var Layout;
           that.options.index++;
           that.findLayout().show.call(that);
         }
+        else {
+          var number = event.which - 49;
+          if (number >= 0 && number <= 8 && number < that.elements().length) {
+            that.options.index = number;
+            that.findLayout().show.call(that);
+          }
+        }
       });
     },
 

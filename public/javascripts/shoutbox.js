@@ -112,7 +112,7 @@ $(function() {
     checkStatus();
   }, 10 * 1000);
 
-  $('[data-action="activate-info"]').click(function() {
+  $('#groups').delegate('[data-action="activate-info"]', 'click', function() {
     $(this).parents('li').toggleClass('info-activated');
   });
 

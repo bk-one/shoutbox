@@ -13,7 +13,6 @@ var Layout;
     },
 
     _create: function() {
-      this._render();
       this.element.css({
         left: 0,
         position: 'absolute',
@@ -35,21 +34,19 @@ var Layout;
           }
         }
         else if ((event.which == 37 || event.which == 38) && that.options.index > 0) {
-          that.options.index--;
-          that.findLayout().show.call(that);
+          that.show(that.options.index - 1);
         }
         else if ((event.which == 39 || event.which == 40) && that.options.index < that.elements().length - 1) {
-          that.options.index++;
-          that.findLayout().show.call(that);
+          that.show(that.options.index + 1);
         }
         else {
           var number = event.which - 49;
           if (number >= 0 && number <= 8 && number < that.elements().length) {
-            that.options.index = number;
-            that.findLayout().show.call(that);
+            that.show(number);
           }
         }
       });
+      this.show(this.options.index);
     },
 
     _render: function() {
@@ -108,10 +105,13 @@ var Layout;
     },
     
     show: function(index) {
-      if (index < this.elements().length) {
+      if (index != this.options.index && index >= 0 && index < this.elements().length) {
         this.options.index = index;
+        this._render();
+        if (typeof this.options.showCallback == 'function') {
+          this.options.showCallback(index);
+        }
       }
-      this._render();
     },
     
     margins: function() {

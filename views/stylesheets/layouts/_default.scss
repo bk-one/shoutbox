@@ -10,6 +10,7 @@ html {
   top: $margin + $small-margin;
   z-index: 1001;
   a {
+    border: $small-margin black solid;
     color: white;
     display: inline-block;
     font-weight: bold;
@@ -17,10 +18,15 @@ html {
     margin-left: $small-margin;
     padding: $small-margin - 1px 8px $small-margin - 3px;
     @include opacity(.75);
+    @include transition(background-color, .5s);
     &.active,
     &:hover {
       text-decoration: none;
       @include opacity(1);
+    }
+    &.selected {
+      border: 0;
+      padding: 2 * $small-margin - 1px 8px + $small-margin 2 * $small-margin - 3px;
     }
   }
 }

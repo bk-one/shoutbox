@@ -79,7 +79,10 @@ $(function() {
   
   $(window).load(function() {
     layout = $('#groups').layout({
-      marginTop: 80
+      marginTop: 80,
+      showCallback: function(index) {
+        $('#group-titles > a').removeClass('selected').eq(index).addClass('selected');
+      }
     }).data('layout');
     layout.setLayout('spaces');
   });

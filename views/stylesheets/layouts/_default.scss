@@ -22,7 +22,7 @@ html {
     padding: $small-margin - 1px 8px $small-margin - 3px;
     @include opacity(.75);
     @include transition(background-color, .5s);
-    &.active,
+    &.selected,
     &:hover {
       text-decoration: none;
       @include opacity(1);

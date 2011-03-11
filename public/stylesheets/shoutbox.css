@@ -538,7 +538,7 @@ html {
   transition-duration: 0.5s;
 }
 /* line 26, ../../views/stylesheets/layouts/_default.scss */
-#group-titles a.active, #group-titles a:hover {
+#group-titles a.selected, #group-titles a:hover {
   text-decoration: none;
   opacity: 1;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);

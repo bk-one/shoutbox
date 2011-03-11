@@ -141,7 +141,7 @@ Layout.addLayout('list', {
       el.css({
         height: height + 'px',
         left: margins.left + 'px',
-        padding: padding + 'px ' + padding + 'px 0',
+        padding: padding + 'px 0 0 ' + padding + 'px',
         position: 'absolute',
         top: top + 'px',
         width: windowWidth - margins.left - margins.right - 2 * padding + 'px'
@@ -176,7 +176,7 @@ Layout.addLayout('spaces', {
       el.css({
         left: left + 'px',
         height: windowHeight - margins.top - margins.bottom - padding + 'px',
-        padding: padding + 'px ' + padding + 'px 0',
+        padding: padding + 'px 0 0 ' + padding + 'px',
         position: 'absolute',
         top: margins.top + 'px',
         width: windowWidth - margins.left - margins.right - 2 * padding + 'px'

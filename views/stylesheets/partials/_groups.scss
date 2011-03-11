@@ -27,9 +27,9 @@
     @include transition(all, 0.5s);
   }
   .inner {
-    margin-top: -20px;
+    margin: -20px -20px 0 0;
     max-height: 100%;
-    padding-top: 20px;
+    padding: 20px 20px 0 0;
     overflow: hidden;
     &:after {
       bottom: 0;

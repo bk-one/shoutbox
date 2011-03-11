@@ -616,9 +616,9 @@ html {
 }
 /* line 29, ../../views/stylesheets/partials/_groups.scss */
 #groups .inner {
-  margin-top: -20px;
+  margin: -20px -20px 0 0;
   max-height: 100%;
-  padding-top: 20px;
+  padding: 20px 20px 0 0;
   overflow: hidden;
 }
 /* line 34, ../../views/stylesheets/partials/_groups.scss */

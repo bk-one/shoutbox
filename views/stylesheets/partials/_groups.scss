@@ -27,7 +27,22 @@
     @include transition(all, 0.5s);
   }
   .inner {
-    @include pie-clearfix;
+    margin-top: -20px;
+    max-height: 100%;
+    padding-top: 20px;
+    overflow: hidden;
+    &:after {
+      bottom: 0;
+      content: " ";
+      display: block;
+      height: $small-margin;
+      left: 0;
+      position: absolute;
+      right: 0;
+      @include background(
+        linear-gradient(top, rgba(white, 0), white)
+      );
+    }
   }
   ul {
     margin: 0;

@@ -595,22 +595,30 @@ html {
 }
 /* line 29, ../../views/stylesheets/partials/_groups.scss */
 #groups .inner {
-  *zoom: 1;
-}
-/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/compass-0.11.alpha.4/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#groups .inner:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
+  margin-top: -20px;
+  max-height: 100%;
+  padding-top: 20px;
   overflow: hidden;
-  visibility: hidden;
 }
-/* line 32, ../../views/stylesheets/partials/_groups.scss */
+/* line 34, ../../views/stylesheets/partials/_groups.scss */
+#groups .inner:after {
+  bottom: 0;
+  content: " ";
+  display: block;
+  height: 6px;
+  left: 0;
+  position: absolute;
+  right: 0;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDApIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #ffffff));
+  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+  background: linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
+}
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   margin: 0;
 }
-/* line 34, ../../views/stylesheets/partials/_groups.scss */
+/* line 49, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li {
   color: white;
   float: left;
@@ -630,12 +638,12 @@ html {
   transition-duration: 1s;
   text-shadow: white 0 0 0;
 }
-/* line 45, ../../views/stylesheets/partials/_groups.scss */
+/* line 60, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
-/* line 49, ../../views/stylesheets/partials/_groups.scss */
+/* line 64, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -675,7 +683,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 70, ../../views/stylesheets/partials/_groups.scss */
+/* line 85, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -686,7 +694,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 74, ../../views/stylesheets/partials/_groups.scss */
+/* line 89, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -710,7 +718,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 88, ../../views/stylesheets/partials/_groups.scss */
+/* line 103, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

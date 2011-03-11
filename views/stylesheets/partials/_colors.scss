@@ -30,10 +30,10 @@
    opacity: 1.0;
  }
  33% {
-   opacity: 0.9;
+   opacity: 0.8;
  }
  67% {
-   opacity: 0.75;
+   opacity: 0.65;
  }
  100% {
    opacity: 1.0;
@@ -46,4 +46,8 @@
  -webkit-animation-direction: alternate;
  -webkit-animation-timing-function: ease-in-out;
  -webkit-animation-iteration-count: infinite;
+}
+
+.green.fresh {
+  -webkit-animation-duration: 3s;
 }

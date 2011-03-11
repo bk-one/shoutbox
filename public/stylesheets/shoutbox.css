@@ -427,7 +427,7 @@ body {
 /* line 62, ../../views/stylesheets/global/_typography.scss */
 h1 {
   background: rgba(0, 0, 0, 0.8);
-  color: #5b3696;
+  color: #4c33a4;
   font-weight: 300;
   left: 0;
   margin: 0;
@@ -475,11 +475,11 @@ a:hover {
 }
 /* line 9, ../../views/stylesheets/global/_buttons.scss */
 .layout-button.active, .active[data-action="list"], .active[data-action="spaces"] {
-  background-color: rgba(91, 54, 150, 0.75);
+  background-color: rgba(76, 51, 164, 0.75);
 }
 /* line 12, ../../views/stylesheets/global/_buttons.scss */
 .layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover {
-  background-color: #5b3696;
+  background-color: #4c33a4;
 }
 
 /* line 17, ../../views/stylesheets/global/_buttons.scss */
@@ -551,7 +551,7 @@ html {
 /* line 6, ../../views/stylesheets/partials/_groups.scss */
 #groups h2 {
   color: white;
-  color: #5b3696;
+  color: #4c33a4;
   float: left;
   font-size: 100px;
   line-height: 100px;
@@ -717,37 +717,37 @@ html {
 
 /* line 1, ../../views/stylesheets/partials/_colors.scss */
 .red {
-  background: #de4d54;
+  background: #bd3649;
 }
 
 /* line 5, ../../views/stylesheets/partials/_colors.scss */
 .yellow {
-  background: #afa500;
+  background: #b98f00;
 }
 
 /* line 9, ../../views/stylesheets/partials/_colors.scss */
 .green {
-  background: #59ba2e;
+  background: #6fae3e;
 }
 
 /* line 13, ../../views/stylesheets/partials/_colors.scss */
 .red.offline {
-  background: #a98284;
+  background: #807375;
 }
 
 /* line 17, ../../views/stylesheets/partials/_colors.scss */
 .yellow.offline {
-  background: #837e2c;
+  background: #8b762e;
 }
 
 /* line 21, ../../views/stylesheets/partials/_colors.scss */
 .green.offline {
-  background: #6f8068;
+  background: #767676;
 }
 
 /* line 24, ../../views/stylesheets/partials/_colors.scss */
 .offline {
-  background: #de4d54 !important;
+  background: #bd3649 !important;
 }
 
 @-webkit-keyframes pulse {
@@ -758,12 +758,12 @@ html {
 
   /* line 32, ../../views/stylesheets/partials/_colors.scss */
   33% {
-    opacity: 0.9;
+    opacity: 0.8;
   }
 
   /* line 35, ../../views/stylesheets/partials/_colors.scss */
   67% {
-    opacity: 0.75;
+    opacity: 0.65;
   }
 
   /* line 38, ../../views/stylesheets/partials/_colors.scss */
@@ -779,4 +779,9 @@ html {
   -webkit-animation-direction: alternate;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
+}
+
+/* line 51, ../../views/stylesheets/partials/_colors.scss */
+.green.fresh {
+  -webkit-animation-duration: 3s;
 }

@@ -70,6 +70,7 @@ app.delete('/status',
             DataValidator.validateGroup, DataValidator.validateStatusId, initializeShoutbox, 
             function(req, res){
   shoutbox.deleteStatusOnShoutbox( req.shoutboxStatusData.statusId, req.shoutbox, req.shoutboxStatusData.group, req.shoutboxStatusData.statusId );
+  bayeux.publishDelete( req.shoutboxStatusData );
   res.send('OK');
 });
 

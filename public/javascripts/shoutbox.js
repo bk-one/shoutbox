@@ -10,11 +10,16 @@ function ShoutboxClient() {
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
-      var el = that.findEntry(updateData);
-      el.removeClass();
-      el.attr('data-updated-at', updateData.updatedAt);
-      el.addClass(updateData.status);
-      el.addClass('fresh')
+      if (updateData.delete) {
+        that.removeEntry({ slug: updateData.delete });
+      }
+      else {
+        var el = that.findEntry(updateData);
+        el.removeClass();
+        el.attr('data-updated-at', updateData.updatedAt);
+        el.addClass(updateData.status);
+        el.addClass('fresh')
+      }
       that.colorizesNav();
     });
   };
@@ -48,6 +53,10 @@ function ShoutboxClient() {
   this.addEntry = function(data) {
     this.findGroup(data).find('ul').append($.mustache($('#entry-template').html(), data));
     return $('[data-entry-id="' + data.slug + '"]');
+  };
+
+  this.removeEntry = function(data) {
+    this.findEntry(data).remove();
   };
 
   this.findEntry = function(data) {

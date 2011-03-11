@@ -10,8 +10,8 @@ function ShoutboxClient() {
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
-      if (updateData.delete) {
-        that.removeEntry({ slug: updateData.delete });
+      if (updateData.remove) {
+        that.removeEntry({ slug: updateData.remove });
       }
       else {
         var el = that.findEntry(updateData);

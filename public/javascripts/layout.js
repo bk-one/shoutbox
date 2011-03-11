@@ -179,7 +179,7 @@ Layout.addLayout('spaces', {
         padding: padding + 'px 0 0 ' + padding + 'px',
         position: 'absolute',
         top: margins.top + 'px',
-        width: windowWidth - margins.left - margins.right - 2 * padding + 'px'
+        width: windowWidth - margins.left - margins.right - padding + 'px'
       });
       left += windowWidth - margins.left;
     });

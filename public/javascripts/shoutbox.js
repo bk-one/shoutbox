@@ -10,16 +10,11 @@ function ShoutboxClient() {
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
-      var el = $('[data-entry-id="' + updateData.slug + '"]');
-      if (el.length == 1) {
-        el.removeClass();
-        el.attr('data-updated-at', updateData.updatedAt);
-        el.addClass(updateData.status);
-        el.addClass('fresh')
-      }
-      else {
-
-      }
+      var el = that.findEntry(updateData);
+      el.removeClass();
+      el.attr('data-updated-at', updateData.updatedAt);
+      el.addClass(updateData.status);
+      el.addClass('fresh')
       that.colorizesNav();
     });
   };
@@ -39,11 +34,11 @@ function ShoutboxClient() {
   this.addGroup = function(data) {
     $('#groups').append($.mustache($('#group-template').html(), data));
     $('#group-titles').append($.mustache($('#group-title-template').html(), data));
-    return $('[data-group-id="' + data.group + '"]');
+    return $('#groups [data-group-id="' + data.group + '"]');
   };
 
   this.findGroup = function(data) {
-    var el = $('[data-group-id="' + data.group + '"]');
+    var el = $('#groups [data-group-id="' + data.group + '"]');
     if (el.length == 0) {
       el = this.addGroup(data);
     }
@@ -64,11 +59,9 @@ function ShoutboxClient() {
   };
 
   this.colorizesNav = function() {
-    console.log($('#group-titles > a'))
     _($('#group-titles > a')).each(function(el) {
       var el = $(el),
           groupEl = $('#groups > li[data-group-id="' + el.attr('data-group-id') + '"]');
-          console.log(el, groupEl)
       if (groupEl.find('.red').length) {
         el.removeClass('green yellow').addClass('red');
       }

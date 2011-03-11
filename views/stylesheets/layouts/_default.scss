@@ -3,12 +3,15 @@ html {
 }
 
 #group-titles {
+  @extend .xl;
   left: 350px;
   position: absolute;
   right: $margin;
   text-align: right;
-  top: $margin + $small-margin;
+  top: $margin -2px;
+  white-space: nowrap;
   z-index: 1001;
+  @include ellipsis;
   a {
     border: $small-margin black solid;
     color: white;

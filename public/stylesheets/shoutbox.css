@@ -402,7 +402,7 @@ legend {
 }
 
 /* line 32, ../../views/stylesheets/global/_typography.scss */
-.xl, h1 {
+.xl, h1, #group-titles {
   line-height: 40px;
   font-size: 231%;
 }
@@ -507,10 +507,16 @@ html {
   position: absolute;
   right: 20px;
   text-align: right;
-  top: 26px;
+  top: 20px -2px;
+  white-space: nowrap;
   z-index: 1001;
+  white-space: nowrap;
+  overflow: hidden;
+  -o-text-overflow: ellipsis;
+  -ms-text-overflow: ellipsis;
+  text-overflow: ellipsis;
 }
-/* line 12, ../../views/stylesheets/layouts/_default.scss */
+/* line 15, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a {
   border: 6px black solid;
   color: white;
@@ -531,14 +537,14 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 23, ../../views/stylesheets/layouts/_default.scss */
+/* line 26, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.active, #group-titles a:hover {
   text-decoration: none;
   opacity: 1;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 27, ../../views/stylesheets/layouts/_default.scss */
+/* line 30, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.selected {
   border: 0;
   padding: 11px 14px 9px;

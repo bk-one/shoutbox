@@ -48,13 +48,9 @@ function initializeShoutbox(req, res, next) {
 
 
 // Routes
-app.get('/', initializeShoutbox, function(req, res){
-  res.render('index', {
-    locals: {
-      statusData: req.shoutbox.groups,
-      title: 'Express'
-    }
-  });
+app.get('/data', initializeShoutbox, function(req, res){
+  res.writeHead(200, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify(req.shoutbox.groups));
 });
 
 

@@ -50,6 +50,11 @@ function initializeShoutbox(req, res, next) {
 // Routes
 app.get('/data', initializeShoutbox, function(req, res){
   res.writeHead(200, { 'Content-Type': 'application/json' });
+  for (var group in req.shoutbox.groups) {
+    for (var entry in req.shoutbox.groups[group]) {
+      req.shoutbox.groups[group][entry].updatedAt = req.shoutbox.groups[group][entry].updatedAt.toString();
+    }
+  }
   res.end(JSON.stringify(req.shoutbox.groups));
 });
 

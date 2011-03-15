@@ -51,6 +51,8 @@ function ShoutboxClient() {
   };
 
   this.addEntry = function(data) {
+    data = _(data).clone();
+    data.className = data.status + (data.message ? '' : ' without-info');
     this.findGroup(data).find('ul').append($.mustache($('#entry-template').html(), data));
     return $('[data-entry-id="' + data.slug + '"]');
   };

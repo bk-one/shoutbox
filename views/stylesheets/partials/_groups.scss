@@ -64,6 +64,9 @@
         color: rgba(white, .1);
         @include text-shadow(white 0 0 25px, white 0 0 15px);
       }
+      &.without-info a {
+        display: none;
+      }
       a {
         background: inherit;
         -webkit-background-clip: padding-box;

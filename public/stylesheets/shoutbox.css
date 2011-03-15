@@ -670,6 +670,10 @@ html {
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
 /* line 67, ../../views/stylesheets/partials/_groups.scss */
+#groups ul li.without-info a {
+  display: none;
+}
+/* line 70, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -709,7 +713,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 88, ../../views/stylesheets/partials/_groups.scss */
+/* line 91, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -720,7 +724,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 92, ../../views/stylesheets/partials/_groups.scss */
+/* line 95, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -744,7 +748,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 106, ../../views/stylesheets/partials/_groups.scss */
+/* line 109, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

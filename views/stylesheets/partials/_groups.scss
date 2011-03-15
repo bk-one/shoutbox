@@ -57,6 +57,7 @@
       @include text-shadow(white 0 0 0);
       &.red:before {
         content: "☠ ";
+        line-height: 50%;
         position: relative;
         top: 3px;
       }

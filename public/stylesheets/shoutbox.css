@@ -661,19 +661,20 @@ html {
 /* line 58, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.red:before {
   content: "☠ ";
+  line-height: 50%;
   position: relative;
   top: 3px;
 }
-/* line 63, ../../views/stylesheets/partials/_groups.scss */
+/* line 64, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
-/* line 67, ../../views/stylesheets/partials/_groups.scss */
+/* line 68, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.without-info a {
   display: none;
 }
-/* line 70, ../../views/stylesheets/partials/_groups.scss */
+/* line 71, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -713,7 +714,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 91, ../../views/stylesheets/partials/_groups.scss */
+/* line 92, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -724,7 +725,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 95, ../../views/stylesheets/partials/_groups.scss */
+/* line 96, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -748,7 +749,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 109, ../../views/stylesheets/partials/_groups.scss */
+/* line 110, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

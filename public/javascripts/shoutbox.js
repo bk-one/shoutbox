@@ -1,3 +1,5 @@
+var shoutboxClient, layout;
+
 function ShoutboxClient() {
   var self = this;
   this.init = function(){
@@ -9,18 +11,19 @@ function ShoutboxClient() {
   };
 
   this.setupBayeuxClient = function() {
-    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
+    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180000 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
       if (updateData.remove) {
         self.removeEntry({ slug: updateData.remove });
       }
       else {
-        var el = that.findEntry(updateData);
+        var el = self.findEntry(updateData);
         el.removeClass();
         el.attr('data-updated-at', updateData.updatedAt);
         el.addClass(updateData.status);
-        el.addClass('fresh')
+        el.addClass('fresh');
+        layout.show(indexByGroup(updateData.group));
       }
       self.colorizesNav();
       self.checkStatus();
@@ -105,20 +108,22 @@ function ShoutboxClient() {
   this.init();
 }
 
-var shoutboxClient;
 jQuery(function() {
   shoutboxClient = new ShoutboxClient();
 });
 
 
-
+var indexByGroup = function(group) {
+  return _($('#groups > li')).chain().map(function(el) {
+    return $(el).attr('data-group-id');
+  }).indexOf(group).value();
+}
 
 $(function() {
   $('#groups').delegate('[data-action="activate-info"]', 'click', function() {
     $(this).parents('li').toggleClass('info-activated');
   });
 
-  var layout;
   $('[data-action="list"]').click(function() {
     $(this).siblings().removeClass('active');
     $(this).addClass('active');
@@ -141,9 +146,7 @@ $(function() {
   });
 
   $('#group-titles').delegate('a', 'click', function() {
-    var index = _($('#groups > li')).chain().map(function(group) {
-      return $(group).attr('data-group-id');
-    }).indexOf($(this).attr('data-group-id')).value();
+    var index = indexByGroup($(this).attr('data-group-id'));
     layout.show(index);
     return false;
   });

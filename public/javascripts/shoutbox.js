@@ -1,17 +1,19 @@
 function ShoutboxClient() {
   var self = this;
   this.init = function(){
-    this.setupBayeuxClient();
-    this.loadEntries();
+    self.setupBayeuxClient();
+    self.loadEntries();
+    setInterval(function() {
+      self.checkStatus();
+    }, 10 * 1000);
   };
 
   this.setupBayeuxClient = function() {
-    var that = this;
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
     self.client.subscribe('/status', function(updateData) {
       console.log(updateData);
       if (updateData.remove) {
-        that.removeEntry({ slug: updateData.remove });
+        self.removeEntry({ slug: updateData.remove });
       }
       else {
         var el = that.findEntry(updateData);
@@ -20,19 +22,34 @@ function ShoutboxClient() {
         el.addClass(updateData.status);
         el.addClass('fresh')
       }
-      that.colorizesNav();
+      self.colorizesNav();
+      self.checkStatus();
     });
   };
 
+  this.checkStatus = function() {
+    $('li[data-updated-at]').each(function(){
+      lastUpdate = $(this).attr('data-updated-at');
+
+      if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
+        $(this).removeClass('fresh');
+      }
+      if ((parseInt(lastUpdate) + 30 * 60 * 60 * 1000) < (new Date().getTime()) ) {
+        $(this).addClass('offline');
+      }
+    });
+    this.colorizesNav();
+  };
+
   this.loadEntries = function() {
-    var that = this;
     $.getJSON('/data', function(data) {
       _(data).forEach(function(entries, group) {
         _(entries).forEach(function(entry, name) {
-          that.addEntry(_(entry).extend({ statusId: name, group: group }));
+          self.addEntry(_(entry).extend({ statusId: name, group: group }));
         });
       });
-      that.colorizesNav();
+      self.colorizesNav();
+      self.checkStatus();
     });
   };
 
@@ -97,25 +114,6 @@ jQuery(function() {
 
 
 $(function() {
-  function checkStatus() {
-    $('li[data-updated-at]').each(function(){
-      lastUpdate = $(this).attr('data-updated-at');
-
-      if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
-        $(this).removeClass('fresh');
-      }
-      if ((parseInt(lastUpdate) + 30 * 60 * 60 * 1000) < (new Date().getTime()) ) {
-        $(this).addClass('offline');
-      }
-    });
-    shoutboxClient.colorizesNav();
-  }
-
-  setInterval(function () {
-    checkStatus();
-  }, 10 * 1000);
-  checkStatus();
-
   $('#groups').delegate('[data-action="activate-info"]', 'click', function() {
     $(this).parents('li').toggleClass('info-activated');
   });

@@ -538,7 +538,7 @@ html {
   transition-duration: 0.5s;
 }
 /* line 26, ../../views/stylesheets/layouts/_default.scss */
-#group-titles a.selected, #group-titles a:hover {
+#group-titles a.active, #group-titles a:hover {
   text-decoration: none;
   opacity: 1;
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
@@ -574,24 +574,25 @@ html {
 }
 /* line 6, ../../views/stylesheets/partials/_groups.scss */
 #groups h2 {
+  color: white;
   color: #4c33a4;
   float: left;
-  font-size: 70px;
-  line-height: 70px;
+  font-size: 100px;
+  line-height: 100px;
   margin: 0 6px 6px 0;
   padding: 27px 15px 7px 15px;
   padding: 12px 15px 2px;
 }
-/* line 14, ../../views/stylesheets/partials/_groups.scss */
+/* line 16, ../../views/stylesheets/partials/_groups.scss */
 #groups h2:after {
   content: ":";
 }
-/* line 18, ../../views/stylesheets/partials/_groups.scss */
+/* line 20, ../../views/stylesheets/partials/_groups.scss */
 #groups li {
   list-style: none;
   margin: 0;
 }
-/* line 22, ../../views/stylesheets/partials/_groups.scss */
+/* line 24, ../../views/stylesheets/partials/_groups.scss */
 #groups > li {
   background: white;
   *zoom: 1;
@@ -613,14 +614,14 @@ html {
   overflow: hidden;
   visibility: hidden;
 }
-/* line 27, ../../views/stylesheets/partials/_groups.scss */
+/* line 29, ../../views/stylesheets/partials/_groups.scss */
 #groups .inner {
-  margin: -40px -20px 0 0;
+  margin: -20px -20px 0 0;
   max-height: 100%;
-  padding: 40px 20px 0 0;
+  padding: 20px 20px 0 0;
   overflow: hidden;
 }
-/* line 32, ../../views/stylesheets/partials/_groups.scss */
+/* line 34, ../../views/stylesheets/partials/_groups.scss */
 #groups .inner:after {
   bottom: 0;
   content: " ";
@@ -634,17 +635,17 @@ html {
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
   background: linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
 }
-/* line 45, ../../views/stylesheets/partials/_groups.scss */
+/* line 47, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   margin: 0;
 }
-/* line 47, ../../views/stylesheets/partials/_groups.scss */
+/* line 49, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li {
   color: white;
   float: left;
-  font-size: 70px;
+  font-size: 100px;
   font-weight: bold;
-  line-height: 70px;
+  line-height: 100px;
   margin: 0 6px 6px 0;
   padding: 15px 25px 2px;
   position: relative;
@@ -658,23 +659,18 @@ html {
   transition-duration: 1s;
   text-shadow: white 0 0 0;
 }
-/* line 58, ../../views/stylesheets/partials/_groups.scss */
+/* line 60, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.red:before {
   content: "☠ ";
-  line-height: 50%;
   position: relative;
   top: 3px;
 }
-/* line 64, ../../views/stylesheets/partials/_groups.scss */
+/* line 65, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
-/* line 68, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.without-info a {
-  display: none;
-}
-/* line 71, ../../views/stylesheets/partials/_groups.scss */
+/* line 69, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -714,7 +710,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 92, ../../views/stylesheets/partials/_groups.scss */
+/* line 90, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -725,7 +721,7 @@ html {
   -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
 }
-/* line 96, ../../views/stylesheets/partials/_groups.scss */
+/* line 94, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -749,7 +745,7 @@ html {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 110, ../../views/stylesheets/partials/_groups.scss */
+/* line 108, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   opacity: 1;

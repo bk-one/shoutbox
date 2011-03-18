@@ -4,6 +4,7 @@ require 'rubygems'
 require 'sinatra'
 require 'rspec'
 require 'rack/test'
+require 'json'
 
 # set test environment
 set :environment, :test

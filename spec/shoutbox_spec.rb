@@ -6,22 +6,40 @@ describe "Shoutbox" do
   def app
     @app ||= Sinatra::Application
   end
-
+  
   context 'authentication' do
-    it "should require basic authentication" do
+    it 'should respond with a 401 status code if remote user is not set' do
       get '/'
       last_response.status.should == 401
-      last_response.headers['WWW-Authenticate'].should == %(Basic realm="Shoutbox")
     end
-
-    it "should respond to /" do
-      basic_authorize 'admin', 'admin'
+    
+    it 'should allow acces for authorized users' do
+      authorize 'admin', 'admin'
       get '/'
-      last_response.should be_ok
+      last_response.should be_redirect
     end
   end
   
-  context 'dashboard' do
+  context 'user management' do
+    it 'should creating the default shoutbox document shoutbox document with default data' do
+      ShoutboxDocument.delete_all
+      expect {
+        authorize 'admin', 'admin'
+        get '/data'
+        last_response.body.should == ShoutboxDocument.default_status.to_json
+      }.to change(ShoutboxDocument, :count).by(1)
+    end
+  end
+  
+  context 'updating status' do    
+    it 'should respond with a 400 status code if bad data transmitted' do
+      authorize 'admin', 'admin'
+      put '/status', "lala", default_env.update(:input => "this is not json")
+      last_response.status.should == 400
+    end
     
+    def default_env
+      { 'REMOTE_USER' => 'shouty', 'CONTENT_TYPE' => 'application/json' }
+    end
   end
 end

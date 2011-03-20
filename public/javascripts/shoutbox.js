@@ -1,18 +1,30 @@
 function ShoutboxClient() {
   var self = this;
+
   this.init = function(){
-    this.setupBayeuxClient();
     this.loadEntries();
   };
+
+	this.ShoutboxAuth = {
+	  outgoing: function(message, callback) {
+		  if (message.channel == "/meta/subscribe") {
+			  if (!message.ext) message.ext = {};
+			  message.ext.authToken = self.authToken;
+			}
+	    callback(message);
+	  }
+	};
 
   this.setupBayeuxClient = function() {
     var that = this;
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
-    self.client.subscribe('/status', function(updateData) {
+		self.client.addExtension(that.ShoutboxAuth);
+    self.client.subscribe('/status/' + that.accountName, function(updateData) {
       console.log(updateData);
       var el = that.findEntry(updateData);
       el.removeClass();
-      el.attr('data-updated-at', updateData.updatedAt);
+      el.attr('data-updated-at', updateData.updated_at);
+      el.attr('data-expires-at', updateData.expires_at);
       el.addClass(updateData.status);
       el.addClass('fresh')
       that.colorizesNav();
@@ -21,13 +33,16 @@ function ShoutboxClient() {
 
   this.loadEntries = function() {
     var that = this;
-    $.getJSON('/data', function(data) {
+    $.getJSON('/data', function(data, status, req) {
+	    that.authToken   = req.getResponseHeader('X-Shoutbox-Auth-Token');
+	 		that.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
       _(data).forEach(function(entries, group) {
         _(entries).forEach(function(entry, name) {
-          that.addEntry(_(entry).extend({ statusId: name, group: group }));
+          that.addEntry(_(entry).extend({ name: name, group: group }));
         });
       });
       that.colorizesNav();
+	    that.setupBayeuxClient(); // we need authToken and accountName
     });
   };
 
@@ -89,18 +104,24 @@ $(function() {
   function checkStatus() {
     $('li[data-updated-at]').each(function(){
       lastUpdate = $(this).attr('data-updated-at');
-
       if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
         $(this).removeClass('fresh');
-      }
-      if ((parseInt(lastUpdate) + 30 * 60 * 60 * 1000) < (new Date().getTime()) ) {
-        $(this).addClass('offline');
       }
     });
   }
 
+  function markOffline() {
+    $('li[data-expires-at]').each(function(){
+	    expiresAt = $(this).attr('data-expires-at');
+      if ((parseInt(expiresAt) * 1000) < (new Date().getTime()) ) {
+        $(this).addClass('offline');
+      }
+	  });
+  }
+
   setInterval(function () {
     checkStatus();
+    markOffline();
   }, 10 * 1000);
 
   $('[data-action="activate-info"]').click(function() {

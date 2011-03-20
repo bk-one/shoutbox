@@ -1,22 +1,22 @@
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
-
 require 'sinatra'
 require 'faye'
 require 'lib/shoutbox'
-require 'lib/broadcast'
+require 'lib/bayeux'
+require 'omniauth'
 
+enable :sessions
+
+use Faye::RackAdapter, :mount      => '/bayeux',
+                       :timeout    => 45,
+                      :extensions => [ Shoutbox::Bayeux::ServerAuth.new ]
+
+# use OmniAuth::Builder do
+#   provider :twitter, 'key', 'secret'
+# end
 
 set :public, File.dirname(__FILE__) + '/public'
 
-# you might want to use Rack::Auth for local testing
-use Rack::Auth::Basic, 'Shoutbox' do |username, password|
-  [username, password] == ['admin', 'admin']
-  @account_name = username
-end
-
-
-use Faye::RackAdapter, :mount      => '/bayeux',
-                       :timeout    => 45
 
 # Lets start that some bitch
 Shoutbox.initialize
@@ -25,28 +25,34 @@ get '/' do
   redirect to('/index.html')
 end
 
+get '/signup' do
+  <<-HTML
+    <a href='/auth/twitter'>Sign in with Twitter</a>
+  HTML
+end
+
+post '/auth/:name/callback' do
+  auth = request.env['omniauth.auth']
+  # do whatever you want with the information!
+end
+
 get '/data' do
-  get_shoutbox_document
   content_type :json
-  @shoutbox_document.status_data.to_json
+  validate_remote_user
+  Shoutbox.get_current_status( @account_name )
 end
 
 put '/status' do
   content_type :json
   validate_remote_user
-  get_shoutbox_document
-
-  data = JSON.parse request.body.read rescue throw(:halt, [400, "invalid data\n"])
-  
-  # @shoutbox_document.update_status( )
-  Broadcast.message( data.update( :updatedAt => Time.now.to_i, :slug => Shoutbox.convert_to_slug(data['group'], data['status'])))
+  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
+  puts @shoutbox_data.inspect
+  Shoutbox.update_status( @account_name, @shoutbox_data )
   "OK"
 end
 
 def validate_remote_user
-  @account_name = request.env['REMOTE_USER']
-end
-
-def get_shoutbox_document
-  @shoutbox_document = ShoutboxDocument.find_or_create_for_account( @account_name )
+  @account_name = 'my_shoutbox'
+  response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @account_name )
+  response.headers['X-Shoutbox-Account-Name'] = @account_name
 end

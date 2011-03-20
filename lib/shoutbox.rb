@@ -1,22 +1,28 @@
-require 'lib/shoutbox_document'
-require 'digest/sha2'
+require 'lib/shoutbox/authentication'
+require 'lib/shoutbox/data'
+require 'lib/shoutbox/document'
+require 'lib/shoutbox/util'
 
 class Shoutbox
-  
-  DEFAULT_SALT = 'this is the default shoutbox salt'
+  include Authentication
+  include Util
   
   def self.initialize
     initialize_mongodb
   end
   
-  def self.convert_to_slug( group_name, status_name )
-    (group_name + "-" + status_name).to_url
+  def self.get_current_status( account_name )
+    ShoutboxDocument.find_or_create_for_account( account_name ).current_status.to_json
   end
   
-  def self.create_auth_token_for( account_name )
-    salt  = Digest::SHA2.hexdigest("#{Time.now.utc}#{account_name}#{DEFAULT_SALT}")
-    token = Digest::SHA2.hexdigest("#{salt}--#{account_name}")
-    return [salt, token]
+  def self.update_status( account_name, update_data )
+    document = ShoutboxDocument.find_or_create_for_account( account_name )
+    document.update_status( update_data )
+    Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
+  end
+  
+  def self.auth_token_for( account_name )
+    ShoutboxDocument.find_or_create_for_account( account_name ).auth_token
   end
   
   private 

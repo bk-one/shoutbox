@@ -24,6 +24,7 @@ describe "Shoutbox" do
     it 'should creating the default shoutbox document shoutbox document with default data' do
       expect {
         get '/data'
+        last_response.status.should == 200
       }.to change(Shoutbox::ShoutboxDocument, :count).by(1)
     end
   end

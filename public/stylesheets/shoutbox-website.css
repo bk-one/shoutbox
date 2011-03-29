@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 27, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/html5-boilerplate-0.2.6/stylesheets/html5-boilerplate/_reset.scss */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -561,211 +560,121 @@ header a {
   padding: 11px 14px 9px;
 }
 
-/* line 1, ../../views/stylesheets/partials/_groups.scss */
-#groups {
-  list-style: 0;
-  margin: 0;
-  -moz-transform: scale(1, 1);
-  -webkit-transform: scale(1, 1);
-  -o-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  transform: scale(1, 1);
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.4s;
-  -webkit-transition-duration: 0.4s;
-  -o-transition-duration: 0.4s;
-  transition-duration: 0.4s;
-  -moz-transition-timing-function: linear;
-  -webkit-transition-timing-function: linear;
-  -o-transition-timing-function: linear;
-  transition-timing-function: linear;
+/* line 1, ../../views/stylesheets/partials/_signup.scss */
+#signup {
+  margin: 100px auto;
+  padding: 20px;
+  width: 700px;
 }
-/* line 6, ../../views/stylesheets/partials/_groups.scss */
-#groups h2 {
-  color: #4c33a4;
-  float: left;
-  font-size: 70px;
-  line-height: 70px;
-  margin: 0 6px 6px 0;
-  padding: 27px 15px 7px 15px;
-  padding: 12px 15px 2px;
-}
-/* line 14, ../../views/stylesheets/partials/_groups.scss */
-#groups h2:after {
-  content: ":";
-}
-/* line 18, ../../views/stylesheets/partials/_groups.scss */
-#groups li {
-  list-style: none;
-  margin: 0;
-}
-/* line 22, ../../views/stylesheets/partials/_groups.scss */
-#groups > li {
-  background: white;
-  *zoom: 1;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
-}
-/* line 22, ../../../../.rvm/gems/ruby-1.9.2-p0@node/gems/compass-0.11.alpha.4/frameworks/compass/stylesheets/compass/utilities/general/_clearfix.scss */
-#groups > li:after {
-  content: "\0020";
-  display: block;
-  height: 0;
-  clear: both;
-  overflow: hidden;
-  visibility: hidden;
-}
-/* line 27, ../../views/stylesheets/partials/_groups.scss */
-#groups .inner {
-  margin: -40px -20px 0 0;
-  max-height: 100%;
-  padding: 40px 20px 0 0;
-  overflow: hidden;
-}
-/* line 32, ../../views/stylesheets/partials/_groups.scss */
-#groups .inner:after {
-  bottom: 0;
-  content: " ";
-  display: block;
-  height: 6px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSJyZ2JhKDI1NSwgMjU1LCAyNTUsIDApIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjZmZmZmZmIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
-  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, rgba(255, 255, 255, 0)), color-stop(100%, #ffffff));
-  background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
-  background: linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
-}
-/* line 45, ../../views/stylesheets/partials/_groups.scss */
-#groups ul {
-  margin: 0;
-}
-/* line 47, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li {
-  color: white;
-  float: left;
-  font-size: 70px;
-  font-weight: bold;
-  line-height: 70px;
-  margin: 0 6px 6px 0;
-  padding: 15px 25px 2px;
-  position: relative;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 1s;
-  -webkit-transition-duration: 1s;
-  -o-transition-duration: 1s;
-  transition-duration: 1s;
-  text-shadow: white 0 0 0;
-}
-/* line 58, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.red:before {
-  content: "☠ ";
-  line-height: 50%;
-  position: relative;
-  top: 3px;
-}
-/* line 64, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.offline {
-  color: rgba(255, 255, 255, 0.1);
-  text-shadow: white 0 0 25px, white 0 0 15px;
-}
-/* line 68, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.without-info a {
-  display: none;
-}
-/* line 71, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li a {
-  background: inherit;
-  -webkit-background-clip: padding-box;
-  border: 3px white solid;
-  color: white;
-  font-size: 25px;
-  line-height: 26px;
-  padding-top: 4px;
-  position: absolute;
-  right: -18px;
+/* line 5, ../../views/stylesheets/partials/_signup.scss */
+#signup p {
+  color: #e5e0f6;
+  font-size: 150%;
   text-align: center;
-  text-decoration: none;
-  top: -18px;
-  width: 30px;
-  z-index: 3;
-  -moz-border-radius: 18px;
-  -webkit-border-radius: 18px;
-  -o-border-radius: 18px;
-  -ms-border-radius: 18px;
-  -khtml-border-radius: 18px;
-  border-radius: 18px;
-  opacity: 0;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  -moz-transform: scale(0, 0);
-  -webkit-transform: scale(0, 0);
-  -o-transform: scale(0, 0);
-  -ms-transform: scale(0, 0);
-  transform: scale(0, 0);
-  text-shadow: white 0 0 0;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
 }
-/* line 92, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li:hover a {
-  -moz-transform: scale(1, 1);
-  -webkit-transform: scale(1, 1);
-  -o-transform: scale(1, 1);
-  -ms-transform: scale(1, 1);
-  transform: scale(1, 1);
-  opacity: 1;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-}
-/* line 96, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li .info {
-  background: inherit;
-  bottom: 100%;
-  font-size: 15px;
+/* line 11, ../../views/stylesheets/partials/_signup.scss */
+#signup label,
+#signup input {
+  font-weight: bold;
+  height: 20px;
   line-height: 20px;
-  margin-bottom: 6px;
-  padding: 6px 15px;
-  position: absolute;
-  right: 0;
-  z-index: -1;
-  opacity: 0;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
-  text-shadow: white 0 0 0;
-  -moz-transition-property: all;
-  -webkit-transition-property: all;
-  -o-transition-property: all;
-  transition-property: all;
-  -moz-transition-duration: 0.5s;
-  -webkit-transition-duration: 0.5s;
-  -o-transition-duration: 0.5s;
-  transition-duration: 0.5s;
+  padding: 5px 10px;
+  width: 200px;
 }
-/* line 110, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.info-activated .info {
+/* line 18, ../../views/stylesheets/partials/_signup.scss */
+#signup label {
+  color: #c4bae9;
+  background: #e5e0f6;
+  position: absolute;
+  text-align: right;
+  z-index: 1;
+}
+/* line 24, ../../views/stylesheets/partials/_signup.scss */
+#signup label:before {
+  content: '< ';
+}
+/* line 27, ../../views/stylesheets/partials/_signup.scss */
+#signup label:focus {
+  background: red;
+}
+/* line 31, ../../views/stylesheets/partials/_signup.scss */
+#signup input {
+  background: transparent;
+  border: 0;
+  margin-right: 20px;
+  position: relative;
   z-index: 2;
-  opacity: 1;
-  -ms-filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
-  filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
+  -moz-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  -webkit-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  -o-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+}
+/* line 41, ../../views/stylesheets/partials/_signup.scss */
+#signup input:focus {
+  outline: 0;
+  -moz-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
+  -webkit-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
+  -o-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
+  box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
+}
+/* line 49, ../../views/stylesheets/partials/_signup.scss */
+#signup button {
+  border: 1px #826cd1 solid;
+  color: #3a277d;
+  font-size: 150%;
+  font-weight: bold;
+  padding: 5px 9px 3px;
+  vertical-align: top;
+  width: 200px;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTVlMGY2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYTM5M2RkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e5e0f6), color-stop(100%, #a393dd));
+  background: -moz-linear-gradient(top, #e5e0f6, #a393dd);
+  background: linear-gradient(top, #e5e0f6, #a393dd);
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+  -moz-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  -webkit-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  -o-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
+  text-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px;
+}
+/* line 66, ../../views/stylesheets/partials/_signup.scss */
+#signup button:before {
+  content: '>> ';
+}
+/* line 69, ../../views/stylesheets/partials/_signup.scss */
+#signup button:after {
+  content: ' >>';
+}
+/* line 73, ../../views/stylesheets/partials/_signup.scss */
+#signup button:hover, #signup button:focus {
+  border: 1px #7258cb solid;
+  color: #31216a;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZDVjZGVmIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjOTM3ZmQ3Ii8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #d5cdef), color-stop(100%, #937fd7));
+  background: -moz-linear-gradient(top, #d5cdef, #937fd7);
+  background: linear-gradient(top, #d5cdef, #937fd7);
+}
+/* line 80, ../../views/stylesheets/partials/_signup.scss */
+#signup button:focus {
+  outline: 0;
+  -moz-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
+  -webkit-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
+  -o-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
+  box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
+}
+/* line 87, ../../views/stylesheets/partials/_signup.scss */
+#signup button:active {
+  border: 1px #5539b7 solid;
+  color: #1f1543;
+  background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjYjRhNmUzIi8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjNzI1OGNiIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
+  background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #b4a6e3), color-stop(100%, #7258cb));
+  background: -moz-linear-gradient(top, #b4a6e3, #7258cb);
+  background: linear-gradient(top, #b4a6e3, #7258cb);
 }
 
 /* line 1, ../../views/stylesheets/partials/_colors.scss */

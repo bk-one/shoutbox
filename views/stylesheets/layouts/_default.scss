@@ -2,13 +2,44 @@ html {
   background: black;
 }
 
+header {
+  display: block;
+  font-weight: 300;
+  left: 0;
+  margin: 0;
+  padding: $margin $margin + 2 * $small-margin;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  @include background(
+    linear-gradient(top, black, rgba(black, .8) 60px, rgba(black, 0) 80px)
+  );
+  h1 {
+    display: inline;
+    margin-right: $margin;
+  }
+  strong {
+    font-weight: 800;
+    margin: 0 2em 0 0;
+  }
+  span {
+    color: white;
+  }
+  a {
+    color: white;
+    font-weight: bold;
+    margin-right: $small-margin;
+    vertical-align: 5px;
+  }
+}
+
 #group-titles {
   @extend .xl;
   left: 350px;
   position: absolute;
   right: $margin;
   text-align: right;
-  top: $margin - 6px;
+  top: $margin - 4px;
   white-space: nowrap;
   z-index: 1001;
   @include ellipsis;

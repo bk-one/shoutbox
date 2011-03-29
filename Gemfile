@@ -1,13 +1,15 @@
 source "http://rubygems.org"
 
-gem 'rake',     '~> 0.8'
-gem 'sinatra',  '~> 1.2'
-gem 'faye',     '~> 0.5'
-gem 'mongoid',  '2.0.0.rc.7'
-gem 'omniauth', '~> 0.2'
-gem "bson_ext", "~> 1.2"
-gem 'thin',     '~> 1.2'
-gem 'stringex', '~> 1.2'
+gem 'rake',              '~> 0.8'
+gem 'sinatra',           '~> 1.2'
+gem 'faye',              '~> 0.5'
+gem 'mongoid',           '2.0.0.rc.7'
+gem 'omniauth',          '~> 0.2'
+gem 'bson_ext',          '~> 1.2'
+gem 'thin',              '~> 1.2'
+gem 'stringex',          '~> 1.2'
+gem 'compass',           '0.11.beta.5'
+gem 'html5-boilerplate', '~> 0.3.2'
 
 group :development do
   gem "bundler", 	  "~> 1.0"

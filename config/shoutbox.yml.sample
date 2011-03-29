@@ -1,0 +1,5 @@
+host: 'some.host'
+port: 80
+twitter:
+  key: 'key'
+  secret: 'secret'

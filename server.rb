@@ -34,8 +34,12 @@ end
 
 get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
-  pp auth
+  redirect to('/shoutbox.html')
   # do whatever you want with the information!
+end
+
+get '/auth/failure' do
+  request.env.to_s
 end
 
 get '/data' do

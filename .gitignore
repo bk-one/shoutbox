@@ -29,3 +29,5 @@ Gemfile.lock
 ## TMP
 tmp
 .livereload
+
+config/shoutbox.yml

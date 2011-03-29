@@ -4,6 +4,7 @@ require 'faye'
 require 'lib/shoutbox'
 require 'lib/bayeux'
 require 'omniauth'
+require 'pp'
 
 enable :sessions
 
@@ -11,9 +12,9 @@ use Faye::RackAdapter, :mount      => '/bayeux',
                        :timeout    => 45,
                       :extensions => [ Shoutbox::Bayeux::ServerAuth.new ]
 
-# use OmniAuth::Builder do
-#   provider :twitter, 'key', 'secret'
-# end
+use OmniAuth::Builder do
+  provider :twitter, Shoutbox.twitter_consumer_key, Shoutbox.twitter_consumer_secret
+end
 
 set :public, File.dirname(__FILE__) + '/public'
 
@@ -31,28 +32,27 @@ get '/signup' do
   HTML
 end
 
-post '/auth/:name/callback' do
+get '/auth/:name/callback' do
   auth = request.env['omniauth.auth']
+  pp auth
   # do whatever you want with the information!
 end
 
 get '/data' do
   content_type :json
-  validate_remote_user
   Shoutbox.get_current_status( @account_name )
 end
 
 put '/status' do
   content_type :json
-  validate_remote_user
   @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
   puts @shoutbox_data.inspect
   Shoutbox.update_status( @account_name, @shoutbox_data )
   "OK"
 end
 
-def validate_remote_user
-  @account_name = 'my_shoutbox'
+def remote_user
+  @account_name = request.env['omniauth.auth']['user_info']['username']
   response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @account_name )
   response.headers['X-Shoutbox-Account-Name'] = @account_name
 end

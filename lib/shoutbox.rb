@@ -11,6 +11,18 @@ class Shoutbox
     initialize_mongodb
   end
   
+  def self.twitter_consumer_key
+    configuration['twitter']['key']
+  end
+  
+  def self.twitter_consumer_secret
+    configuration['twitter']['secret']
+  end
+  
+  def self.configuration
+    @configuration ||= configuration_hash
+  end
+  
   def self.get_current_status( account_name )
     ShoutboxDocument.find_or_create_for_account( account_name ).current_status.to_json
   end
@@ -31,6 +43,11 @@ class Shoutbox
     Mongoid.configure do |config|
       config.from_hash(mongodb_config_hash)
     end
+  end
+  
+  def self.configuration_hash
+    file_name = File.join(File.dirname(__FILE__), "..", "config", "shoutbox.yml")
+    hash = YAML.load_file( file_name )
   end
   
   def self.mongodb_config_hash

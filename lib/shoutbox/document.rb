@@ -6,13 +6,13 @@ require 'lib/shoutbox/status'
 class Shoutbox
   class ShoutboxDocument
     include Mongoid::Document
+    include Mongoid::Timestamps
     include Status
     
     field :account_name
-    field :status_data, :type => Hash
+    field :status_data_json
     field :auth_token
     field :auth_salt
-
   
     def self.find_or_create_for_account( account_name )
        find_document_for( account_name ) || create_shoutbox_document_for( account_name )

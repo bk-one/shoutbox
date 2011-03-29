@@ -1,0 +1,22 @@
+#howto {
+  $width: 900px;
+  $gap: 40px;
+  color: white;
+  margin: 0 auto;
+  width: $width;
+  > div {
+    float: left;
+    margin-left: $gap;
+    width: ($width - 2 * $gap) / 3;
+    &:first-child {
+      margin-left: 0;
+    }
+  }
+  pre {
+    height: 146px;
+  }
+  img {
+    margin: -7px -10px;
+    max-width: ($width - 2 * $gap) / 3 + 20px;
+  }
+}

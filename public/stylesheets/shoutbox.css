@@ -352,6 +352,17 @@ body {
 h1 {
   color: #4c33a4;
 }
+/* line 66, ../../views/stylesheets/global/_typography.scss */
+.index h1 {
+  font-size: 100px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* line 96, ../../views/stylesheets/global/_typography.scss */
+pre {
+  background: rgba(76, 51, 164, 0.5);
+}
 
 /* line 1, ../../views/stylesheets/global/_links.scss */
 a {
@@ -777,6 +788,7 @@ header a {
   background: rgba(0, 0, 0, 0.95);
   bottom: 0;
   color: white;
+  display: none;
   left: 0;
   padding: 50px;
   position: fixed;
@@ -784,11 +796,7 @@ header a {
   top: 0;
   z-index: 9999;
 }
-/* line 11, ../../views/stylesheets/partials/_config.scss */
-#config pre {
-  background: rgba(76, 51, 164, 0.3);
-}
-/* line 15, ../../views/stylesheets/partials/_config.scss */
+/* line 12, ../../views/stylesheets/partials/_config.scss */
 #config [data-action="close-config"] {
   position: absolute;
   right: 20px;

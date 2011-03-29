@@ -351,6 +351,17 @@ body {
 h1 {
   color: #4c33a4;
 }
+/* line 66, ../../views/stylesheets/global/_typography.scss */
+.index h1 {
+  font-size: 100px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* line 96, ../../views/stylesheets/global/_typography.scss */
+pre {
+  background: rgba(76, 51, 164, 0.5);
+}
 
 /* line 1, ../../views/stylesheets/global/_links.scss */
 a {
@@ -495,7 +506,7 @@ header a {
 
 /* line 1, ../../views/stylesheets/partials/_signup.scss */
 #signup {
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 20px;
   text-align: center;
   width: 700px;
@@ -635,4 +646,30 @@ header a {
 /* line 51, ../../views/stylesheets/partials/_colors.scss */
 .green.fresh {
   -webkit-animation-duration: 3s;
+}
+
+/* line 1, ../../views/stylesheets/partials/_howto.scss */
+#howto {
+  color: white;
+  margin: 0 auto;
+  width: 900px;
+}
+/* line 7, ../../views/stylesheets/partials/_howto.scss */
+#howto > div {
+  float: left;
+  margin-left: 40px;
+  width: 273.333px;
+}
+/* line 11, ../../views/stylesheets/partials/_howto.scss */
+#howto > div:first-child {
+  margin-left: 0;
+}
+/* line 15, ../../views/stylesheets/partials/_howto.scss */
+#howto pre {
+  height: 146px;
+}
+/* line 18, ../../views/stylesheets/partials/_howto.scss */
+#howto img {
+  margin: -7px -10px;
+  max-width: 293.333px;
 }

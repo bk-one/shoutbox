@@ -39,7 +39,8 @@ get '/auth/:name/callback' do
 end
 
 get '/auth/failure' do
-  request.env.to_s
+  puts request.env.to_s
+  File.read('public/failure.html')
 end
 
 get '/data' do

@@ -1,43 +1,41 @@
 <!DOCTYPE html>
-<html>
+<html class="index">
   <head>
     <title>Shoutbox</title>
-    <link rel="stylesheet" href="/stylesheets/shoutbox.css">
+    <link rel="stylesheet" href="/stylesheets/shoutbox-website.css">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
     <script type="text/javascript" src="/bayeux.js"></script>
     <script type="text/javascript" src="/javascripts/jquery.js"></script>
     <script type="text/javascript" src="/javascripts/jquery-ui.js"></script>
     <script type="text/javascript" src="/javascripts/jquery.mustache.js"></script>
     <script type="text/javascript" src="/javascripts/underscore.min.js"></script>
-    <script type="text/javascript" src="/javascripts/layout.js"></script>
-    <script type="text/javascript" src="/javascripts/shoutbox.js"></script>
+    <script type="text/javascript" src="/javascripts/shoutbox-website.js"></script>
     <script src="http://use.typekit.com/tiv8wcl.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
   </head>
   <body>
-    <header>
-      <h1>shoutbox</h1>
-      <a href="#" data-action="list">LIST</a>
-      <a href="#" data-action="spaces" class="active">SPACES</a>
-      <nav id="group-titles"></nav>
-    </header>
-    <ul id="groups"></ul>
-    <script id="group-title-template" type="text/x-mustache-template">
-      <a href="#" data-group-id="{{group}}">{{group}}</a>
-    </script>
-    <script id="group-template" type="text/x-mustache-template">
-      <li data-group-id="{{group}}">
-        <div class="inner">
-          <h2><span>{{group}}</span></h2>
-          <ul></ul>
-        </div>
-      </li>
-    </script>
-    <script id="entry-template" type="text/x-mustache-template">
-      <li data-entry-id="{{slug}}" data-updated-at="{{updated_at}}" data-expires-at="{{expires_at}}" class="{{status}}">
-        {{name}}
-        <a href="#" data-action="activate-info">?</a>
-        <div class="info">{{message}}</div>
-      </li>
-    </script>
+    <h1>
+      <strong>shoutbox</strong>
+    </h1>
+    <div id="signup">
+      <form action="/auth/twitter">
+        <p>Sign up for Shoutbox <strong>for free</strong> during beta:</p>
+        <button type="submit">Sign up with twitter</button>
+      </form>
+    </div>
+    <div id="howto">
+      <div id="setup">
+        <h2>Setup</h2>
+        <pre><code>gem install shoutbox-client</code></pre>
+      </div>
+      <div id="run">
+        <h2>Run</h2>
+        <pre><code>shout green shoutbox.io --group "My Websites"</code></pre>
+      </div>
+      <div id="display">
+        <h2>Display</h2>
+        <img src="/images/screenshot.png" alt="shoutbox preview"> 
+      </div>
+    </div>
   </body>
 </html>

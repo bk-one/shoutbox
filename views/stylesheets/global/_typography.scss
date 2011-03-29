@@ -63,6 +63,11 @@ h1 {
   @extend .headline;
   @extend .xl;
   color: $primary-color;
+  .index & {
+    font-size: 100px;
+    margin-bottom: 0;
+    text-align: center;
+  }
 }
 
 h2,
@@ -86,4 +91,8 @@ article {
   ul {
     @extend .paragraph;
   }
+}
+  
+pre {
+  background: rgba($primary-color, 0.5);
 }

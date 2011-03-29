@@ -24,3 +24,13 @@
   background-image: image-url("spaces.png");
 }
 
+[data-action="config"] {
+  @extend .layout-button;
+  background-image: image-url("config.png");
+}
+
+[data-action="close-config"] {
+  @extend .layout-button;
+  background-image: image-url("close.png");
+}
+

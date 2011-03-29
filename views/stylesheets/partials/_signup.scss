@@ -1,50 +1,12 @@
 #signup {
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 20px;
+  text-align: center;
   width: 700px; 
   p {
     color: lighten($primary-color, 50%);
     font-size: 150%;
     text-align: center;
-  }
-  label,
-  input {
-    font-weight: bold;
-    height: 20px;
-    line-height: 20px;
-    padding: 5px 10px;
-    width: 200px;
-  }
-  label {
-    color: lighten($primary-color, 40%);
-    background: lighten($primary-color, 50%);
-    position: absolute;
-    text-align: right;
-    z-index: 1;
-    &:before {
-      content: '< ';
-    }
-    &:focus {
-      background: red; 
-    }
-  }
-  input {
-    background: transparent;
-    border: 0;
-    margin-right: 20px;
-    position: relative;
-    z-index: 2;
-    @include box-shadow(
-      rgba($primary-color, .3) 0 2px 5px inset,
-      rgba(lighten($primary-color, 30%), .7) 0 0 5px
-    );
-    &:focus {
-      outline: 0;
-      @include box-shadow(
-        rgba($primary-color, .3) 0 2px 5px inset,
-        lighten($primary-color, 30%) 0 0 10px
-      );
-    }
   }
   button {
     border: 1px lighten($primary-color, 20%) solid;
@@ -53,7 +15,7 @@
     font-weight: bold;
     padding: 5px 9px 3px;
     vertical-align: top;
-    width: 200px;
+    width: 300px;
     @include background(
       linear-gradient(top, lighten($primary-color, 50%), lighten($primary-color, 30%))
     );

@@ -351,6 +351,17 @@ body {
 h1 {
   color: #4c33a4;
 }
+/* line 66, ../../views/stylesheets/global/_typography.scss */
+.index h1 {
+  font-size: 100px;
+  margin-bottom: 0;
+  text-align: center;
+}
+
+/* line 96, ../../views/stylesheets/global/_typography.scss */
+pre {
+  background: rgba(76, 51, 164, 0.5);
+}
 
 /* line 1, ../../views/stylesheets/global/_links.scss */
 a {
@@ -362,7 +373,7 @@ a:hover {
 }
 
 /* line 1, ../../views/stylesheets/global/_buttons.scss */
-.layout-button, [data-action="list"], [data-action="spaces"] {
+.layout-button, [data-action="list"], [data-action="spaces"], [data-action="config"], [data-action="close-config"] {
   background: no-repeat 6px 6px;
   padding: 6px;
   display: inline-block;
@@ -374,11 +385,11 @@ a:hover {
   text-align: left;
 }
 /* line 9, ../../views/stylesheets/global/_buttons.scss */
-.layout-button.active, .active[data-action="list"], .active[data-action="spaces"] {
+.layout-button.active, .active[data-action="list"], .active[data-action="spaces"], .active[data-action="config"], .active[data-action="close-config"] {
   background-color: rgba(76, 51, 164, 0.75);
 }
 /* line 12, ../../views/stylesheets/global/_buttons.scss */
-.layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover {
+.layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover, [data-action="config"]:hover, [data-action="close-config"]:hover {
   background-color: #4c33a4;
 }
 
@@ -390,6 +401,16 @@ a:hover {
 /* line 22, ../../views/stylesheets/global/_buttons.scss */
 [data-action="spaces"] {
   background-image: url('/images/spaces.png?1299757319');
+}
+
+/* line 27, ../../views/stylesheets/global/_buttons.scss */
+[data-action="config"] {
+  background-image: url('/images/config.png?1301419107');
+}
+
+/* line 32, ../../views/stylesheets/global/_buttons.scss */
+[data-action="close-config"] {
+  background-image: url('/images/close.png?1301418970');
 }
 
 /* line 1, ../../views/stylesheets/layouts/_default.scss */
@@ -485,62 +506,18 @@ header a {
 
 /* line 1, ../../views/stylesheets/partials/_signup.scss */
 #signup {
-  margin: 100px auto;
+  margin: 50px auto;
   padding: 20px;
+  text-align: center;
   width: 700px;
 }
-/* line 5, ../../views/stylesheets/partials/_signup.scss */
+/* line 6, ../../views/stylesheets/partials/_signup.scss */
 #signup p {
   color: #e5e0f6;
   font-size: 150%;
   text-align: center;
 }
 /* line 11, ../../views/stylesheets/partials/_signup.scss */
-#signup label,
-#signup input {
-  font-weight: bold;
-  height: 20px;
-  line-height: 20px;
-  padding: 5px 10px;
-  width: 200px;
-}
-/* line 18, ../../views/stylesheets/partials/_signup.scss */
-#signup label {
-  color: #c4bae9;
-  background: #e5e0f6;
-  position: absolute;
-  text-align: right;
-  z-index: 1;
-}
-/* line 24, ../../views/stylesheets/partials/_signup.scss */
-#signup label:before {
-  content: '< ';
-}
-/* line 27, ../../views/stylesheets/partials/_signup.scss */
-#signup label:focus {
-  background: red;
-}
-/* line 31, ../../views/stylesheets/partials/_signup.scss */
-#signup input {
-  background: transparent;
-  border: 0;
-  margin-right: 20px;
-  position: relative;
-  z-index: 2;
-  -moz-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
-  -webkit-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
-  -o-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
-  box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
-}
-/* line 41, ../../views/stylesheets/partials/_signup.scss */
-#signup input:focus {
-  outline: 0;
-  -moz-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
-  -webkit-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
-  -o-box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
-  box-shadow: rgba(76, 51, 164, 0.3) 0 2px 5px inset, #a393dd 0 0 10px;
-}
-/* line 49, ../../views/stylesheets/partials/_signup.scss */
 #signup button {
   border: 1px #826cd1 solid;
   color: #3a277d;
@@ -548,7 +525,7 @@ header a {
   font-weight: bold;
   padding: 5px 9px 3px;
   vertical-align: top;
-  width: 200px;
+  width: 300px;
   background: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4gPHN2ZyB2ZXJzaW9uPSIxLjEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGRlZnM+PGxpbmVhckdyYWRpZW50IGlkPSJncmFkIiB4MT0iNTAlIiB5MT0iMCUiIHgyPSI1MCUiIHkyPSIxMDAlIj48c3RvcCBvZmZzZXQ9IjAlIiBzdG9wLWNvbG9yPSIjZTVlMGY2Ii8+PHN0b3Agb2Zmc2V0PSIxMDAlIiBzdG9wLWNvbG9yPSIjYTM5M2RkIi8+PC9saW5lYXJHcmFkaWVudD48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNncmFkKSIgLz48L3N2Zz4g');
   background: -webkit-gradient(linear, 50% 0%, 50% 100%, color-stop(0%, #e5e0f6), color-stop(100%, #a393dd));
   background: -moz-linear-gradient(top, #e5e0f6, #a393dd);
@@ -565,15 +542,15 @@ header a {
   box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, rgba(163, 147, 221, 0.7) 0 0 5px;
   text-shadow: rgba(255, 255, 255, 0.5) 0 1px 1px;
 }
-/* line 66, ../../views/stylesheets/partials/_signup.scss */
+/* line 28, ../../views/stylesheets/partials/_signup.scss */
 #signup button:before {
   content: '>> ';
 }
-/* line 69, ../../views/stylesheets/partials/_signup.scss */
+/* line 31, ../../views/stylesheets/partials/_signup.scss */
 #signup button:after {
   content: ' >>';
 }
-/* line 73, ../../views/stylesheets/partials/_signup.scss */
+/* line 35, ../../views/stylesheets/partials/_signup.scss */
 #signup button:hover, #signup button:focus {
   border: 1px #7258cb solid;
   color: #31216a;
@@ -582,7 +559,7 @@ header a {
   background: -moz-linear-gradient(top, #d5cdef, #937fd7);
   background: linear-gradient(top, #d5cdef, #937fd7);
 }
-/* line 80, ../../views/stylesheets/partials/_signup.scss */
+/* line 42, ../../views/stylesheets/partials/_signup.scss */
 #signup button:focus {
   outline: 0;
   -moz-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
@@ -590,7 +567,7 @@ header a {
   -o-box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
   box-shadow: rgba(58, 39, 125, 0.3) 0 2px 5px inset, #a393dd 0 0 5px;
 }
-/* line 87, ../../views/stylesheets/partials/_signup.scss */
+/* line 49, ../../views/stylesheets/partials/_signup.scss */
 #signup button:active {
   border: 1px #5539b7 solid;
   color: #1f1543;
@@ -669,4 +646,30 @@ header a {
 /* line 51, ../../views/stylesheets/partials/_colors.scss */
 .green.fresh {
   -webkit-animation-duration: 3s;
+}
+
+/* line 1, ../../views/stylesheets/partials/_howto.scss */
+#howto {
+  color: white;
+  margin: 0 auto;
+  width: 900px;
+}
+/* line 7, ../../views/stylesheets/partials/_howto.scss */
+#howto > div {
+  float: left;
+  margin-left: 40px;
+  width: 273.333px;
+}
+/* line 11, ../../views/stylesheets/partials/_howto.scss */
+#howto > div:first-child {
+  margin-left: 0;
+}
+/* line 15, ../../views/stylesheets/partials/_howto.scss */
+#howto pre {
+  height: 146px;
+}
+/* line 18, ../../views/stylesheets/partials/_howto.scss */
+#howto img {
+  margin: -7px -10px;
+  max-width: 293.333px;
 }

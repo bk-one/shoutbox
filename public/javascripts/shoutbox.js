@@ -128,6 +128,18 @@ $(function() {
     $(this).parents('li').toggleClass('info-activated');
   });
 
+  $('body').append($.mustache($('#config-template').html(), {
+    host: location.hostname,
+    port: location.port,
+    auth_token: shoutboxClient.authToken
+  }));
+  $('[data-action="close-config"]').click(function() {
+    $('#config').fadeOut();
+  });
+  $('[data-action="config"]').click(function() {
+    $('#config').fadeIn();
+  });
+
   var layout;
   $('[data-action="list"]').click(function() {
     $(this).siblings().removeClass('active');

@@ -8,8 +8,12 @@ How to run
 ---
 
 shoutbox will only run with thin in production mode, so please start shoutbox via
-    
+
     rackup -s thin -E production
+
+If you edit stylesheets, also run:
+
+    compass watch -c config/compass.rb
 
 
 Configuration

@@ -1,0 +1,66 @@
+html {
+  background: black;
+}
+
+header {
+  display: block;
+  font-weight: 300;
+  left: 0;
+  margin: 0;
+  padding: $margin $margin + 2 * $small-margin;
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  @include background(
+    linear-gradient(top, black, rgba(black, .8) 60px, rgba(black, 0) 80px)
+  );
+  h1 {
+    display: inline;
+    margin-right: $margin;
+  }
+  strong {
+    font-weight: 800;
+    margin: 0 2em 0 0;
+  }
+  span {
+    color: white;
+  }
+  a {
+    color: white;
+    font-weight: bold;
+    margin-right: $small-margin;
+    vertical-align: 5px;
+  }
+}
+
+#group-titles {
+  @extend .xl;
+  left: 350px;
+  position: absolute;
+  right: $margin;
+  text-align: right;
+  top: $margin - 4px;
+  white-space: nowrap;
+  z-index: 1001;
+  @include ellipsis;
+  a {
+    border: $small-margin black solid;
+    color: white;
+    display: inline-block;
+    font-weight: bold;
+    line-height: 16px + 8px;
+    margin-left: $small-margin;
+    padding: $small-margin - 1px 8px $small-margin - 3px;
+    @include opacity(.75);
+    @include transition(background-color, .5s);
+    &.selected,
+    &:hover {
+      text-decoration: none;
+      @include opacity(1);
+    }
+    &.selected {
+      border: 0;
+      padding: 2 * $small-margin - 1px 8px + $small-margin 2 * $small-margin - 3px;
+    }
+  }
+}

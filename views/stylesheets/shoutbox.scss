@@ -1,0 +1,59 @@
+// Frameworks
+
+$experimental-support-for-svg: true;
+@import "compass";
+@import "compass/css3/images";
+@import "html5-boilerplate";
+
+// External plugins e. g. jQuery plugins
+
+//@import "vendor/plugin-name";
+
+// Base colors and sizes
+
+$primary-color: #4C33A4;
+$alert-color: #BD3649;
+$warning-color: #B98F00;
+$ok-color: #6FAE3E;
+
+$primary-color: #4C33A4;
+$alert-color: #DB2400;
+$warning-color: #ECC91B;
+$ok-color: #8BC40D;
+
+$font-color: #444;
+$link-color: #3F7D99;
+$grey-color: #DADAD9;
+
+$base-font-family: "apertura-1", "apertura-2", "helvetica neue", helvetica, arial, sans-serif;
+$base-font-family: "pill-gothic-300mg-1", "pill-gothic-300mg-2", "helvetica neue", helvetica, arial, sans-serif;
+$headline-font-family: $base-font-family;
+$small-font-size: 11px;
+$base-font-size: 13px;
+$large-font-size: 20px;
+$x-large-font-size: 30px;
+$base-line-height: 1.231;
+
+$margin: 20px;
+$small-margin: 6px;
+
+// HTML5 boilerplate
+
+@include html5-boilerplate;
+
+// Global styles used all over the website
+// e. g. tags without classes like h1, h2, a, button, form elements, ...
+
+@import "global/extendables";
+@import "global/typography";
+@import "global/links";
+@import "global/buttons";
+
+// Layout (header, footer, global sidebars)
+
+@import "layouts/default";
+
+// Content partials (article, lists, ...)
+
+@import "partials/groups";
+@import "partials/colors";

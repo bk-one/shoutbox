@@ -1,0 +1,22 @@
+defaults: &defaults
+  host: localhost
+  autocreate_indexes: false
+  allow_dynamic_fields: true
+  include_root_in_json: false
+  parameterize_keys: true
+  persist_in_safe_mode: false
+  raise_not_found_error: true 
+  reconnect_time: 3
+
+development:
+  <<: *defaults
+  database: shoutbox_development
+
+test:
+  <<: *defaults
+  database: shoutbox_test
+
+production:
+  <<: *defaults
+  database: shoutbox_production
+  

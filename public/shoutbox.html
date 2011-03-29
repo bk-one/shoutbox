@@ -17,6 +17,7 @@
   <body>
     <header>
       <h1>shoutbox</h1>
+      <a href="#" data-action="config">CONFIG</a>
       <a href="#" data-action="list">LIST</a>
       <a href="#" data-action="spaces" class="active">SPACES</a>
       <nav id="group-titles"></nav>
@@ -39,6 +40,24 @@
         <a href="#" data-action="activate-info">?</a>
         <div class="info">{{message}}</div>
       </li>
+    </script>
+    <script id="config-template" type="text/x-mustache-template">
+      <div id="config">
+        <a href="#" data-action="close-config">CLOSE</a>
+        <h2>Config</h2>
+        <p>Copy this code into your <code>~/.shoutbox</code>:</p>
+        <pre>
+          <code>host: {{host}}&#x000A;port: {{port}}&#x000A;auth_token: {{auth_token}}</code>
+        </pre>
+        <p>Run once:</p>
+        <pre>
+          <code>gem install shoutbox-client</code>
+        </pre>
+        <p>Run to set status:</p>
+        <pre>
+          <code>shout green <name>&#x000A;shout red <name> "something went wrong"&#x000A;</code>
+        </pre>
+      </div>
     </script>
   </body>
 </html>

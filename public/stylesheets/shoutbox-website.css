@@ -362,7 +362,7 @@ a:hover {
 }
 
 /* line 1, ../../views/stylesheets/global/_buttons.scss */
-.layout-button, [data-action="list"], [data-action="spaces"] {
+.layout-button, [data-action="list"], [data-action="spaces"], [data-action="config"], [data-action="close-config"] {
   background: no-repeat 6px 6px;
   padding: 6px;
   display: inline-block;
@@ -374,11 +374,11 @@ a:hover {
   text-align: left;
 }
 /* line 9, ../../views/stylesheets/global/_buttons.scss */
-.layout-button.active, .active[data-action="list"], .active[data-action="spaces"] {
+.layout-button.active, .active[data-action="list"], .active[data-action="spaces"], .active[data-action="config"], .active[data-action="close-config"] {
   background-color: rgba(76, 51, 164, 0.75);
 }
 /* line 12, ../../views/stylesheets/global/_buttons.scss */
-.layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover {
+.layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover, [data-action="config"]:hover, [data-action="close-config"]:hover {
   background-color: #4c33a4;
 }
 
@@ -390,6 +390,16 @@ a:hover {
 /* line 22, ../../views/stylesheets/global/_buttons.scss */
 [data-action="spaces"] {
   background-image: url('/images/spaces.png?1299757319');
+}
+
+/* line 27, ../../views/stylesheets/global/_buttons.scss */
+[data-action="config"] {
+  background-image: url('/images/config.png?1301419107');
+}
+
+/* line 32, ../../views/stylesheets/global/_buttons.scss */
+[data-action="close-config"] {
+  background-image: url('/images/close.png?1301418970');
 }
 
 /* line 1, ../../views/stylesheets/layouts/_default.scss */

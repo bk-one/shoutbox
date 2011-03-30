@@ -24,7 +24,12 @@ class Shoutbox
   end
   
   def self.get_current_status( account_name )
+    throw(:halt, [400, "empty account_name\n"]) if account_name.nil?
     ShoutboxDocument.find_or_create_for_account( account_name ).current_status.to_json
+  end
+  
+  def self.get_account_name_from_auth_token( auth_token )
+    ShoutboxDocument.find_for_auth_token( auth_token ).account_name
   end
   
   def self.update_status( account_name, update_data )

@@ -3,10 +3,13 @@ require 'sinatra'
 require 'faye'
 require 'lib/shoutbox'
 require 'lib/bayeux'
+require 'rack-flash'
 require 'omniauth'
 require 'pp'
 
 enable :sessions
+
+use Rack::Flash, :accessorize => [:notice, :error]
 
 use Faye::RackAdapter, :mount      => '/bayeux',
                        :timeout    => 45,
@@ -33,33 +36,42 @@ get '/signup' do
 end
 
 get '/auth/:name/callback' do
-  auth = request.env['omniauth.auth']
+  session[:user_name] = account_name_from_omniauth
   redirect to('/shoutbox.html')
-  # do whatever you want with the information!
 end
 
 get '/auth/failure' do
-  puts request.env.to_s
   File.read('public/failure.html')
 end
 
 get '/data' do
   content_type :json
-  remote_user
-  Shoutbox.get_current_status( @account_name )
+  Shoutbox.get_current_status( current_user )
 end
 
 put '/status' do
   content_type :json
-  remote_user
   @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
-  puts @shoutbox_data.inspect
-  Shoutbox.update_status( @account_name, @shoutbox_data )
+  Shoutbox.update_status( current_user, @shoutbox_data )
   "OK"
 end
 
-def remote_user
-  @account_name = 'test-box'
-  response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @account_name )
-  response.headers['X-Shoutbox-Account-Name'] = @account_name
+private 
+
+def current_user  
+  @current_user ||=  account_name_from_auth_token || account_name_from_omniauth
+  flash[:error] = 'Unable to identify you. Why not start over?'
+  redirect('/index.html') unless @current_user
+  response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @current_user )
+  response.headers['X-Shoutbox-Account-Name'] = @current_user
+end
+
+def account_name_from_omniauth
+  request.env['omniauth.auth']['user_info']['screen_name'] if request.env['omniauth.auth'] and request.env['omniauth.auth']['user_info']
+end
+
+def account_name_from_auth_token
+  if auth_token = request.env['HTTP_X_SHOUTBOX_AUTH_TOKEN']
+    Shoutbox.get_account_name_from_auth_token( auth_token )
+  end
 end

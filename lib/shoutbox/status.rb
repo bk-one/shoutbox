@@ -9,7 +9,7 @@ class Shoutbox
       def status_data
         @status_data ||= JSON.parse( self.status_data_json )
       end
-      
+
       def status_data=( data_hash )
         self.status_data_json = data_hash.to_json
       end
@@ -24,7 +24,7 @@ class Shoutbox
       end
 
       private
-      
+
       def validate_status_data( status_data )
         throw(:halt, [400, "invalid json data\n"]) unless status_data.valid?
       end

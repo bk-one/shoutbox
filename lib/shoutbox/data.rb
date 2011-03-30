@@ -28,7 +28,6 @@ class Shoutbox
         :group      => self.group }
     end
 
-
     def self.from_json_string( json_string )
       begin
         ShoutboxData.new( JSON.parse( json_string ) )

@@ -17,6 +17,10 @@ class Shoutbox
     def self.find_or_create_for_account( account_name )
        find_document_for( account_name ) || create_shoutbox_document_for( account_name )
     end
+    
+    def self.find_for_auth_token( auth_token )
+      self.where( :auth_token => auth_token ).first
+    end
   
     def self.find_document_for( account_name )
       self.where( :account_name => account_name ).first

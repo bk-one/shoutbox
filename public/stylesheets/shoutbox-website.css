@@ -448,7 +448,7 @@ header span {
   color: white;
 }
 /* line 28, ../../views/stylesheets/layouts/_default.scss */
-header a {
+header > a {
   color: white;
   font-weight: bold;
   margin-right: 6px;
@@ -456,6 +456,20 @@ header a {
 }
 
 /* line 36, ../../views/stylesheets/layouts/_default.scss */
+#account {
+  color: #4c33a4;
+  font-weight: bold;
+  left: 33px;
+  position: absolute;
+  top: 5px;
+}
+/* line 43, ../../views/stylesheets/layouts/_default.scss */
+#account a {
+  color: #4c33a4;
+  text-decoration: underline;
+}
+
+/* line 49, ../../views/stylesheets/layouts/_default.scss */
 #group-titles {
   left: 350px;
   position: absolute;
@@ -470,7 +484,7 @@ header a {
   -ms-text-overflow: ellipsis;
   text-overflow: ellipsis;
 }
-/* line 46, ../../views/stylesheets/layouts/_default.scss */
+/* line 59, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a {
   border: 6px black solid;
   color: white;
@@ -491,14 +505,14 @@ header a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 57, ../../views/stylesheets/layouts/_default.scss */
+/* line 70, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.selected, #group-titles a:hover {
   text-decoration: none;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 61, ../../views/stylesheets/layouts/_default.scss */
+/* line 74, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.selected {
   border: 0;
   padding: 11px 14px 9px;

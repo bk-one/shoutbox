@@ -35,6 +35,11 @@ get '/signup' do
   HTML
 end
 
+get '/logout' do
+  logout
+  redirect to('/index.html?flash_notice=Successfully logged out.')
+end
+
 get '/auth/:name/callback' do
   session[:user_name] = account_name_from_omniauth
   redirect to('/shoutbox.html')
@@ -63,6 +68,11 @@ def current_user
   throw(:halt, [401, "Unable to identify you\n"]) unless @current_user
   response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @current_user )
   response.headers['X-Shoutbox-Account-Name'] = @current_user
+end
+
+def logout
+  @current_user = nil
+  session[:user_name] = nil
 end
 
 def account_name_from_omniauth

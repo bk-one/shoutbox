@@ -74,6 +74,7 @@ function ShoutboxClient() {
         });
         self.colorizesNav();
         self.setupBayeuxClient(); // we need authToken and accountName
+        self.showAccount();
       },
       error: function(response) {
         if (response.status == 401) {
@@ -124,6 +125,10 @@ function ShoutboxClient() {
         el.removeClass('yellow red').addClass('green');
       }
     });
+  }
+
+  this.showAccount = function() {
+    $('#account').html($.mustache($('#account-template').html(), this));
   }
 
   this.init();

@@ -16,6 +16,7 @@
   </head>
   <body>
     <header>
+      <div id="account"></div>
       <h1>shoutbox</h1>
       <a href="#" data-action="config">CONFIG</a>
       <a href="#" data-action="list">LIST</a>
@@ -23,6 +24,9 @@
       <nav id="group-titles"></nav>
     </header>
     <ul id="groups"></ul>
+    <script id="account-template" type="text/x-mustache-template">
+      Logged in as {{accountName}} (<a href="/logout">logout</a>)
+    </script>
     <script id="group-title-template" type="text/x-mustache-template">
       <a href="#" data-group-id="{{group}}">{{group}}</a>
     </script>

@@ -25,11 +25,24 @@ header {
   span {
     color: white;
   }
-  a {
+  > a {
     color: white;
     font-weight: bold;
     margin-right: $small-margin;
     vertical-align: 5px;
+  }
+}
+
+#account {
+  $color: $primary-color;
+  color: $color;
+  font-weight: bold;
+  left: 33px;
+  position: absolute;
+  top: 5px;
+  a {
+    color: $color;
+    text-decoration: underline;
   }
 }
 

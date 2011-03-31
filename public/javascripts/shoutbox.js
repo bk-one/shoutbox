@@ -114,7 +114,7 @@ function ShoutboxClient() {
     _($('#group-titles > a')).each(function(el) {
       var el = $(el),
           groupEl = $('#groups > li[data-group-id="' + el.attr('data-group-id') + '"]');
-      if (groupEl.find('.red').length) {
+      if (groupEl.find('.red, .offline').length) {
         el.removeClass('green yellow').addClass('red');
       }
       else if (groupEl.find('.yellow').length) {

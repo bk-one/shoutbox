@@ -1,8 +1,14 @@
+var shoutboxClient, layout;
+
 function ShoutboxClient() {
   var self = this;
 
   this.init = function(){
-    this.loadEntries();
+    self.setupBayeuxClient();
+    self.loadEntries();
+    setInterval(function() {
+      self.checkStatus();
+    }, 1 * 1000);
   };
 
 	this.ShoutboxAuth = {
@@ -21,32 +27,53 @@ function ShoutboxClient() {
 		self.client.addExtension(that.ShoutboxAuth);
     self.client.subscribe('/status/' + that.accountName, function(updateData) {
       console.log(updateData);
-      var el = that.findEntry(updateData);
-      el.removeClass();
-      el.attr('data-updated-at', updateData.updated_at);
-      el.attr('data-expires-at', updateData.expires_at);
-      el.addClass(updateData.status);
-      el.addClass('fresh')
-      el.find('.info').html(updateData.message);
-      that.colorizesNav();
+      if (updateData.remove) {
+        self.removeEntry({ slug: updateData.remove });
+      }
+      else {
+        var el = self.findEntry(updateData);
+        el.removeClass();
+        el.attr('data-updated-at', updateData.updated_at);
+        el.attr('data-expires-at', updateData.expires_at);
+        el.addClass(updateData.status);
+        el.addClass('fresh');
+        el.find('.info').html(updateData.message);
+        layout.show(indexByGroup(updateData.group));
+      }
+      self.checkStatus();
     });
   };
 
+  this.checkStatus = function() {
+    $('li[data-updated-at]').each(function() {
+      var el         = $(this),
+          lastUpdate = parseInt(el.attr('data-updated-at')) * 1000,
+          expiresAt  = parseInt(el.attr('data-expires-at')) * 1000,
+          now        = (new Date()).getTime();
+      if (lastUpdate + 30000 < now) {
+        el.removeClass('fresh');
+      }
+      if (expiresAt < now) {
+        el.addClass('offline');
+      }
+    });
+    this.colorizesNav();
+  };
+
   this.loadEntries = function() {
-    var that = this;
     $.ajax({
       url: '/data',
       dataType: 'json',
       success: function(data, status, req) {
-        that.authToken   = req.getResponseHeader('X-Shoutbox-Auth-Token');
-        that.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
+        self.authToken   = req.getResponseHeader('X-Shoutbox-Auth-Token');
+        self.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
         _(data).forEach(function(entries, group) {
           _(entries).forEach(function(entry, name) {
-            that.addEntry(_(entry).extend({ name: name, group: group }));
+            self.addEntry(_(entry).extend({ name: name, group: group }));
           });
         });
-        that.colorizesNav();
-        that.setupBayeuxClient(); // we need authToken and accountName
+        self.colorizesNav();
+        self.setupBayeuxClient(); // we need authToken and accountName
       },
       error: function(response) {
         if (response.status == 401) {
@@ -102,13 +129,15 @@ function ShoutboxClient() {
   this.init();
 }
 
-var shoutboxClient;
 jQuery(function() {
   shoutboxClient = new ShoutboxClient();
 });
 
-
-
+var indexByGroup = function(group) {
+  return _($('#groups > li')).chain().map(function(el) {
+    return $(el).attr('data-group-id');
+  }).indexOf(group).value();
+}
 
 $(function() {
   function checkStatus() {
@@ -158,7 +187,6 @@ $(function() {
     $(this).parents('li').toggleClass('info-activated');
   });
 
-  var layout;
   $('[data-action="list"]').click(function() {
     $(this).siblings().removeClass('active');
     $(this).addClass('active');

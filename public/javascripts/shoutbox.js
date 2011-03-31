@@ -27,22 +27,32 @@ function ShoutboxClient() {
       el.attr('data-expires-at', updateData.expires_at);
       el.addClass(updateData.status);
       el.addClass('fresh')
+      el.find('.info').html(updateData.message);
       that.colorizesNav();
     });
   };
 
   this.loadEntries = function() {
     var that = this;
-    $.getJSON('/data', function(data, status, req) {
-	    that.authToken   = req.getResponseHeader('X-Shoutbox-Auth-Token');
-	 		that.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
-      _(data).forEach(function(entries, group) {
-        _(entries).forEach(function(entry, name) {
-          that.addEntry(_(entry).extend({ name: name, group: group }));
+    $.ajax({
+      url: '/data',
+      dataType: 'json',
+      success: function(data, status, req) {
+        that.authToken   = req.getResponseHeader('X-Shoutbox-Auth-Token');
+        that.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
+        _(data).forEach(function(entries, group) {
+          _(entries).forEach(function(entry, name) {
+            that.addEntry(_(entry).extend({ name: name, group: group }));
+          });
         });
-      });
-      that.colorizesNav();
-	    that.setupBayeuxClient(); // we need authToken and accountName
+        that.colorizesNav();
+        that.setupBayeuxClient(); // we need authToken and accountName
+      },
+      error: function(response) {
+        if (response.status == 401) {
+          location.href = '/index.html?error=401'
+        }
+      }
     });
   };
 
@@ -124,20 +134,28 @@ $(function() {
     markOffline();
   }, 10 * 1000);
 
-  $('[data-action="activate-info"]').click(function() {
-    $(this).parents('li').toggleClass('info-activated');
+  var configDialog = function() {
+    var el = $('#config');
+    if (el.length == 0) {
+      $('body').append($.mustache($('#config-template').html(), {
+        host: location.hostname,
+        port: location.port,
+        auth_token: shoutboxClient.authToken
+      }));
+      el = $('#config');
+      el.find('[data-action="close-config"]').click(function() {
+        el.fadeOut();
+      });
+    }
+    return el;
+  }
+
+  $('[data-action="config"]').click(function() {
+    configDialog().fadeIn();
   });
 
-  $('body').append($.mustache($('#config-template').html(), {
-    host: location.hostname,
-    port: location.port,
-    auth_token: shoutboxClient.authToken
-  }));
-  $('[data-action="close-config"]').click(function() {
-    $('#config').fadeOut();
-  });
-  $('[data-action="config"]').click(function() {
-    $('#config').fadeIn();
+  $('#groups').delegate('[data-action="activate-info"]', 'click', function() {
+    $(this).parents('li').toggleClass('info-activated');
   });
 
   var layout;

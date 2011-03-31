@@ -12,7 +12,7 @@ class Shoutbox
       end
 
       def self.client
-        @client ||= Faye::Client.new('http://0.0.0.0:9292/bayeux')
+        @client ||= Faye::Client.new('http://0.0.0.0:3133/bayeux')
       end
     end
   end

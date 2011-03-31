@@ -59,19 +59,20 @@ end
 private 
 
 def current_user  
-  @current_user ||=  account_name_from_auth_token || account_name_from_omniauth
-  flash[:error] = 'Unable to identify you. Why not start over?'
-  redirect('/index.html') unless @current_user
+  @current_user ||= session[:user_name] || account_name_from_auth_token || account_name_from_omniauth
+  throw(:halt, [401, "Unable to identify you\n"]) unless @current_user
   response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @current_user )
   response.headers['X-Shoutbox-Account-Name'] = @current_user
 end
 
 def account_name_from_omniauth
-  request.env['omniauth.auth']['user_info']['screen_name'] if request.env['omniauth.auth'] and request.env['omniauth.auth']['user_info']
+  auth_hash = request.env['omniauth.auth']
+  auth_hash['user_info']['nickname'] if auth_hash and auth_hash['user_info']
 end
 
 def account_name_from_auth_token
   if auth_token = request.env['HTTP_X_SHOUTBOX_AUTH_TOKEN']
-    Shoutbox.get_account_name_from_auth_token( auth_token )
+    return Shoutbox.get_account_name_from_auth_token( auth_token )
   end
+  nil
 end

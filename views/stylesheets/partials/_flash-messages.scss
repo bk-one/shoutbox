@@ -1,0 +1,18 @@
+#flash-notice {
+  @extend .bold;
+  background: $ok-color;
+  display: none;
+  font-size: 150%;
+  padding: 5px 20px;
+}
+
+#flash-warning {
+  @extend #flash-notice;
+  background: $warning-color;
+}
+
+#flash-error {
+  @extend #flash-notice;
+  background: $alert-color;
+  color: white;
+}

@@ -293,7 +293,7 @@ h4 {
 .bold, .headline, h1, h2,
 legend, h3,
 h4, strong,
-em {
+em, #flash-notice, #flash-warning, #flash-error {
   font-weight: bold;
 }
 
@@ -405,12 +405,12 @@ a:hover {
 
 /* line 27, ../../views/stylesheets/global/_buttons.scss */
 [data-action="config"] {
-  background-image: url('/images/config.png?1301419107');
+  background-image: url('/images/config.png?1301567502');
 }
 
 /* line 32, ../../views/stylesheets/global/_buttons.scss */
 [data-action="close-config"] {
-  background-image: url('/images/close.png?1301418970');
+  background-image: url('/images/close.png?1301567502');
 }
 
 /* line 1, ../../views/stylesheets/layouts/_default.scss */
@@ -672,4 +672,23 @@ header a {
 #howto img {
   margin: -7px -10px;
   max-width: 293.333px;
+}
+
+/* line 1, ../../views/stylesheets/partials/_flash-messages.scss */
+#flash-notice, #flash-warning, #flash-error {
+  background: #8bc40d;
+  display: none;
+  font-size: 150%;
+  padding: 5px 20px;
+}
+
+/* line 9, ../../views/stylesheets/partials/_flash-messages.scss */
+#flash-warning {
+  background: #ecc91b;
+}
+
+/* line 14, ../../views/stylesheets/partials/_flash-messages.scss */
+#flash-error {
+  background: #db2400;
+  color: white;
 }

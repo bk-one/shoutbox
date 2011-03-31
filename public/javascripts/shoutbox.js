@@ -77,7 +77,7 @@ function ShoutboxClient() {
       },
       error: function(response) {
         if (response.status == 401) {
-          location.href = '/index.html?error=401'
+          location.href = '/index.html?flash_error=You need to lo log in.'
         }
       }
     });
@@ -174,6 +174,12 @@ $(function() {
       el = $('#config');
       el.find('[data-action="close-config"]').click(function() {
         el.fadeOut();
+      });
+      $('body').keydown(function(event) {
+        if (event.which == 27 /* ESC */) {
+          el.fadeOut();
+          layout._zoomed = true; // prevent zooming
+        }
       });
     }
     return el;

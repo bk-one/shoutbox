@@ -1,5 +1,4 @@
-host: 'some.host'
-port: 80
+full_host: 'http://www.some.host.de/auth/twitter/callback'
 twitter:
   key: 'key'
   secret: 'secret'

@@ -11,6 +11,10 @@ class Shoutbox
     initialize_mongodb
   end
   
+  def self.auth_callback_url
+    configuration['full_host']
+  end
+  
   def self.twitter_consumer_key
     configuration['twitter']['key']
   end

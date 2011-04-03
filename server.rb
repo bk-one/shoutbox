@@ -19,6 +19,8 @@ use OmniAuth::Builder do
   provider :twitter, Shoutbox.twitter_consumer_key, Shoutbox.twitter_consumer_secret
 end
 
+OmniAuth.config.full_host = Shoutbox.auth_callback_url if Shoutbox.auth_callback_url
+
 set :public, File.dirname(__FILE__) + '/public'
 
 

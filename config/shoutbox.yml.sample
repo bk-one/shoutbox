@@ -1,4 +1,4 @@
-full_host: 'http://www.some.host.de/auth/twitter/callback'
+full_host: 'http://www.some.host.de/'
 twitter:
   key: 'key'
   secret: 'secret'

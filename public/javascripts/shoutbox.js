@@ -172,8 +172,7 @@ $(function() {
     var el = $('#config');
     if (el.length == 0) {
       $('body').append($.mustache($('#config-template').html(), {
-        host: location.hostname,
-        port: location.port,
+        full_host: location.protocol + '//' + location.host,
         auth_token: shoutboxClient.authToken
       }));
       el = $('#config');

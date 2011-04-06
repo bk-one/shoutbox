@@ -22,9 +22,13 @@ var Layout;
         overflow: 'hidden'
       });
       var that = this;
-      $(window).resize(function() {
+      var render = function() {
         that._render();
-      }).keyup(function(event) {
+      };
+      $(window).
+        resize(render).
+        load(render).
+        keyup(function(event) {
         if (event.which == 27 /* ESC */) {
           if (that._zoomed = !that._zoomed) {
             that.zoomOut();

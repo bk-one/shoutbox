@@ -39,7 +39,7 @@ end
 
 get '/logout' do
   logout
-  redirect to('/index.html?flash_notice=Successfully logged out.')
+  redirect to('/index.html?flash_notice=Successfully%20logged%20out.')
 end
 
 get '/auth/:name/callback' do

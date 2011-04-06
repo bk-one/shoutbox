@@ -75,6 +75,7 @@ function ShoutboxClient() {
         self.colorizesNav();
         self.setupBayeuxClient(); // we need authToken and accountName
         self.showAccount();
+        layout._render();
       },
       error: function(response) {
         if (response.status == 401) {
@@ -208,7 +209,7 @@ $(function() {
     layout.setLayout('spaces');
   });
 
-  $(window).load(function() {
+  $(function() {
     layout = $('#groups').layout({
       marginTop: 80,
       showCallback: function(index) {

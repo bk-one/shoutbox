@@ -189,7 +189,7 @@ Layout.addLayout('spaces', {
     });
     this.element.css({
       height: windowHeight + 'px',
-      width: left + 'px'
+      width: (left < windowWidth ? windowWidth : left) + 'px'
     });
   },
   show: function() {

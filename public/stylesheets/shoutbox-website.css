@@ -475,8 +475,14 @@ html {
   background: #9d7e4b url('/images/background.png?1302108461') repeat-x;
   min-height: 100%;
 }
+@media only screen and (min-height: 680px) {
+  /* line 4, ../../views/stylesheets/layouts/_website.scss */
+  html {
+    overflow-y: hidden;
+  }
+}
 
-/* line 11, ../../views/stylesheets/layouts/_website.scss */
+/* line 14, ../../views/stylesheets/layouts/_website.scss */
 body {
   width: 712px;
   margin: 0 auto;
@@ -485,32 +491,32 @@ body {
 }
 
 @media only screen and (max-width: 767px) {
-  /* line 21, ../../views/stylesheets/layouts/_website.scss */
+  /* line 24, ../../views/stylesheets/layouts/_website.scss */
   body {
     width: 252px;
     padding: 0 34px 60px;
   }
 }
 @media only screen and (min-width: 480px) and (max-width: 767px) {
-  /* line 30, ../../views/stylesheets/layouts/_website.scss */
+  /* line 33, ../../views/stylesheets/layouts/_website.scss */
   body {
     width: 436px;
     padding: 0 22px 48px;
   }
 }
-/* line 36, ../../views/stylesheets/layouts/_website.scss */
+/* line 39, ../../views/stylesheets/layouts/_website.scss */
 #logo {
   position: absolute;
   top: 119px;
 }
-/* line 39, ../../views/stylesheets/layouts/_website.scss */
+/* line 42, ../../views/stylesheets/layouts/_website.scss */
 #logo img {
   height: 252px;
   vertical-align: bottom;
   width: 252px;
 }
 @media only screen and (max-width: 767px) {
-  /* line 36, ../../views/stylesheets/layouts/_website.scss */
+  /* line 39, ../../views/stylesheets/layouts/_website.scss */
   #logo {
     top: 24px;
     -moz-box-shadow: rgba(158, 127, 75, 0.5) 0 0 10px;
@@ -518,20 +524,20 @@ body {
     -o-box-shadow: rgba(158, 127, 75, 0.5) 0 0 10px;
     box-shadow: rgba(158, 127, 75, 0.5) 0 0 10px;
   }
-  /* line 47, ../../views/stylesheets/layouts/_website.scss */
+  /* line 50, ../../views/stylesheets/layouts/_website.scss */
   #logo img {
     height: 96px;
     width: 96px;
   }
 }
 
-/* line 54, ../../views/stylesheets/layouts/_website.scss */
+/* line 57, ../../views/stylesheets/layouts/_website.scss */
 #steps {
   background: url('/images/arrow.png?1302170297') no-repeat 50% 27px;
   margin: 0;
   padding: 144px 0 144px 460px;
 }
-/* line 58, ../../views/stylesheets/layouts/_website.scss */
+/* line 61, ../../views/stylesheets/layouts/_website.scss */
 #steps li {
   color: #e3d1b3;
   font-size: 24px;
@@ -539,7 +545,7 @@ body {
   line-height: 68px;
   list-style: none;
 }
-/* line 65, ../../views/stylesheets/layouts/_website.scss */
+/* line 68, ../../views/stylesheets/layouts/_website.scss */
 #steps code {
   display: inline-block;
   font-size: 16px;
@@ -548,30 +554,30 @@ body {
   vertical-align: middle;
   white-space: nowrap;
 }
-/* line 73, ../../views/stylesheets/layouts/_website.scss */
+/* line 76, ../../views/stylesheets/layouts/_website.scss */
 #steps button {
   margin-top: 18px;
   width: 252px;
 }
 @media only screen and (max-width: 1020px) {
-  /* line 82, ../../views/stylesheets/layouts/_website.scss */
+  /* line 85, ../../views/stylesheets/layouts/_website.scss */
   #steps code {
     white-space: normal;
   }
 }
 @media only screen and (max-width: 767px) {
-  /* line 54, ../../views/stylesheets/layouts/_website.scss */
+  /* line 57, ../../views/stylesheets/layouts/_website.scss */
   #steps {
     background: none;
     padding: 144px 0 0;
   }
-  /* line 89, ../../views/stylesheets/layouts/_website.scss */
+  /* line 92, ../../views/stylesheets/layouts/_website.scss */
   #steps li {
     list-style: decimal;
   }
 }
 
-/* line 95, ../../views/stylesheets/layouts/_website.scss */
+/* line 98, ../../views/stylesheets/layouts/_website.scss */
 #screenshot {
   background: url('/images/browser.png?1302182333');
   background-size: 100%;
@@ -584,20 +590,20 @@ body {
   box-shadow: rgba(55, 38, 28, 0.5) 0 2px 20px;
 }
 @media only screen and (max-width: 767px) {
-  /* line 95, ../../views/stylesheets/layouts/_website.scss */
+  /* line 98, ../../views/stylesheets/layouts/_website.scss */
   #screenshot {
     padding-top: 15.696px;
     width: 436px;
   }
 }
 @media only screen and (max-width: 479px) {
-  /* line 95, ../../views/stylesheets/layouts/_website.scss */
+  /* line 98, ../../views/stylesheets/layouts/_website.scss */
   #screenshot {
     padding-top: 9.072px;
     width: 252px;
   }
 }
-/* line 113, ../../views/stylesheets/layouts/_website.scss */
+/* line 116, ../../views/stylesheets/layouts/_website.scss */
 #screenshot img {
   vertical-align: bottom;
   width: 100%;

@@ -55,7 +55,7 @@ header {
   z-index: 1001;
   @include ellipsis;
   a {
-    border: $small-margin black solid;
+    margin: $small-margin;
     color: white;
     display: inline-block;
     font-weight: bold;
@@ -70,7 +70,8 @@ header {
       @include opacity(1);
     }
     &.selected {
-      border: 0;
+      //border: 0;
+      margin: 0;
       padding: 2 * $small-margin - 1px 8px + $small-margin 2 * $small-margin - 3px;
     }
   }

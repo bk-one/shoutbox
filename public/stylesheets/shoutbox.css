@@ -1,4 +1,3 @@
-@charset "UTF-8";
 /* line 14, ../../../../.rvm/gems/ruby-1.9.2-p0@shoutbox/gems/html5-boilerplate-0.3.2/stylesheets/html5-boilerplate/_reset.scss */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -350,7 +349,7 @@ body {
 
 /* line 62, ../../views/stylesheets/global/_typography.scss */
 h1 {
-  color: #4c33a4;
+  color: #bfa477;
 }
 /* line 66, ../../views/stylesheets/global/_typography.scss */
 .index h1 {
@@ -361,7 +360,7 @@ h1 {
 
 /* line 96, ../../views/stylesheets/global/_typography.scss */
 pre {
-  background: rgba(76, 51, 164, 0.5);
+  background: rgba(191, 164, 119, 0.5);
 }
 
 /* line 100, ../../views/stylesheets/global/_typography.scss */
@@ -392,11 +391,11 @@ a:hover {
 }
 /* line 9, ../../views/stylesheets/global/_buttons.scss */
 .layout-button.active, .active[data-action="list"], .active[data-action="spaces"], .active[data-action="config"], .active[data-action="close-config"] {
-  background-color: rgba(76, 51, 164, 0.75);
+  background-color: rgba(191, 164, 119, 0.75);
 }
 /* line 12, ../../views/stylesheets/global/_buttons.scss */
 .layout-button:hover, [data-action="list"]:hover, [data-action="spaces"]:hover, [data-action="config"]:hover, [data-action="close-config"]:hover {
-  background-color: #4c33a4;
+  background-color: #bfa477;
 }
 
 /* line 17, ../../views/stylesheets/global/_buttons.scss */
@@ -512,7 +511,7 @@ header > a {
 
 /* line 34, ../../views/stylesheets/layouts/_default.scss */
 #account {
-  color: #4c33a4;
+  color: #bfa477;
   font-weight: bold;
   left: 33px;
   position: absolute;
@@ -520,7 +519,7 @@ header > a {
 }
 /* line 41, ../../views/stylesheets/layouts/_default.scss */
 #account a {
-  color: #4c33a4;
+  color: #bfa477;
   text-decoration: underline;
 }
 
@@ -541,7 +540,7 @@ header > a {
 }
 /* line 57, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a {
-  border: 6px black solid;
+  margin: 6px;
   color: white;
   display: inline-block;
   font-weight: bold;
@@ -569,7 +568,7 @@ header > a {
 }
 /* line 72, ../../views/stylesheets/layouts/_default.scss */
 #group-titles a.selected {
-  border: 0;
+  margin: 0;
   padding: 11px 14px 9px;
 }
 
@@ -597,7 +596,7 @@ header > a {
 }
 /* line 6, ../../views/stylesheets/partials/_groups.scss */
 #groups h2 {
-  color: #4c33a4;
+  color: #bfa477;
   float: left;
   font-size: 70px;
   line-height: 70px;
@@ -682,22 +681,15 @@ header > a {
   text-shadow: white 0 0 0;
 }
 /* line 58, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.red:before {
-  content: "☠ ";
-  line-height: 50%;
-  position: relative;
-  top: 3px;
-}
-/* line 64, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
-/* line 68, ../../views/stylesheets/partials/_groups.scss */
+/* line 62, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.without-info a {
   display: none;
 }
-/* line 71, ../../views/stylesheets/partials/_groups.scss */
+/* line 65, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -737,7 +729,7 @@ header > a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 92, ../../views/stylesheets/partials/_groups.scss */
+/* line 86, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -748,7 +740,7 @@ header > a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 96, ../../views/stylesheets/partials/_groups.scss */
+/* line 90, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -772,7 +764,7 @@ header > a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 110, ../../views/stylesheets/partials/_groups.scss */
+/* line 104, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -782,37 +774,37 @@ header > a {
 
 /* line 1, ../../views/stylesheets/partials/_colors.scss */
 .red {
-  background: #db2400;
+  background: #bf2805;
 }
 
 /* line 5, ../../views/stylesheets/partials/_colors.scss */
 .yellow {
-  background: #ecc91b;
+  background: #bf9505;
 }
 
 /* line 9, ../../views/stylesheets/partials/_colors.scss */
 .green {
-  background: #8bc40d;
+  background: #7bbf05;
 }
 
 /* line 13, ../../views/stylesheets/partials/_colors.scss */
 .red.offline {
-  background: #a44937;
+  background: #8e4736;
 }
 
 /* line 17, ../../views/stylesheets/partials/_colors.scss */
 .yellow.offline {
-  background: #aea059;
+  background: #8e7a36;
 }
 
 /* line 21, ../../views/stylesheets/partials/_colors.scss */
 .green.offline {
-  background: #779041;
+  background: #6e8e36;
 }
 
 /* line 24, ../../views/stylesheets/partials/_colors.scss */
 .offline {
-  background: #db2400 !important;
+  background: #bf2805 !important;
 }
 
 @-webkit-keyframes pulse {
@@ -873,7 +865,7 @@ header > a {
 
 /* line 1, ../../views/stylesheets/partials/_flash-messages.scss */
 #flash-notice, #flash-warning, #flash-error {
-  background: #8bc40d;
+  background: #7bbf05;
   display: none;
   font-size: 150%;
   padding: 5px 20px;
@@ -882,11 +874,11 @@ header > a {
 
 /* line 10, ../../views/stylesheets/partials/_flash-messages.scss */
 #flash-warning {
-  background: #ecc91b;
+  background: #bf9505;
 }
 
 /* line 15, ../../views/stylesheets/partials/_flash-messages.scss */
 #flash-error {
-  background: #db2400;
+  background: #bf2805;
   color: white;
 }

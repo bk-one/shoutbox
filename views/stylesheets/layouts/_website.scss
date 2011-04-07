@@ -4,6 +4,9 @@ $gap-width: 24px;
 html {
   background: #9d7e4b image-url("background.png") repeat-x;
   min-height: 100%;
+  @media only screen and (min-height: 680px) {
+    overflow-y: hidden;
+  }
 }
 
 // PC and tablet layout

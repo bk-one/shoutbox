@@ -1,0 +1,117 @@
+$column-width: 68px;
+$gap-width: 24px;
+
+html {
+  background: #9d7e4b image-url("background.png") repeat-x;
+  min-height: 100%;
+}
+
+// PC and tablet layout
+
+body {
+  width: 712px;
+  margin: 0 auto;
+  padding: 0 28px 60px;
+  position: relative;
+}
+
+// Mobile wide layout
+
+@media only screen and (max-width: 767px) {
+  body {
+    width: 252px;
+    padding: 0 34px 60px;
+  }
+}
+
+// Mobile layout
+
+@media only screen and (min-width: 480px) and (max-width: 767px) {
+  body {
+    width: 436px;
+    padding: 0 22px 48px;
+  }
+}
+
+#logo {
+  position: absolute;
+  top: 119px;
+  img {
+    height: 3 * $column-width + 2 * $gap-width;
+    vertical-align: bottom;
+    width: 3 * $column-width + 2 * $gap-width;
+  }
+  @media only screen and (max-width: 767px) {
+    top: 24px;
+    @include box-shadow(rgba(#9e7f4b, 0.5) 0 0 10px);
+    img {
+      height: 96px;
+      width: 96px;
+    }
+  }
+}
+
+#steps {
+  background: image-url("arrow.png") no-repeat 50% 27px;
+  margin: 0;
+  padding: 144px 0 144px 5 * ($column-width + $gap-width);
+  li {
+    color: #e3d1b3;
+    font-size: 24px;
+    font-weight: bold;
+    line-height: $column-width;
+    list-style: none;
+  }
+  code {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: normal;
+    line-height: 20px;
+    vertical-align: middle;
+    white-space: nowrap;
+  }
+  button {
+    margin-top: 18px;
+    width: 252px;
+  }
+  @media only screen and (min-width: 768px) {
+    li {
+    }
+  }
+  @media only screen and (max-width: 1020px) {
+    code {
+      white-space: normal;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    background: none;
+    padding: 144px 0 0;
+    li {
+      list-style: decimal;
+    }
+  }
+}
+
+#screenshot {
+  $width: 8 * $column-width + 7 * $gap-width;
+  background: image-url("browser.png");
+  background-size: 100%;
+  margin-top: 24px;
+  padding-top: $width * 0.036;
+  width: $width;
+  @include box-shadow(rgba(#37261c, 0.5) 0 2px 20px);
+  @media only screen and (max-width: 767px) {
+    $width: 5 * $column-width + 4 * $gap-width;
+    padding-top: $width * 0.036;
+    width: $width;
+  }
+  @media only screen and (max-width: 479px) {
+    $width: 3 * $column-width + 2 * $gap-width;
+    padding-top: $width * 0.036;
+    width: $width;
+  }
+  img {
+    vertical-align: bottom;
+    width: 100%;
+  }
+}

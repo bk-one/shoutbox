@@ -34,3 +34,44 @@
   background-image: image-url("close.png");
 }
 
+button.twitter {
+  $color: #485e7a;
+  border: 1px lighten($color, 20%) solid;
+  color: darken($color, 10%);
+  font-size: 24px;
+  font-weight: bold;
+  padding: 5px 9px 3px;
+  vertical-align: top;
+  width: 300px;
+  @include background(
+    linear-gradient(top, lighten($color, 50%), lighten($color, 30%))
+  );
+  @include border-radius(2px);
+  @include box-shadow(
+    rgba(darken($color, 10%), .3) 0 2px 5px inset,
+    rgba(lighten($color, 30%), .7) 0 0 5px
+  );
+  @include text-shadow(rgba(white, .5) 0 1px 1px);
+  &:hover,
+  &:focus {
+    border: 1px lighten($color, 17%) solid;
+    color: darken($color, 15%);
+    @include background(
+      linear-gradient(top, lighten($color, 47%), lighten($color, 27%))
+    );
+  }
+  &:focus {
+    outline: 0;
+    @include box-shadow(
+      rgba(darken($color, 10%), .3) 0 2px 5px inset,
+      rgba(lighten($color, 30%), 1) 0 0 5px
+    );
+  }
+  &:active {
+    border: 1px lighten($color, 13%) solid;
+    color: darken($color, 25%);
+    @include background(
+      linear-gradient(top, lighten($color, 39%), lighten($color, 19%))
+    );
+  }
+}

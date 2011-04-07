@@ -1,16 +1,17 @@
 source "http://rubygems.org"
 
-gem 'rake',              '~> 0.8.0'
-gem 'sinatra',           '~> 1.2.0'
-gem 'faye',              '~> 0.5.0'
-gem 'mongoid',           '2.0.0.rc.8'
-gem 'omniauth',          '~> 0.2.0'
-gem 'bson_ext',          '~> 1.2.0'
-gem 'thin',              '~> 1.2.0'
-gem 'rack-flash',        '~> 0.1.0'
-gem 'stringex',          '~> 1.2'
-gem 'compass',           '0.11.beta.5'
-gem 'html5-boilerplate', '~> 0.3.2'
+gem 'rake',                '~> 0.8.0'
+gem 'sinatra',             '~> 1.2.0'
+gem 'faye',                '~> 0.5.0'
+gem 'mongoid',             '2.0.0.rc.8'
+gem 'omniauth',            '~> 0.2.0'
+gem 'bson_ext',            '~> 1.2.0'
+gem 'thin',                '~> 1.2.0'
+gem 'rack-flash',          '~> 0.1.0'
+gem 'stringex',            '~> 1.2'
+gem 'compass',             '0.11.beta.5'
+gem 'html5-boilerplate',   '~> 0.3.2'
+gem 'compass-less-plugin', '~> 1.0'
 
 group :development do
   gem "bundler", 	  "~> 1.0"

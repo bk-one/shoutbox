@@ -16,28 +16,26 @@
   </head>
   <body>
     <div id="flash-messages"></div>
-    <h1>
-      <strong>shoutbox</strong>
-    </h1>
-    <div id="signup">
-      <form action="/auth/twitter">
-        <p>Sign up for Shoutbox <strong>for free</strong> during beta:</p>
-        <button type="submit">Sign up with twitter</button>
-      </form>
-    </div>
-    <div id="howto">
-      <div id="setup">
-        <h2>Setup</h2>
-        <pre><code>gem install shoutbox-client</code></pre>
-      </div>
-      <div id="run">
-        <h2>Run</h2>
-        <pre><code>shout green shoutbox.io --group "My Websites"</code></pre>
-      </div>
-      <div id="display">
-        <h2>Display</h2>
-        <img src="/images/screenshot.png" alt="shoutbox preview"> 
-      </div>
-    </div>
+    <header>
+      <a href="/" id="logo">
+        <img src="/images/shoutbox.png">
+      </a>
+    </header>
+    <ol id="steps">
+      <li>
+        <form action="/auth/twitter">
+          <button class="twitter" type="submit">Sign up with twitter</button>
+        </form>
+      </li>
+      <li>
+        <code>gem install shoutbox-client</code>
+      </li>
+      <li>
+        <code>shout green shoutbox.io --group "My Websites"</code>
+      </li>
+    </ol>
+    <figure id="screenshot">
+      <img src="images/screenshot.png" alt="shoutbox">
+    </figure>
   </body>
 </html>

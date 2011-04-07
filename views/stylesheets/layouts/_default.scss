@@ -1,5 +1,6 @@
 html {
-  background: black;
+  background: #9d7e4b image-url("background.png") repeat-x;
+  min-height: 100%;
 }
 
 header {
@@ -11,9 +12,6 @@ header {
   position: absolute;
   right: 0;
   z-index: 1000;
-  @include background(
-    linear-gradient(top, black, rgba(black, .8) 60px, rgba(black, 0) 80px)
-  );
   h1 {
     display: inline;
     margin-right: $margin;

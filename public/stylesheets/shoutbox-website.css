@@ -688,7 +688,7 @@ body {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .red .info:after {
-  border-top-color: #db2400 !important;
+  border-bottom-color: #db2400 !important;
 }
 
 /* line 12, ../../views/stylesheets/partials/_colors.scss */
@@ -697,7 +697,7 @@ body {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .yellow .info:after {
-  border-top-color: #ecc91b !important;
+  border-bottom-color: #ecc91b !important;
 }
 
 /* line 16, ../../views/stylesheets/partials/_colors.scss */
@@ -706,7 +706,7 @@ body {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .green .info:after {
-  border-top-color: #8bc40d !important;
+  border-bottom-color: #8bc40d !important;
 }
 
 /* line 28, ../../views/stylesheets/partials/_colors.scss */
@@ -715,7 +715,7 @@ body {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .green.offline .info:after {
-  border-top-color: #779041 !important;
+  border-bottom-color: #779041 !important;
 }
 
 /* line 31, ../../views/stylesheets/partials/_colors.scss */
@@ -724,7 +724,7 @@ body {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .offline .info:after {
-  border-top-color: #db2400 !important !important;
+  border-bottom-color: #db2400 !important !important;
 }
 
 @-webkit-keyframes pulse {

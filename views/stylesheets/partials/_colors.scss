@@ -1,7 +1,7 @@
 @mixin entry-color($color) {
   background: $color;
   .info:after {
-    border-top-color: $color !important;
+    border-bottom-color: $color !important;
   }
 }
 

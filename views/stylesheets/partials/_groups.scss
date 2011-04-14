@@ -88,13 +88,13 @@
       }
       .info {
         background: inherit;
-        bottom: 100%;
         font-size: 15px;
         line-height: 20px;
-        margin-bottom: $small-margin;
+        margin-top: $small-margin;
         padding: $small-margin 15px;
         position: absolute;
         left: 0;
+        top: 100%;
         width: 100%;
         z-index: 99;
         @include opacity(0);
@@ -103,8 +103,7 @@
         @include box-sizing(border-box);
         &:after {
           border: 5px solid;
-          border-color: black transparent transparent;
-          bottom: -10px;
+          border-color: transparent transparent black;
           content: " ";
           display: block;
           height: 0;
@@ -112,6 +111,7 @@
           overflow: hidden;
           position: absolute;
           right: 50%;
+          top: -10px;
           width: 0;
           z-index: 111;
         }

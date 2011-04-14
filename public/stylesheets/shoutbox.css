@@ -742,13 +742,13 @@ header > a {
 /* line 89, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
-  bottom: 100%;
   font-size: 15px;
   line-height: 20px;
-  margin-bottom: 6px;
+  margin-top: 6px;
   padding: 6px 15px;
   position: absolute;
   left: 0;
+  top: 100%;
   width: 100%;
   z-index: 99;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
@@ -771,8 +771,7 @@ header > a {
 /* line 104, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info:after {
   border: 5px solid;
-  border-color: black transparent transparent;
-  bottom: -10px;
+  border-color: transparent transparent black;
   content: " ";
   display: block;
   height: 0;
@@ -780,6 +779,7 @@ header > a {
   overflow: hidden;
   position: absolute;
   right: 50%;
+  top: -10px;
   width: 0;
   z-index: 111;
 }
@@ -802,7 +802,7 @@ header > a {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .red .info:after {
-  border-top-color: #bf2805 !important;
+  border-bottom-color: #bf2805 !important;
 }
 
 /* line 12, ../../views/stylesheets/partials/_colors.scss */
@@ -811,7 +811,7 @@ header > a {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .yellow .info:after {
-  border-top-color: #bf9505 !important;
+  border-bottom-color: #bf9505 !important;
 }
 
 /* line 16, ../../views/stylesheets/partials/_colors.scss */
@@ -820,7 +820,7 @@ header > a {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .green .info:after {
-  border-top-color: #7bbf05 !important;
+  border-bottom-color: #7bbf05 !important;
 }
 
 /* line 28, ../../views/stylesheets/partials/_colors.scss */
@@ -829,7 +829,7 @@ header > a {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .green.offline .info:after {
-  border-top-color: #6e8e36 !important;
+  border-bottom-color: #6e8e36 !important;
 }
 
 /* line 31, ../../views/stylesheets/partials/_colors.scss */
@@ -838,7 +838,7 @@ header > a {
 }
 /* line 3, ../../views/stylesheets/partials/_colors.scss */
 .offline .info:after {
-  border-top-color: #bf2805 !important !important;
+  border-bottom-color: #bf2805 !important !important;
 }
 
 @-webkit-keyframes pulse {

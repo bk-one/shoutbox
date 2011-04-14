@@ -28,6 +28,7 @@
     margin: -40px -20px 0 0;
     max-height: 100%;
     padding: 40px 20px 0 0;
+    //overflow: hidden;
     &:after {
       bottom: 0;
       content: " ";
@@ -91,6 +92,7 @@
         font-size: 15px;
         line-height: 20px;
         margin-top: $small-margin;
+        outline: 5px white solid;
         padding: $small-margin 15px;
         position: absolute;
         left: 0;

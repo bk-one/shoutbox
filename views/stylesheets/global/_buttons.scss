@@ -17,6 +17,7 @@
 [data-action="list"] {
   @extend .layout-button;
   background-image: image-url("list.png");
+  display: none;
 }
 
 [data-action="spaces"] {

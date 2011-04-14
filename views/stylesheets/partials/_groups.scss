@@ -96,7 +96,7 @@
         left: 0;
         top: 100%;
         width: 100%;
-        z-index: 99;
+        z-index: -1;
         @include opacity(0);
         @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);

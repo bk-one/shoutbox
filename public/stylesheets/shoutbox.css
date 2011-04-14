@@ -750,7 +750,7 @@ header > a {
   left: 0;
   top: 100%;
   width: 100%;
-  z-index: 99;
+  z-index: -1;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;

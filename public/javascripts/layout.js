@@ -138,13 +138,15 @@ Layout.addLayout('list', {
     var margins = this.margins(),
         padding = this.options.padding,
         top = margins.top,
-        windowWidth = $(window).width();
-    this.elements().each(function() {
+        windowWidth = $(window).width(),
+        index = this.options.index;
+    this.elements().each(function(i) {
       var el = $(this),
           height = el.find('.inner').height();
       el.css({
         height: height + 'px',
         left: margins.left + 'px',
+        opacity: i < index ? 0.1 : 1,
         padding: padding + 'px 0 0 ' + padding + 'px',
         position: 'absolute',
         top: top + 'px',
@@ -180,6 +182,7 @@ Layout.addLayout('spaces', {
       el.css({
         left: left + 'px',
         height: windowHeight - margins.top - margins.bottom - padding + 'px',
+        opacity: 1,
         padding: padding + 'px 0 0 ' + padding + 'px',
         position: 'absolute',
         top: margins.top + 'px',

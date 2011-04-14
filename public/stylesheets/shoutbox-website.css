@@ -742,7 +742,7 @@ body {
 /* line 43, ../../views/stylesheets/partials/_colors.scss */
 .fresh {
   -webkit-animation-name: pulse;
-  -webkit-animation-duration: 1s;
+  -webkit-animation-duration: 10s;
   -webkit-animation-direction: alternate;
   -webkit-animation-timing-function: ease-in-out;
   -webkit-animation-iteration-count: infinite;
@@ -750,7 +750,7 @@ body {
 
 /* line 51, ../../views/stylesheets/partials/_colors.scss */
 .green.fresh {
-  -webkit-animation-duration: 3s;
+  -webkit-animation-duration: 20s;
 }
 
 /* line 1, ../../views/stylesheets/partials/_howto.scss */

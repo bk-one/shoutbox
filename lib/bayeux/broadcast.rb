@@ -12,7 +12,7 @@ class Shoutbox
       end
 
       def self.client
-        @client ||= Faye::Client.new('http://0.0.0.0:3133/bayeux')
+        @client ||= Faye::Client.new(Shoutbox.full_host + "/bayeux")
       end
     end
   end

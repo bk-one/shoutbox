@@ -11,7 +11,7 @@ class Shoutbox
     initialize_mongodb
   end
   
-  def self.auth_callback_url
+  def self.full_host
     configuration['full_host']
   end
   

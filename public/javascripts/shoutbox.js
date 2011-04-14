@@ -47,7 +47,7 @@ function ShoutboxClient() {
   };
 
   this.addLinks = function(text) {
-    return (text || "").replace(/(https?:\/\/)(.*)\b/g, '<a href="$1$2" target="_blank">$2</a>');
+    return (text || "").replace(/(https?:\/\/)(.*?)(\s|[\.,;\)]\s)/g, '<a href="$1$2" target="_blank">$2</a>$3');
   };
 
   this.checkStatus = function() {

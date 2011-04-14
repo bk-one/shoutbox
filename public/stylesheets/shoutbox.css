@@ -686,11 +686,11 @@ header > a {
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
 /* line 62, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li.without-info a {
+#groups ul li.without-info > a {
   display: none;
 }
 /* line 65, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li a {
+#groups ul li > a {
   background: inherit;
   -webkit-background-clip: padding-box;
   border: 3px white solid;
@@ -730,7 +730,7 @@ header > a {
   transition-duration: 0.5s;
 }
 /* line 86, ../../views/stylesheets/partials/_groups.scss */
-#groups ul li:hover a {
+#groups ul li:hover > a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
   -o-transform: scale(1, 1);
@@ -764,7 +764,12 @@ header > a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 104, ../../views/stylesheets/partials/_groups.scss */
+/* line 103, ../../views/stylesheets/partials/_groups.scss */
+#groups ul li .info a {
+  color: white;
+  text-decoration: underline;
+}
+/* line 108, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";

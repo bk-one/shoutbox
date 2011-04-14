@@ -35,7 +35,9 @@ function ShoutboxClient() {
         el.removeClass();
         el.attr('data-updated-at', updateData.updated_at);
         el.attr('data-expires-at', updateData.expires_at);
-        el.addClass(updateData.status);
+        var status = this.addLinks(updateData.status);
+        console.log("status",status)
+        el.addClass(status);
         el.addClass('fresh');
         el.find('.info').html(updateData.message);
         layout.show(indexByGroup(updateData.group));
@@ -43,6 +45,10 @@ function ShoutboxClient() {
       self.checkStatus();
     });
   };
+
+  this.addLinks = function(text) {
+    return text.replace(/(https?:\/\/)(.*)\b/g, '<a href=$1$2>$2</a>');
+  }
 
   this.checkStatus = function() {
     $('li[data-updated-at]').each(function() {
@@ -69,7 +75,10 @@ function ShoutboxClient() {
         self.accountName = req.getResponseHeader('X-Shoutbox-Account-Name');
         _(data).forEach(function(entries, group) {
           _(entries).forEach(function(entry, name) {
-            self.addEntry(_(entry).extend({ name: name, group: group }));
+            self.addEntry(_(entry).extend({
+              name: name,
+              group: group,
+            }));
           });
         });
         self.colorizesNav();
@@ -101,7 +110,9 @@ function ShoutboxClient() {
 
   this.addEntry = function(data) {
     this.findGroup(data).find('ul').append($.mustache($('#entry-template').html(), data));
-    return $('[data-entry-id="' + data.slug + '"]');
+    var el = $('[data-entry-id="' + data.slug + '"]');
+    el.find('.info').html(self.addLinks(data.message));
+    return el;
   };
 
   this.findEntry = function(data) {

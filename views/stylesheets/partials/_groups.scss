@@ -59,10 +59,10 @@
         color: rgba(white, .1);
         @include text-shadow(white 0 0 25px, white 0 0 15px);
       }
-      &.without-info a {
+      &.without-info > a {
         display: none;
       }
-      a {
+      > a {
         background: inherit;
         -webkit-background-clip: padding-box;
         border: 3px white solid;
@@ -83,7 +83,7 @@
         @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);
       }
-      &:hover a {
+      &:hover > a {
         @include scale(1);
         @include opacity(1);
       }
@@ -100,6 +100,10 @@
         @include opacity(0);
         @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);
+        a {
+          color: white;
+          text-decoration: underline;
+        }
       }
       &.info-activated .info {
         z-index: 2;

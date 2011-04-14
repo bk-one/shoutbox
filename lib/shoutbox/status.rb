@@ -23,6 +23,13 @@ class Shoutbox
         self.safely.save! 
       end
 
+      def delete_status( status_data )
+        status_hash = self.status_data
+        status_hash[status_hash.group].delete(status_data.name) if status_hash[status_hash.group]
+        self.status_data = status_hash
+        self.safely.save! 
+      end
+
       private
 
       def validate_status_data( status_data )

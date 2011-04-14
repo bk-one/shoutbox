@@ -63,6 +63,13 @@ put '/status' do
   "OK"
 end
 
+delete '/status' do
+  content_type :json
+  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
+  Shoutbox.delete_status( current_user, @shoutbox_data )
+  "OK"
+end
+
 private 
 
 def current_user  

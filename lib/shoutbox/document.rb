@@ -25,7 +25,7 @@ class Shoutbox
     def self.find_document_for( account_name )
       self.where( :account_name => account_name ).first
     end
-  
+      
     private
 
     def self.create_shoutbox_document_for( account_name )

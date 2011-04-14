@@ -1,28 +1,35 @@
+@mixin entry-color($color) {
+  background: $color;
+  .info:after {
+    border-top-color: $color !important;
+  }
+}
+
 .red {
-  background: $alert-color;
+  @include entry-color($alert-color);
 }
 
 .yellow {
-  background: $warning-color;
+  @include entry-color($warning-color);
 }
 
 .green {
-  background: $ok-color;
+  @include entry-color($ok-color);
 }
 
-.red.offline {
-  background: desaturate($alert-color, 50%);
-}
-
-.yellow.offline {
-  background: desaturate($warning-color, 50%);
-}
+//.red.offline {
+//  @include entry-color(desaturate($alert-color, 50%));
+//}
+//
+//.yellow.offline {
+//  @include entry-color(desaturate($warning-color, 50%));
+//}
 
 .green.offline {
-  background: desaturate($ok-color, 50%);
+  @include entry-color(desaturate($ok-color, 50%));
 }
 .offline {
-  background: $alert-color !important;
+  @include entry-color($alert-color !important);
 }
 
 @-webkit-keyframes pulse {

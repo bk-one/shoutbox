@@ -682,64 +682,74 @@ body {
   background: linear-gradient(top, #b4a6e3, #7258cb);
 }
 
-/* line 1, ../../views/stylesheets/partials/_colors.scss */
+/* line 8, ../../views/stylesheets/partials/_colors.scss */
 .red {
   background: #db2400;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.red .info:after {
+  border-top-color: #db2400 !important;
+}
 
-/* line 5, ../../views/stylesheets/partials/_colors.scss */
+/* line 12, ../../views/stylesheets/partials/_colors.scss */
 .yellow {
   background: #ecc91b;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.yellow .info:after {
+  border-top-color: #ecc91b !important;
+}
 
-/* line 9, ../../views/stylesheets/partials/_colors.scss */
+/* line 16, ../../views/stylesheets/partials/_colors.scss */
 .green {
   background: #8bc40d;
 }
-
-/* line 13, ../../views/stylesheets/partials/_colors.scss */
-.red.offline {
-  background: #a44937;
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.green .info:after {
+  border-top-color: #8bc40d !important;
 }
 
-/* line 17, ../../views/stylesheets/partials/_colors.scss */
-.yellow.offline {
-  background: #aea059;
-}
-
-/* line 21, ../../views/stylesheets/partials/_colors.scss */
+/* line 28, ../../views/stylesheets/partials/_colors.scss */
 .green.offline {
   background: #779041;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.green.offline .info:after {
+  border-top-color: #779041 !important;
+}
 
-/* line 24, ../../views/stylesheets/partials/_colors.scss */
+/* line 31, ../../views/stylesheets/partials/_colors.scss */
 .offline {
   background: #db2400 !important;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.offline .info:after {
+  border-top-color: #db2400 !important !important;
+}
 
 @-webkit-keyframes pulse {
-  /* line 29, ../../views/stylesheets/partials/_colors.scss */
+  /* line 36, ../../views/stylesheets/partials/_colors.scss */
   0% {
     opacity: 1.0;
   }
 
-  /* line 32, ../../views/stylesheets/partials/_colors.scss */
+  /* line 39, ../../views/stylesheets/partials/_colors.scss */
   33% {
     opacity: 0.8;
   }
 
-  /* line 35, ../../views/stylesheets/partials/_colors.scss */
+  /* line 42, ../../views/stylesheets/partials/_colors.scss */
   67% {
     opacity: 0.65;
   }
 
-  /* line 38, ../../views/stylesheets/partials/_colors.scss */
+  /* line 45, ../../views/stylesheets/partials/_colors.scss */
   100% {
     opacity: 1.0;
   }
 }
 
-/* line 43, ../../views/stylesheets/partials/_colors.scss */
+/* line 50, ../../views/stylesheets/partials/_colors.scss */
 .fresh {
   -webkit-animation-name: pulse;
   -webkit-animation-duration: 10s;
@@ -748,7 +758,7 @@ body {
   -webkit-animation-iteration-count: infinite;
 }
 
-/* line 51, ../../views/stylesheets/partials/_colors.scss */
+/* line 58, ../../views/stylesheets/partials/_colors.scss */
 .green.fresh {
   -webkit-animation-duration: 20s;
 }

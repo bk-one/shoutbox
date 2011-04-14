@@ -640,9 +640,8 @@ header > a {
   margin: -40px -20px 0 0;
   max-height: 100%;
   padding: 40px 20px 0 0;
-  overflow: hidden;
 }
-/* line 32, ../../views/stylesheets/partials/_groups.scss */
+/* line 31, ../../views/stylesheets/partials/_groups.scss */
 #groups .inner:after {
   bottom: 0;
   content: " ";
@@ -656,11 +655,11 @@ header > a {
   background: -moz-linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
   background: linear-gradient(top, rgba(255, 255, 255, 0), #ffffff);
 }
-/* line 45, ../../views/stylesheets/partials/_groups.scss */
+/* line 44, ../../views/stylesheets/partials/_groups.scss */
 #groups ul {
   margin: 0;
 }
-/* line 47, ../../views/stylesheets/partials/_groups.scss */
+/* line 46, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li {
   color: white;
   float: left;
@@ -680,16 +679,16 @@ header > a {
   transition-duration: 1s;
   text-shadow: white 0 0 0;
 }
-/* line 58, ../../views/stylesheets/partials/_groups.scss */
+/* line 57, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.offline {
   color: rgba(255, 255, 255, 0.1);
   text-shadow: white 0 0 25px, white 0 0 15px;
 }
-/* line 62, ../../views/stylesheets/partials/_groups.scss */
+/* line 61, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.without-info > a {
   display: none;
 }
-/* line 65, ../../views/stylesheets/partials/_groups.scss */
+/* line 64, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li > a {
   background: inherit;
   -webkit-background-clip: padding-box;
@@ -729,7 +728,7 @@ header > a {
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
 }
-/* line 86, ../../views/stylesheets/partials/_groups.scss */
+/* line 85, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li:hover > a {
   -moz-transform: scale(1, 1);
   -webkit-transform: scale(1, 1);
@@ -740,7 +739,7 @@ header > a {
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=100);
   opacity: 1;
 }
-/* line 90, ../../views/stylesheets/partials/_groups.scss */
+/* line 89, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info {
   background: inherit;
   bottom: 100%;
@@ -749,8 +748,9 @@ header > a {
   margin-bottom: 6px;
   padding: 6px 15px;
   position: absolute;
-  right: 0;
-  z-index: -1;
+  left: 0;
+  width: 100%;
+  z-index: 99;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
   filter: progid:DXImageTransform.Microsoft.Alpha(Opacity=0);
   opacity: 0;
@@ -763,13 +763,32 @@ header > a {
   -webkit-transition-duration: 0.5s;
   -o-transition-duration: 0.5s;
   transition-duration: 0.5s;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -ms-box-sizing: border-box;
+  box-sizing: border-box;
 }
-/* line 103, ../../views/stylesheets/partials/_groups.scss */
+/* line 104, ../../views/stylesheets/partials/_groups.scss */
+#groups ul li .info:after {
+  border: 5px solid;
+  border-color: black transparent transparent;
+  bottom: -10px;
+  content: " ";
+  display: block;
+  height: 0;
+  margin-left: -5px;
+  overflow: hidden;
+  position: absolute;
+  right: 50%;
+  width: 0;
+  z-index: 111;
+}
+/* line 118, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li .info a {
   color: white;
   text-decoration: underline;
 }
-/* line 108, ../../views/stylesheets/partials/_groups.scss */
+/* line 123, ../../views/stylesheets/partials/_groups.scss */
 #groups ul li.info-activated .info {
   z-index: 2;
   -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=100)";
@@ -777,64 +796,74 @@ header > a {
   opacity: 1;
 }
 
-/* line 1, ../../views/stylesheets/partials/_colors.scss */
+/* line 8, ../../views/stylesheets/partials/_colors.scss */
 .red {
   background: #bf2805;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.red .info:after {
+  border-top-color: #bf2805 !important;
+}
 
-/* line 5, ../../views/stylesheets/partials/_colors.scss */
+/* line 12, ../../views/stylesheets/partials/_colors.scss */
 .yellow {
   background: #bf9505;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.yellow .info:after {
+  border-top-color: #bf9505 !important;
+}
 
-/* line 9, ../../views/stylesheets/partials/_colors.scss */
+/* line 16, ../../views/stylesheets/partials/_colors.scss */
 .green {
   background: #7bbf05;
 }
-
-/* line 13, ../../views/stylesheets/partials/_colors.scss */
-.red.offline {
-  background: #8e4736;
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.green .info:after {
+  border-top-color: #7bbf05 !important;
 }
 
-/* line 17, ../../views/stylesheets/partials/_colors.scss */
-.yellow.offline {
-  background: #8e7a36;
-}
-
-/* line 21, ../../views/stylesheets/partials/_colors.scss */
+/* line 28, ../../views/stylesheets/partials/_colors.scss */
 .green.offline {
   background: #6e8e36;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.green.offline .info:after {
+  border-top-color: #6e8e36 !important;
+}
 
-/* line 24, ../../views/stylesheets/partials/_colors.scss */
+/* line 31, ../../views/stylesheets/partials/_colors.scss */
 .offline {
   background: #bf2805 !important;
 }
+/* line 3, ../../views/stylesheets/partials/_colors.scss */
+.offline .info:after {
+  border-top-color: #bf2805 !important !important;
+}
 
 @-webkit-keyframes pulse {
-  /* line 29, ../../views/stylesheets/partials/_colors.scss */
+  /* line 36, ../../views/stylesheets/partials/_colors.scss */
   0% {
     opacity: 1.0;
   }
 
-  /* line 32, ../../views/stylesheets/partials/_colors.scss */
+  /* line 39, ../../views/stylesheets/partials/_colors.scss */
   33% {
     opacity: 0.8;
   }
 
-  /* line 35, ../../views/stylesheets/partials/_colors.scss */
+  /* line 42, ../../views/stylesheets/partials/_colors.scss */
   67% {
     opacity: 0.65;
   }
 
-  /* line 38, ../../views/stylesheets/partials/_colors.scss */
+  /* line 45, ../../views/stylesheets/partials/_colors.scss */
   100% {
     opacity: 1.0;
   }
 }
 
-/* line 43, ../../views/stylesheets/partials/_colors.scss */
+/* line 50, ../../views/stylesheets/partials/_colors.scss */
 .fresh {
   -webkit-animation-name: pulse;
   -webkit-animation-duration: 10s;
@@ -843,7 +872,7 @@ header > a {
   -webkit-animation-iteration-count: infinite;
 }
 
-/* line 51, ../../views/stylesheets/partials/_colors.scss */
+/* line 58, ../../views/stylesheets/partials/_colors.scss */
 .green.fresh {
   -webkit-animation-duration: 20s;
 }

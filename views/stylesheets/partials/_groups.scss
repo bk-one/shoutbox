@@ -28,7 +28,6 @@
     margin: -40px -20px 0 0;
     max-height: 100%;
     padding: 40px 20px 0 0;
-    overflow: hidden;
     &:after {
       bottom: 0;
       content: " ";
@@ -95,11 +94,27 @@
         margin-bottom: $small-margin;
         padding: $small-margin 15px;
         position: absolute;
-        right: 0;
-        z-index: -1;
+        left: 0;
+        width: 100%;
+        z-index: 99;
         @include opacity(0);
         @include text-shadow(white 0 0 0);
         @include transition(all, 0.5s);
+        @include box-sizing(border-box);
+        &:after {
+          border: 5px solid;
+          border-color: black transparent transparent;
+          bottom: -10px;
+          content: " ";
+          display: block;
+          height: 0;
+          margin-left: -5px;
+          overflow: hidden;
+          position: absolute;
+          right: 50%;
+          width: 0;
+          z-index: 111;
+        }
         a {
           color: white;
           text-decoration: underline;

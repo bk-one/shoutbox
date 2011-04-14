@@ -35,7 +35,7 @@ function ShoutboxClient() {
         el.removeClass();
         el.attr('data-updated-at', updateData.updated_at);
         el.attr('data-expires-at', updateData.expires_at);
-        var status = this.addLinks(updateData.status);
+        var status = self.addLinks(updateData.status);
         console.log("status",status)
         el.addClass(status);
         el.addClass('fresh');
@@ -47,7 +47,7 @@ function ShoutboxClient() {
   };
 
   this.addLinks = function(text) {
-    return text.replace(/(https?:\/\/)(.*)\b/g, '<a href=$1$2>$2</a>');
+    return text.replace(/(https?:\/\/)(.*)\b/g, '<a href="$1$2" target="_blank">$2</a>');
   }
 
   this.checkStatus = function() {

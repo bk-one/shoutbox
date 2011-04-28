@@ -14,4 +14,25 @@
     right: 20px;
     top: 20px;
   }
+  pre {
+    padding-right: 50px;
+    position: relative;
+  }
+}
+
+.copy {
+  border: 2px white solid;
+  height: 14px;
+  overflow: hidden;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 14px;
+  @include border-radius(2px);
+  object,
+  embed {
+    left: 0;
+    position: absolute;
+    top: 0;
+  }
 }

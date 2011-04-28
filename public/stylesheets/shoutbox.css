@@ -898,6 +898,35 @@ header > a {
   right: 20px;
   top: 20px;
 }
+/* line 17, ../../views/stylesheets/partials/_config.scss */
+#config pre {
+  padding-right: 50px;
+  position: relative;
+}
+
+/* line 23, ../../views/stylesheets/partials/_config.scss */
+.copy {
+  border: 2px white solid;
+  height: 14px;
+  overflow: hidden;
+  position: absolute;
+  right: 18px;
+  top: 18px;
+  width: 14px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  -o-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -khtml-border-radius: 2px;
+  border-radius: 2px;
+}
+/* line 33, ../../views/stylesheets/partials/_config.scss */
+.copy object,
+.copy embed {
+  left: 0;
+  position: absolute;
+  top: 0;
+}
 
 /* line 1, ../../views/stylesheets/partials/_flash-messages.scss */
 #flash-notice, #flash-warning, #flash-error {

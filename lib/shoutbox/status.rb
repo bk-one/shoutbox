@@ -26,7 +26,7 @@ class Shoutbox
       def delete_status( status_data )
         status_hash = self.status_data
         status_hash[status_data.group].delete(status_data.name) if status_hash[status_data.group]
-        status_hash.delete[status_data.group] if status_hash[status_data.group].keys.empty?
+        status_hash.delete(status_data.group) if status_hash[status_data.group].keys.empty?
         self.status_data = status_hash
         self.safely.save!
       end

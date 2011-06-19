@@ -2,10 +2,10 @@ source "http://rubygems.org"
 
 gem 'rake',                '~> 0.8.0'
 gem 'sinatra',             '~> 1.2.0'
-gem 'faye',                '~> 0.5.0'
-gem 'mongoid',             '2.0.0.rc.8'
+gem 'faye',                '~> 0.6.0'
+gem 'mongoid',             '~> 2.0.0'
 gem 'omniauth',            '~> 0.2.0'
-gem 'bson_ext',            '~> 1.2.0'
+gem 'bson_ext',            '~> 1.3.0'
 gem 'thin',                '~> 1.2.0'
 gem 'rack-flash',          '~> 0.1.0'
 gem 'stringex',            '~> 1.2'

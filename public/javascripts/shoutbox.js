@@ -8,7 +8,7 @@ function ShoutboxClient() {
     self.loadEntries();
     setInterval(function() {
       self.checkStatus();
-    }, 1 * 1000);
+    }, 1 * 5000);
   };
 
 	this.ShoutboxAuth = {
@@ -23,7 +23,7 @@ function ShoutboxClient() {
 
   this.setupBayeuxClient = function() {
     var that = this;
-    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux', { timeout: 180 });
+    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux');
 		self.client.addExtension(that.ShoutboxAuth);
     self.client.subscribe('/status/' + that.accountName, function(updateData) {
       console.log(updateData);
@@ -159,7 +159,7 @@ var indexByGroup = function(group) {
 $(function() {
   function checkStatus() {
     $('li[data-updated-at]').each(function(){
-      lastUpdate = $(this).attr('data-updated-at');
+      lastUpdate = $(this).attr('data-updated-at') * 1000;
       if ((parseInt(lastUpdate) + 1 * 60 * 1000) < (new Date().getTime()) ) {
         $(this).removeClass('fresh');
       }
@@ -179,6 +179,10 @@ $(function() {
     checkStatus();
     markOffline();
   }, 10 * 1000);
+
+  setInterval(function() {
+    window.location.reload();
+  }, 1000 * 60 * 30);
 
   var configDialog = function() {
     var el = $('#config');

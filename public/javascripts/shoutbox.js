@@ -23,6 +23,9 @@ function ShoutboxClient() {
 
   this.setupBayeuxClient = function() {
     var that = this;
+
+    Faye.Transport.WebSocket.isUsable = function(_,c) { c(false) };
+
     self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux');
 		self.client.addExtension(that.ShoutboxAuth);
     self.client.subscribe('/status/' + that.accountName, function(updateData) {
@@ -76,7 +79,8 @@ function ShoutboxClient() {
         _(data).forEach(function(entries, group) {
           _(entries).forEach(function(entry, name) {
             self.addEntry(_(entry).extend({
-              name: name,
+              name: entry.name,
+              slug: entry.slug,
               group: group,
             }));
           });

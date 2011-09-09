@@ -18,14 +18,16 @@ class Shoutbox
         validate_status_data( status_data )
         status_hash = self.status_data
         status_hash[status_data.group] ||= {}
-        status_hash[status_data.group][status_data.name] = status_data.to_hash
+        status_hash[status_data.group][status_data.slug] = status_data
         self.status_data = status_hash
         self.safely.save! 
       end
 
       def delete_status( status_data )
         status_hash = self.status_data
-        status_hash[status_data.group].delete(status_data.name) if status_hash[status_data.group]
+        if status_hash[status_data.group]
+          status_hash[status_data.group].delete(status_data.slug)
+        end
         status_hash.delete(status_data.group) if status_hash[status_data.group].keys.empty?
         self.status_data = status_hash
         self.safely.save!

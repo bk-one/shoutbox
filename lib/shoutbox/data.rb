@@ -4,7 +4,7 @@ class Shoutbox
     attr_accessor :name, :status, :message, :group, :slug, :updated_at, :expires_at
     
     def initialize( hash )
-      self.name       = hash['name']
+      self.name       = hash['display_name'] || hash['name']
       self.status     = hash['status']
       self.message    = hash['message']
       self.group      = hash['group']

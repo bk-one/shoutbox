@@ -34,11 +34,12 @@ class Shoutbox
     end
   
     def self.default_status
-      { "Home" => { "Use Shoutbox" => { "slug"        => "shoutbox-default-group-use-shoutbox",
-                                                          "updated_at"  => Time.now.to_i,
-                                                          "expires_at"  => Time.now.to_i + 15*60,
-                                                          "status"      => "red", 
-                                                          "message"     => "You can remove me by using your shoutbox client." } } }
+      { "Home" => { "home-use-shoutbox" => { "slug"        => "home-use-shoutbox",
+                                             "updated_at"  => Time.now.to_i,
+                                             "expires_at"  => Time.now.to_i + 15*60,
+                                             "name"        => "Use Shoutbox",
+                                             "status"      => "red", 
+                                             "message"     => "You can remove me by using your shoutbox client." } } }
     end
   end
 end

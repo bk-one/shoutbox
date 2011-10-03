@@ -70,9 +70,9 @@ delete '/status' do
   "OK"
 end
 
-private 
+private
 
-def current_user  
+def current_user
   @current_user ||= session[:user_name] || account_name_from_auth_token || account_name_from_omniauth
   throw(:halt, [401, "Unable to identify you\n"]) unless @current_user
   response.headers['X-Shoutbox-Auth-Token']   = Shoutbox.auth_token_for( @current_user )

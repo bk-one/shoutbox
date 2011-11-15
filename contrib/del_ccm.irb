@@ -1,0 +1,7 @@
+require './lib/shoutbox.rb'
+Shoutbox.initialize
+Shoutbox::ShoutboxDocument.count
+Shoutbox::ShoutboxDocument.last
+Shoutbox::ShoutboxDocument.where(:account_name => 'mp_ccm').first
+Shoutbox::ShoutboxDocument.where(:account_name => 'mp_ccm').first.destroy
+Shoutbox::ShoutboxDocument.where(:account_name => 'mp_ccm').first

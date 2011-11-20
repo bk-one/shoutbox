@@ -39,13 +39,15 @@ class Shoutbox
   def self.update_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.update_status( update_data )
-    Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
+    Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
+    # Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
   end
 
   def self.delete_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.delete_status( update_data )
-    Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
+    Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
+    # Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
   end
 
   def self.auth_token_for( account_name )

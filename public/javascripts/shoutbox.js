@@ -4,46 +4,52 @@ function ShoutboxClient() {
   var self = this;
 
   this.init = function(){
-    self.setupBayeuxClient();
+    self.setupPusher();
     self.loadEntries();
     setInterval(function() {
       self.checkStatus();
     }, 1 * 5000);
   };
 
-	this.ShoutboxAuth = {
-	  outgoing: function(message, callback) {
-		  if (message.channel == "/meta/subscribe") {
-			  if (!message.ext) message.ext = {};
-			  message.ext.authToken = self.authToken;
-			}
-	    callback(message);
-	  }
-	};
+  // this.ShoutboxAuth = {
+  //   outgoing: function(message, callback) {
+  //     if (message.channel == "/meta/subscribe") {
+  //       if (!message.ext) message.ext = {};
+  //       message.ext.authToken = self.authToken;
+  //     }
+  //     callback(message);
+  //   }
+  // };
 
-  this.setupBayeuxClient = function() {
+  this.setupPusher = function() {
     var that = this;
 
-    Faye.Transport.WebSocket.isUsable = function(_,c) { c(false) };
+     // Enable pusher logging - don't include this in production
+    Pusher.log = function(message) {
+      if (window.console && window.console.log) window.console.log(message);
+    };
 
-    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux');
-		self.client.addExtension(that.ShoutboxAuth);
-    self.client.subscribe('/status/' + that.accountName, function(updateData) {
-      console.log(updateData);
-      if (updateData.remove) {
-        self.removeEntry({ slug: updateData.remove });
+    // Flash fallback logging - don't include this in production
+    WEB_SOCKET_DEBUG = true;
+
+    var pusher = new Pusher('1a048af8db3c5517af72');
+    var channel = pusher.subscribe('private-' + that.accountName);
+    channel.bind('shout', function(data) {
+      console.log(data);
+      if (data.remove) {
+        self.removeEntry({ slug: data.remove });
       }
       else {
-        var el = self.findEntry(updateData);
+        var el = self.findEntry(data);
         el.removeClass();
-        el.attr('data-updated-at', updateData.updated_at);
-        el.attr('data-expires-at', updateData.expires_at);
-        var status = self.addLinks(updateData.status);
+        el.attr('data-updated-at', data.updated_at);
+        el.attr('data-expires-at', data.expires_at);
+        var status = self.addLinks(data.status);
         console.log("status",status)
         el.addClass(status);
         el.addClass('fresh');
-        el.find('.info').html(updateData.message);
-        layout.show(indexByGroup(updateData.group));
+        el.find('.info').html(data.message);
+        layout.show(indexByGroup(data.group));
       }
       self.checkStatus();
     });
@@ -86,7 +92,8 @@ function ShoutboxClient() {
           });
         });
         self.colorizesNav();
-        self.setupBayeuxClient(); // we need authToken and accountName
+        self.setupPusher();
+        // self.setupBayeuxClient(); // we need authToken and accountName
         self.showAccount();
         layout._render();
       },

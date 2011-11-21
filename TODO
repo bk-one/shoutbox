@@ -1,6 +1,6 @@
-- error handling when mongo is not available
 - truncate message lenght.
-- add/fix test.
+- add specs for pusher part.
 - handling pusher asyn.
 - Error handling when trying to remove non-existant group.
+- error handling when mongo is not available
 - put in production.

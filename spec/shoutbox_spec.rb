@@ -75,7 +75,7 @@ describe "Shoutbox" do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.update('expires_in' => 60).to_json)
       last_response.status.should == 200
       get '/data', nil, omniauth_env
-      JSON.parse(last_response.body)[valid_shoutbox_data['group']][valid_shoutbox_data['name']]['expires_at'].should == time
+      JSON.parse(last_response.body)[valid_shoutbox_data['group']][valid_shoutbox_data['slug']]['expires_at'].should == time
     end
 
   end
@@ -92,7 +92,8 @@ describe "Shoutbox" do
     { 'name'     => 'Status Name',
       'group'    => 'Default Group',
       'message'  => 'This is the message',
-      'status'   => 'green' }
+      'status'   => 'green',
+      'slug'     => 'default-group-status-name' }
   end
 
   def invalid_shoutbox_data

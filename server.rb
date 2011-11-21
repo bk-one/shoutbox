@@ -1,7 +1,6 @@
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'sinatra'
 require 'pusher'
-require 'faye'
 require 'lib/shoutbox'
 require 'rack-flash'
 require 'omniauth'

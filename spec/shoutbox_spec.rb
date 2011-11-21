@@ -21,7 +21,7 @@ describe "Shoutbox" do
   # end
 
   context 'user management' do
-    it 'should creating the default shoutbox document shoutbox document with default data' do
+    it 'created the default shoutbox document with default data' do
       expect {
         get '/data', nil, omniauth_env
         last_response.status.should == 200
@@ -34,22 +34,22 @@ describe "Shoutbox" do
       @auth_token = Shoutbox.auth_token_for( 'my_shoutbox' )
     end
 
-    it 'should respond with a 400 status code if bad data transmitted' do
+    it 'responds with a 400 status code if bad data transmitted' do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => "this is not json")
       last_response.status.should == 400
     end
 
-    it 'should respond with a 400 status code if invalid json data transmitted' do
+    it 'responds with a 400 status code if invalid json data transmitted' do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => invalid_shoutbox_data.to_json)
       last_response.status.should == 400
     end
 
-    it 'should respond with a 400 status code if message is missing on red status' do
+    it 'responds with a 400 status code if message is missing on red status' do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.update(:status => 'red', :message => nil).to_json )
       last_response.status.should == 400
     end
 
-    it 'should respond with a 400 status code if message is missing on yellow status' do
+    it 'responds with a 400 status code if message is missing on yellow status' do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.update(:status => 'yellow', :message => nil).to_json )
       last_response.status.should == 400
     end
@@ -60,7 +60,7 @@ describe "Shoutbox" do
       @auth_token = Shoutbox.auth_token_for( 'my_shoutbox' )
     end
 
-    it "should respond with a 200 status code if valid json data transmitted" do
+    it "responds with a 200 status code if valid json data transmitted" do
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.to_json)
       last_response.status.should == 200
     end
@@ -85,7 +85,7 @@ describe "Shoutbox" do
   end
 
   def omniauth_env
-    { 'omniauth.auth' => { 'user_info' => { 'screen_name' => 'my_shoutbox' } }, 'CONTENT_TYPE' => 'application/json' }
+    { 'omniauth.auth' => { 'user_info' => { 'nickname' => 'my_shoutbox' } }, 'CONTENT_TYPE' => 'application/json' }
   end
 
   def valid_shoutbox_data

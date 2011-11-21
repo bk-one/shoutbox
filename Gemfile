@@ -2,7 +2,6 @@ source "http://rubygems.org"
 
 gem 'rake',                '~> 0.8.0'
 gem 'sinatra',             '~> 1.2.0'
-gem 'faye',                '~> 0.6.3'
 gem 'mongoid',             '~> 2.0.0'
 gem 'omniauth',            '~> 0.2.0'
 gem 'bson_ext',            '~> 1.3.0'

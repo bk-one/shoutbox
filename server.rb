@@ -3,7 +3,6 @@ require 'sinatra'
 require 'pusher'
 require 'faye'
 require 'lib/shoutbox'
-require 'lib/bayeux'
 require 'rack-flash'
 require 'omniauth'
 require 'pp'
@@ -11,11 +10,6 @@ require 'pp'
 enable :sessions
 
 use Rack::Flash, :accessorize => [:notice, :error]
-
-use Faye::RackAdapter, :mount      => '/bayeux',
-                       :timeout    => 45,
-                      :extensions => [ Shoutbox::Bayeux::ServerAuth.new ]
-
 
 Pusher.app_id = '11143'
 Pusher.key = '1a048af8db3c5517af72'

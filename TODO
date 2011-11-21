@@ -1,11 +1,7 @@
-############## NEW ONES ###################
 - error handling when mongo is not available (inherited)
 - clean up bayeus code.
 - truncate message lenght.
 - add more test.
 - handling pusher asyn.
-- put in production.
-
-############### OLD ONES ###################
 - error handling when mongo is not available
-- permission handling for bayeux updates
+- put in production.

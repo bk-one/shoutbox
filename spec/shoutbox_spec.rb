@@ -3,6 +3,13 @@ require File.dirname(__FILE__) + '/spec_helper'
 describe "Shoutbox" do
   include Rack::Test::Methods
 
+  let(:channel){  mock(:channel) }
+
+  before(:each) do
+    channel.stub(:trigger!){ true }
+  end
+
+
   def app
     @app ||= Sinatra::Application
   end
@@ -61,6 +68,7 @@ describe "Shoutbox" do
     end
 
     it "responds with a 200 status code if valid json data transmitted" do
+      Pusher.should_receive(:[]).and_return(channel)
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.to_json)
       last_response.status.should == 200
     end
@@ -71,6 +79,7 @@ describe "Shoutbox" do
     end
 
     it 'should set the expiration time correctly' do
+      Pusher.should_receive(:[]).and_return(channel)
       time = Time.now.to_i + 60
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.update('expires_in' => 60).to_json)
       last_response.status.should == 200

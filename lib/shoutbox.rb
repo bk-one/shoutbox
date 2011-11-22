@@ -23,6 +23,18 @@ class Shoutbox
     configuration['twitter']['secret']
   end
 
+  def self.pusher_app_id
+    configuration['pusher']['app_id']
+  end
+
+  def self.pusher_key
+    configuration['pusher']['key']
+  end
+
+  def self.pusher_secret
+    configuration['pusher']['secret']
+  end
+
   def self.configuration
     @configuration ||= configuration_hash
   end
@@ -40,14 +52,12 @@ class Shoutbox
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.update_status( update_data )
     Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
-    # Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
   end
 
   def self.delete_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.delete_status( update_data )
     Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
-    # Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
   end
 
   def self.auth_token_for( account_name )

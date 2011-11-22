@@ -14,19 +14,6 @@ describe "Shoutbox" do
     @app ||= Sinatra::Application
   end
 
-  # context 'authentication' do
-  #   it 'should respond with a 401 status code if remote user is not set' do
-  #     get '/'
-  #     last_response.status.should == 401
-  #   end
-  #
-  #   it 'should allow acces for authorized users' do
-  #     authorize 'admin', 'admin'
-  #     get '/'
-  #     last_response.should be_redirect
-  #   end
-  # end
-
   context 'user management' do
     it 'created the default shoutbox document with default data' do
       expect {
@@ -73,12 +60,12 @@ describe "Shoutbox" do
       last_response.status.should == 200
     end
 
-    it 'should include the auth_key in the data hash' do
+    it 'includes the auth_key in the data hash' do
       get '/data', nil, omniauth_env
       last_response.headers['X-Shoutbox-Auth-Token'].should == Shoutbox::ShoutboxDocument.find_document_for( 'my_shoutbox' ).auth_token
     end
 
-    it 'should set the expiration time correctly' do
+    it 'sets the expiration time correctly' do
       Pusher.should_receive(:[]).and_return(channel)
       time = Time.now.to_i + 60
       put '/status', nil, tokenauth_env(@auth_token).update(:input => valid_shoutbox_data.update('expires_in' => 60).to_json)

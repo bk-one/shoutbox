@@ -10,9 +10,9 @@ enable :sessions
 
 use Rack::Flash, :accessorize => [:notice, :error]
 
-Pusher.app_id = '11143'
-Pusher.key = '1a048af8db3c5517af72'
-Pusher.secret = '626f02ff0cc9c8065cc6'
+Pusher.app_id = Shoutbox.pusher_app_id
+Pusher.key = Shoutbox.pusher_key
+Pusher.secret = Shoutbox.pusher_secret
 
 use OmniAuth::Builder do
   provider :twitter, Shoutbox.twitter_consumer_key, Shoutbox.twitter_consumer_secret

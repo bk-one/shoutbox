@@ -6,7 +6,7 @@ describe "Shoutbox" do
   let(:channel){  mock(:channel) }
 
   before(:each) do
-    channel.stub(:trigger!){ true }
+    channel.stub(:trigger_async){ true }
   end
 
 

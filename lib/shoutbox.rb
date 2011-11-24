@@ -51,13 +51,13 @@ class Shoutbox
   def self.update_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.update_status( update_data )
-    Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
+    broadcast("private-#{account_name}", "shout", update_data.to_hash)
   end
 
   def self.delete_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.delete_status( update_data )
-    Pusher["private-#{account_name}"].trigger!('shout', update_data.to_hash)
+    broadcast("private-#{account_name}", "shout", update_data.to_hash)
   end
 
   def self.auth_token_for( account_name )
@@ -75,6 +75,10 @@ class Shoutbox
   def self.configuration_hash
     file_name = File.join(File.dirname(__FILE__), "..", "config", "shoutbox.yml")
     hash = YAML.load_file( file_name )
+  end
+
+  def self.broadcast(channel, event, data)
+    Pusher[channel].trigger_async(event, data)
   end
 
   def self.mongodb_config_hash

@@ -12,6 +12,7 @@ gem 'compass',             '0.11.beta.5'
 gem 'html5-boilerplate',   '~> 0.3.2'
 gem 'compass-less-plugin', '~> 1.0'
 gem "pusher",              "~> 0.8.4"
+gem "em-http-request",      "~> 1.0.0"
 
 group :development do
   gem "bundler", 	  "~> 1.0"

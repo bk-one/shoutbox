@@ -20,7 +20,7 @@ end
 
 OmniAuth.config.full_host = Shoutbox.full_host if Shoutbox.full_host
 
-set :public, File.dirname(__FILE__) + '/public'
+set :public_folder, File.dirname(__FILE__) + '/public'
 
 
 # Lets start that some bitch

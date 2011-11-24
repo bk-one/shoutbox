@@ -73,7 +73,6 @@ function ShoutboxClient() {
         });
         self.colorizesNav();
         self.setupPusher();
-        // self.setupBayeuxClient(); // we need authToken and accountName
         self.showAccount();
         layout._render();
       },

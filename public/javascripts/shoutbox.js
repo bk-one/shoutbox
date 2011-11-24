@@ -11,16 +11,6 @@ function ShoutboxClient() {
     }, 1 * 5000);
   };
 
-  // this.ShoutboxAuth = {
-  //   outgoing: function(message, callback) {
-  //     if (message.channel == "/meta/subscribe") {
-  //       if (!message.ext) message.ext = {};
-  //       message.ext.authToken = self.authToken;
-  //     }
-  //     callback(message);
-  //   }
-  // };
-
   this.setupPusher = function() {
     var that = this;
 
@@ -30,9 +20,9 @@ function ShoutboxClient() {
     };
 
     // Flash fallback logging - don't include this in production
-    WEB_SOCKET_DEBUG = true;
+    // WEB_SOCKET_DEBUG = true;
 
-    var pusher = new Pusher('1a048af8db3c5517af72');
+    var pusher = new Pusher('your-app-id');
     var channel = pusher.subscribe('private-' + that.accountName);
     channel.bind('shout', function(data) {
       console.log(data);

@@ -1,3 +1,1 @@
-- Error handling when trying to remove non-existant group.
 - error handling when mongo is not available
-- put in production.

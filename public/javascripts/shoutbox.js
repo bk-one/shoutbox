@@ -14,18 +14,9 @@ function ShoutboxClient() {
   this.setupPusher = function() {
     var that = this;
 
-     // Enable pusher logging - don't include this in production
-    Pusher.log = function(message) {
-      if (window.console && window.console.log) window.console.log(message);
-    };
-
-    // Flash fallback logging - don't include this in production
-    // WEB_SOCKET_DEBUG = true;
-
     var pusher = new Pusher('your-app-id');
     var channel = pusher.subscribe('private-' + that.accountName);
     channel.bind('shout', function(data) {
-      console.log(data);
       if (data.remove) {
         self.removeEntry({ slug: data.remove });
       }
@@ -35,7 +26,6 @@ function ShoutboxClient() {
         el.attr('data-updated-at', data.updated_at);
         el.attr('data-expires-at', data.expires_at);
         var status = self.addLinks(data.status);
-        console.log("status",status)
         el.addClass(status);
         el.addClass('fresh');
         el.find('.info').html(data.message);

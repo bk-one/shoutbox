@@ -6,7 +6,7 @@ class Shoutbox
     def initialize( hash )
       self.name       = hash['display_name'] || hash['name']
       self.status     = hash['status']
-      self.message    = hash['message']
+      self.message    = truncate_message(hash['message'])
       self.group      = hash['group']
       self.slug       = Shoutbox::Util.convert_to_slug( hash['group'], hash['name'] )
       self.expires_at = expiration_time(hash['expires_in'])
@@ -51,5 +51,9 @@ class Shoutbox
       ['red','green','yellow','remove'].include?(self.status)
     end
 
+    def truncate_message(message)
+      return "" if message.nil?
+      message.size > 100 ? "#{message[0..99]}..." : message
+    end
   end
 end

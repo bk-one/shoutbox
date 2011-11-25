@@ -1,8 +1,7 @@
 $LOAD_PATH.unshift File.expand_path(File.dirname(__FILE__))
 require 'sinatra'
-require 'faye'
+require 'pusher'
 require 'lib/shoutbox'
-require 'lib/bayeux'
 require 'rack-flash'
 require 'omniauth'
 require 'pp'
@@ -11,9 +10,9 @@ enable :sessions
 
 use Rack::Flash, :accessorize => [:notice, :error]
 
-use Faye::RackAdapter, :mount      => '/bayeux',
-                       :timeout    => 45,
-                      :extensions => [ Shoutbox::Bayeux::ServerAuth.new ]
+Pusher.app_id = Shoutbox.pusher_app_id
+Pusher.key = Shoutbox.pusher_key
+Pusher.secret = Shoutbox.pusher_secret
 
 use OmniAuth::Builder do
   provider :twitter, Shoutbox.twitter_consumer_key, Shoutbox.twitter_consumer_secret
@@ -21,7 +20,7 @@ end
 
 OmniAuth.config.full_host = Shoutbox.full_host if Shoutbox.full_host
 
-set :public, File.dirname(__FILE__) + '/public'
+set :public_folder, File.dirname(__FILE__) + '/public'
 
 
 # Lets start that some bitch
@@ -68,6 +67,13 @@ delete '/status' do
   @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
   Shoutbox.delete_status( current_user, @shoutbox_data )
   "OK"
+end
+
+post '/pusher/auth' do
+  content_type :json
+  if current_user && "private-#{current_user}" == params[:channel_name]
+    Pusher[params[:channel_name]].authenticate(params[:socket_id]).to_json
+  end
 end
 
 private

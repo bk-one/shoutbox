@@ -2,3 +2,7 @@ full_host: 'http://www.some.host.de/'
 twitter:
   key: 'key'
   secret: 'secret'
+pusher:
+  app_id: 'appid'
+  key: 'app_key'
+  secret: 'app_secret'

@@ -4,46 +4,32 @@ function ShoutboxClient() {
   var self = this;
 
   this.init = function(){
-    self.setupBayeuxClient();
+    self.setupPusher();
     self.loadEntries();
     setInterval(function() {
       self.checkStatus();
     }, 1 * 5000);
   };
 
-	this.ShoutboxAuth = {
-	  outgoing: function(message, callback) {
-		  if (message.channel == "/meta/subscribe") {
-			  if (!message.ext) message.ext = {};
-			  message.ext.authToken = self.authToken;
-			}
-	    callback(message);
-	  }
-	};
-
-  this.setupBayeuxClient = function() {
+  this.setupPusher = function() {
     var that = this;
 
-    Faye.Transport.WebSocket.isUsable = function(_,c) { c(false) };
-
-    self.client = new Faye.Client(location.protocol + '//' + location.host + '/bayeux');
-		self.client.addExtension(that.ShoutboxAuth);
-    self.client.subscribe('/status/' + that.accountName, function(updateData) {
-      console.log(updateData);
-      if (updateData.remove) {
-        self.removeEntry({ slug: updateData.remove });
+    var pusher = new Pusher('528f908ff5db877ae397');
+    var channel = pusher.subscribe('private-' + that.accountName);
+    channel.bind('shout', function(data) {
+      if (data.remove) {
+        self.removeEntry({ slug: data.remove });
       }
       else {
-        var el = self.findEntry(updateData);
+        var el = self.findEntry(data);
         el.removeClass();
-        el.attr('data-updated-at', updateData.updated_at);
-        el.attr('data-expires-at', updateData.expires_at);
-        var status = self.addLinks(updateData.status);
-        console.log("status",status)
+        el.attr('data-updated-at', data.updated_at);
+        el.attr('data-expires-at', data.expires_at);
+        var status = self.addLinks(data.status);
         el.addClass(status);
         el.addClass('fresh');
-        el.find('.info').html(updateData.message);
-        layout.show(indexByGroup(updateData.group));
+        el.find('.info').html(data.message);
+        layout.show(indexByGroup(data.group));
       }
       self.checkStatus();
     });
@@ -86,7 +72,7 @@ function ShoutboxClient() {
           });
         });
         self.colorizesNav();
-        self.setupBayeuxClient(); // we need authToken and accountName
+        self.setupPusher();
         self.showAccount();
         layout._render();
       },

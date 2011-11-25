@@ -23,6 +23,18 @@ class Shoutbox
     configuration['twitter']['secret']
   end
 
+  def self.pusher_app_id
+    configuration['pusher']['app_id']
+  end
+
+  def self.pusher_key
+    configuration['pusher']['key']
+  end
+
+  def self.pusher_secret
+    configuration['pusher']['secret']
+  end
+
   def self.configuration
     @configuration ||= configuration_hash
   end
@@ -39,13 +51,13 @@ class Shoutbox
   def self.update_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.update_status( update_data )
-    Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
+    broadcast("private-#{account_name}", "shout", update_data.to_hash)
   end
 
   def self.delete_status( account_name, update_data )
     document = ShoutboxDocument.find_or_create_for_account( account_name )
     document.delete_status( update_data )
-    Shoutbox::Bayeux::Broadcast.message( account_name, document.auth_token, update_data.to_hash )
+    broadcast("private-#{account_name}", "shout", update_data.to_hash)
   end
 
   def self.auth_token_for( account_name )
@@ -63,6 +75,10 @@ class Shoutbox
   def self.configuration_hash
     file_name = File.join(File.dirname(__FILE__), "..", "config", "shoutbox.yml")
     hash = YAML.load_file( file_name )
+  end
+
+  def self.broadcast(channel, event, data)
+    Pusher[channel].trigger_async(event, data)
   end
 
   def self.mongodb_config_hash

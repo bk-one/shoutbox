@@ -14,7 +14,7 @@ function ShoutboxClient() {
   this.setupPusher = function() {
     var that = this;
 
-    var pusher = new Pusher('your-app-id');
+    var pusher = new Pusher('528f908ff5db877ae397');
     var channel = pusher.subscribe('private-' + that.accountName);
     channel.bind('shout', function(data) {
       if (data.remove) {

@@ -1,8 +1,9 @@
 shoutbox
 ===
 
-A simple status dashboard. This is a complete Rewrite of the node.js
-implementation that you can still find in the nodejs_version branch.
+Simple status dashboard. Check out
+[here](http://moviepilotlabs.tumblr.com/post/12470071570/red-light-green-light-with-shoutbox)
+a full description of the project and how we use it internally.
 
 How to run
 ---
@@ -19,8 +20,10 @@ If you edit stylesheets, also run:
 Configuration
 ---
 
-Edit mongodb settings in config/mongodb.conf, use rackup for all other options
+Edit mongodb settings in config/mongodb.conf, use rackup for all other
+options. Add your twitter and pusher credetentials to
+config/shotbox.yml.
 
-Add you pusher application id in public/javascripts/shoutbox.js line 52.
+Add you pusher application id in public/javascripts/shoutbox.js(line 17).
 
         var pusher = new Pusher('your-app-id');

@@ -14,23 +14,23 @@ class Shoutbox
     field :auth_token
     field :auth_salt
 
-    def self.find_or_create_for_account( account_name )
-       find_document_for( account_name ) || create_shoutbox_document_for( account_name )
+    def self.find_or_create_for_account(account_name)
+       find_document_for(account_name) || create_shoutbox_document_for(account_name)
     end
 
-    def self.find_for_auth_token( auth_token )
-      self.where( :auth_token => auth_token ).first
+    def self.find_for_auth_token(auth_token)
+      self.where(:auth_token => auth_token).first
     end
 
-    def self.find_document_for( account_name )
-      self.where( :account_name => account_name ).first
+    def self.find_document_for(account_name)
+      self.where(:account_name => account_name).first
     end
 
     private
 
-    def self.create_shoutbox_document_for( account_name )
-      salt, token = Shoutbox::Authentication.create_auth_token_for( account_name )
-      self.create!( :account_name => account_name, :status_data => default_status, :auth_token => token, :auth_salt => salt )
+    def self.create_shoutbox_document_for(account_name)
+      salt, token = Shoutbox::Authentication.create_auth_token_for(account_name)
+      self.create!(:account_name => account_name, :status_data => default_status, :auth_token => token, :auth_salt => salt)
     end
 
     def self.default_status

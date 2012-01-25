@@ -7,15 +7,15 @@ class Shoutbox
       end
 
       def status_data
-        @status_data ||= JSON.parse( self.status_data_json )
+        @status_data ||= JSON.parse(self.status_data_json)
       end
 
-      def status_data=( data_hash )
+      def status_data=(data_hash)
         self.status_data_json = data_hash.to_json
       end
 
-      def update_status( status_data )
-        validate_status_data( status_data )
+      def update_status(status_data)
+        validate_status_data(status_data)
         status_hash = self.status_data
         status_hash[status_data.group] ||= {}
         status_hash[status_data.group][status_data.slug] = status_data
@@ -23,7 +23,7 @@ class Shoutbox
         self.safely.save!
       end
 
-      def delete_status( status_data )
+      def delete_status(status_data)
         status_hash = self.status_data
         if status_hash[status_data.group]
           status_hash[status_data.group].delete(status_data.slug)
@@ -35,7 +35,7 @@ class Shoutbox
 
       private
 
-      def validate_status_data( status_data )
+      def validate_status_data(status_data)
         throw(:halt, [400, "invalid json data\n"]) unless status_data.valid?
       end
 

@@ -3,7 +3,7 @@ class Shoutbox
 
     attr_accessor :name, :status, :message, :group, :slug, :updated_at, :expires_at
 
-    def initialize( hash )
+    def initialize(hash)
       self.name       = hash['display_name'] || hash['name']
       self.status     = hash['status']
       self.message    = truncate_message(hash['message'])
@@ -28,9 +28,9 @@ class Shoutbox
         :group      => self.group }
     end
 
-    def self.from_json_string( json_string )
+    def self.from_json_string(json_string)
       begin
-        ShoutboxData.new( JSON.parse( json_string ) )
+        ShoutboxData.new(JSON.parse(json_string))
       rescue JSON::ParserError
         throw(:halt, [400, "invalid json data\n"])
       end
@@ -39,7 +39,7 @@ class Shoutbox
 
     private
 
-    def expiration_time( expires_in )
+    def expiration_time(expires_in)
       Time.now.to_i + (expires_in ? expires_in : (60*60*24 + 15))
     end
 

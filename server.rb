@@ -52,20 +52,20 @@ end
 
 get '/data' do
   content_type :json
-  Shoutbox.get_current_status( current_user )
+  Shoutbox.get_current_status(current_user)
 end
 
 put '/status' do
   content_type :json
-  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
-  Shoutbox.update_status( current_user, @shoutbox_data )
+  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string(request.body.read)
+  Shoutbox.update_status(current_user, @shoutbox_data)
   "OK"
 end
 
 delete '/status' do
   content_type :json
-  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string( request.body.read )
-  Shoutbox.delete_status( current_user, @shoutbox_data )
+  @shoutbox_data = Shoutbox::ShoutboxData.from_json_string(request.body.read)
+  Shoutbox.delete_status(current_user, @shoutbox_data)
   "OK"
 end
 
